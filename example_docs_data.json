@@ -4,21 +4,13 @@
         "id" : "1",
         "name": "Document 1",
         "URL": "http://example.com/doc1",
-        "inquiries": [
-          {
-            "answer": "Definition 1."
-          }
-        ]
+        "answer": "Definition 1."
       },
       {
         "id": "2",
         "name": "Document 2",
         "URL": "http://example.com/doc2",
-        "inquiries": [
-            {
-                "answer": "Definition 2."
-            }
-        ]
+        "answer": "Definition 2."
       }
     ]
 }

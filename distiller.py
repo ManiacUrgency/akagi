@@ -28,7 +28,7 @@ for document in doc_data['documents']:
     document_id = document['id']
     document_name = document['name']
     document_url = document['URL']
-    answer = document['inquiries'][0]['answer']
+    answer = document['answer']
     documents += "<Document>\n";
     documents += "\t<Name>" + document_name + "</Name>\n"
     documents += "\t<Answer>" + answer + "</Answer>\n"
