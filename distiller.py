@@ -19,7 +19,7 @@ prompt = PromptTemplate(
 )
 
 # Read the json file "example_docs_data.json" from the local directory
-with open('example_docs_data.json', 'r') as file:
+with open('definitions.json', 'r') as file:
     doc_data = json.load(file)
 #print(json.dumps(doc_data, indent=4))
 
