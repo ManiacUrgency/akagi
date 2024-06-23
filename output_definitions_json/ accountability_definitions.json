@@ -1,0 +1,424 @@
+{
+    "documents": [
+        {
+            "id": "1",
+            "name": "Responsible artificial intelligence: how to develop and use AI in a responsible way",
+            "URL": "https://autosec.se/wp-content/uploads/2019/11/risevolvo2019.pdf",
+            "answer": "The text does not mention or define the keyword \"accountability.\""
+        },
+        {
+            "id": "2",
+            "name": "Principles to practices for responsible AI: closing the gap",
+            "URL": "https://arxiv.org/pdf/2006.04707",
+            "answer": "Accountability within the context of this passage refers to the clear distribution and assignment of responsibilities for AI\u2019s ethical consequences among the various stakeholders involved, such as engineers, designers, business managers, corporate social responsibility staff, and other relevant parties. It underscores the necessity of ensuring that those tasked with making critical decisions and implementing AI systems are held responsible for the outcomes and impacts on human well-being, thereby addressing the 'many hands' problem where distributed and muddled responsibilities can lead to systemic failures in ethical AI practice."
+        },
+        {
+            "id": "3",
+            "name": "Responsible AI by design in practice",
+            "URL": "https://arxiv.org/pdf/1909.12838",
+            "answer": "The author does not provide a definition of the keyword \"accountability\" in the given text."
+        },
+        {
+            "id": "8",
+            "name": "Characteristics and challenges in the industries towards responsible AI: a systematic literature review",
+            "URL": "https://lists.ellak.gr/epistimoniki-epitropi-ellak/2023/08/pdf7UNUr8HtGf.pdf",
+            "answer": "The author does not provide a clear definition of the keyword \"accountability\" within the context of this passage."
+        },
+        {
+            "id": "10",
+            "name": "The role and challenges of education for responsible AI",
+            "URL": "https://discovery.ucl.ac.uk/id/eprint/10121456/1/lre19010001.pdf",
+            "answer": "Accountability within the context of this passage refers to the necessity for an AI system to explain and justify its decisions to users and other relevant actors. Ensuring accountability involves deriving decisions from the decision-making mechanisms used, and it requires that the moral values and societal norms informing the purpose of the system have been elicited in an open way involving all stakeholders."
+        },
+        {
+            "id": "11",
+            "name": "How different groups prioritize ethical values for responsible AI",
+            "URL": "https://arxiv.org/pdf/2205.07722",
+            "answer": "Accountability, within the context of this passage, is identified as one of the central ethical values for responsible AI. It refers to the obligation of AI systems and their developers to ensure that the systems are answerable for their actions and decisions, particularly in scenarios where they may cause harm or reinforce biases. This entails having measures in place to track and address any adverse impacts caused by AI technologies, thereby ensuring that developers are held responsible for the outcomes of the AI systems they create."
+        },
+        {
+            "id": "12",
+            "name": "Responsible AI for conservation",
+            "URL": "https://discovery.ucl.ac.uk/id/eprint/10065664/3/Jacoby_Leeuw_Figure%201%20Participant%20Timeline.pdf",
+            "answer": "In the context of the passage, the term \"accountability\" refers to the capability to trace and understand the decisions made by machine learning (ML) algorithms used in conservation efforts. It underscores the need for clear, transparent, and interpretable algorithms to ensure that any decision made by these tools can be scrutinized, understood, and justified, thereby preventing unintended negative consequences for people, wildlife, and conservation resources."
+        },
+        {
+            "id": "13",
+            "name": "Responsible ai systems: who are the stakeholders?",
+            "URL": "https://oro.open.ac.uk/84505/1/84505VOR.pdf",
+            "answer": "The text does not provide a clear or explicit definition of the term \"accountability.\""
+        },
+        {
+            "id": "16",
+            "name": "Measurement as governance in and for responsible AI",
+            "URL": "https://arxiv.org/pdf/2109.05658",
+            "answer": "The author does not mention the keyword \"accountability\" within the given passage."
+        },
+        {
+            "id": "17",
+            "name": "Leading your organization to responsible AI",
+            "URL": "https://www.mckinsey.com/~/media/McKinsey/Business%20Functions/McKinsey%20Analytics/Our%20Insights/Leading%20your%20organization%20to%20responsible%20AI/Leading-your-organization-to-responsible-AI.pdf",
+            "answer": "The author does not give a definition of the keyword \"accountability\" within the provided passage."
+        },
+        {
+            "id": "18",
+            "name": "Toward an understanding of responsible artificial intelligence practices",
+            "URL": "https://eprints.whiterose.ac.uk/162719/8/Toward%20an%20Understanding%20of%20Responsible%20Artificial%20Intelligence%20Practices.pdf",
+            "answer": "In the context of the passage, \"accountability\" within responsible AI practices refers to the principle where AI systems are designed and implemented in a manner that ensures they adhere to ethical standards, transparency, and regulatory compliance, thereby maintaining individual trust and minimizing privacy invasion. It involves the governance framework for evaluating, monitoring, and making AI systems explainable to stakeholders, ensuring their actions are traceable and responsible. Responsible AI places users and stakeholders at its core, aligning with societal expectations and legal requirements."
+        },
+        {
+            "id": "20",
+            "name": "The role of cooperation in responsible AI development",
+            "URL": "https://arxiv.org/pdf/1907.04534.pdf?source=post_page---------------------------",
+            "answer": "The keyword \"accountability\" is not mentioned in the provided research paper passage. Therefore, no definition can be identified within this context."
+        },
+        {
+            "id": "21",
+            "name": "Where responsible AI meets reality: Practitioner perspectives on enablers for shifting organizational practices",
+            "URL": "https://arxiv.org/pdf/2006.12358.pdf?utm_source=morning_brew",
+            "answer": "Accountability, within the context of this passage, refers to the creation and implementation of processes, frameworks, and organizational structures to ensure that AI systems are developed and deployed in a responsible manner. It encompasses the commitment of industry professionals to address algorithmic biases, measure performance trade-offs, and align incentives and decision-making processes with the principles of responsible AI, while also adapting to internal and external pressures for ethical outcomes."
+        },
+        {
+            "id": "25",
+            "name": "Designing responsible ai: Adaptations of ux practice to meet responsible ai challenges",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3544548.3581278",
+            "answer": "The keyword \"accountability\" is not mentioned, defined, or described in the provided text."
+        },
+        {
+            "id": "26",
+            "name": "Tools and practices for responsible AI engineering",
+            "URL": "https://arxiv.org/pdf/2201.05647",
+            "answer": "The author does not provide a definition for the keyword \"accountability\" in the given text."
+        },
+        {
+            "id": "28",
+            "name": "Responsible ai pattern catalogue: A collection of best practices for ai governance and engineering",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3626234",
+            "answer": "The passage does not provide a definition for \"accountability.\""
+        },
+        {
+            "id": "30",
+            "name": "Responsible-AI-by-design: A pattern collection for designing responsible AI systems",
+            "URL": "https://arxiv.org/pdf/2203.00905",
+            "answer": "The passage does not provide a clear or explicit definition of the keyword \"accountability.\""
+        },
+        {
+            "id": "31",
+            "name": "Principles and business processes for responsible AI",
+            "URL": "http://rogerclarke.xamax.com.au/EC/AIP-Final.pdf",
+            "answer": "The author does not give a definition of the keyword \"accountability\" in the passage."
+        },
+        {
+            "id": "36",
+            "name": "Behavioral use licensing for responsible ai",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3531146.3533143",
+            "answer": "In the context of this passage, the keyword \"accountability\" appears in the reference to the ACM Conference on Fairness, Accountability, and Transparency (FAccT \u201922). However, the author does not provide a specific definition or detailed explanation of \"accountability\" within the passage itself."
+        },
+        {
+            "id": "37",
+            "name": "Software engineering for responsible AI: An empirical study and operationalised patterns",
+            "URL": "https://arxiv.org/pdf/2111.09478",
+            "answer": "Accountability, within the context of this passage, refers to the identification and responsibility of individuals or entities involved in various phases of the AI system lifecycle for the outcomes of these systems. It encompasses the necessity for human oversight to ensure that the system behaves according to responsible AI principles. Those responsible for the development, deployment, and operation of AI systems must be traceable and answerable for the system's outcomes."
+        },
+        {
+            "id": "38",
+            "name": "Responsible AI: Bridging from ethics to practice",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3445973",
+            "answer": "The author does not provide a clear or explicit definition of \"accountability\" within the context of the passage."
+        },
+        {
+            "id": "40",
+            "name": "Data cards: Purposeful and transparent dataset documentation for responsible ai",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3531146.3533231",
+            "answer": "The term \"accountability\" is not mentioned, defined, or explained in the provided passage from the research paper."
+        },
+        {
+            "id": "41",
+            "name": "AI and ethics\u2014Operationalizing responsible AI",
+            "URL": "https://arxiv.org/pdf/2105.08867",
+            "answer": "In the provided passage, the term \"accountability\" is mentioned in the following context: \"clear common aims, fiduciary duties and importantly proven methods to translate principles into practices [31]. Others are due to the lack of consideration of a wider set of human values [32] such as political self-determination and data agency beyond technical dependencies [22].\" However, the term is not explicitly defined by the authors within the passage. Therefore, an explicit and detailed definition of \"accountability\" is not provided by the authors."
+        },
+        {
+            "id": "42",
+            "name": "Responsible AI in Africa\u2014Challenges and opportunities",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/1/978-3-031-08215-3.pdf#page=55",
+            "answer": "The author does not mention the keyword \"accountability\" in the passage, nor provide a definition for it."
+        },
+        {
+            "id": "43",
+            "name": "Towards responsible AI for financial transactions",
+            "URL": "https://arxiv.org/pdf/2206.02419",
+            "answer": "In this passage, \"accountability\" is defined as ensuring that the system operator can be held liable for any adverse effects or consequences of the actions of AI systems. This concept emphasizes the operator's responsibility without necessarily removing bias from the AI system. The definition implies a legal and ethical obligation of the system operators to answer for the outcomes produced by the AI."
+        },
+        {
+            "id": "44",
+            "name": "Introducing Responsible AI in Africa",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/978-3-031-08215-3.pdf?sequence=1#page=22",
+            "answer": "The author does not mention, define, or provide any context for the keyword \"accountability\" in the given passage."
+        },
+        {
+            "id": "47",
+            "name": "Tackling COVID-19 through responsible AI innovation: Five steps in the right direction",
+            "URL": "https://assets.pubpub.org/97i4agr6/2192a7a6-61f5-4017-97ef-90cdaa139ead.pdf",
+            "answer": "In the passage, the term \"accountability\" refers to the necessity of transparent and responsible practices in the design and implementation of AI/ML technologies, particularly in the context of addressing global challenges such as the COVID-19 pandemic. It emphasizes that AI/ML processes and products should be governed openly, equitably, and democratically. Accountability, in this context, is about ensuring that innovations are developed and deployed in a manner that can be scrutinized and is answerable to public and ethical standards."
+        },
+        {
+            "id": "49",
+            "name": "Responsible artificial intelligence: designing AI for human values",
+            "URL": "https://www.itu.int/dms_pub/itu-s/opb/journal/S-JOURNAL-ICTF.VOL1-2018-1-P01-PDF-E.pdf",
+            "answer": "Accountability refers to the need to explain and justify one's decisions and actions to its partners, users, and others with whom the system interacts. To ensure accountability, decisions must be derivable from and explained by the decision-making algorithms used. This includes the need for representation of the moral values and societal norms holding in the context of operation, which the agent uses for deliberation."
+        },
+        {
+            "id": "51",
+            "name": "A human rights-based approach to responsible AI",
+            "URL": "https://arxiv.org/pdf/2210.02667",
+            "answer": "In the context of the passage, \"accountability\" refers to the demand for AI systems and their creators to be answerable for the ethical implications and social impacts of their technologies. This encompasses the idea that various actors, including states, organizations, and individuals, have responsibilities and duties to ensure that AI interventions are fair, transparent, and ethically sound. Accountability in this framework is tied to human rights, suggesting that ethical AI requires mechanisms to hold accountable those who violate or neglect these rights, thus ensuring that AI systems support human welfare and minimize harm."
+        },
+        {
+            "id": "52",
+            "name": "Towards shaping the future of responsible AI in africa",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/1/978-3-031-08215-3.pdf#page=185",
+            "answer": "The author does not mention or provide a definition for the keyword \"accountability\" in the given text."
+        },
+        {
+            "id": "53",
+            "name": "Responsible Artificial Intelligence---From Principles to Practice: A Keynote at TheWebConf 2022",
+            "URL": "https://arxiv.org/pdf/2205.10785",
+            "answer": "Within the context of this passage, \"accountability\" refers to the responsibility of the people and organizations involved in the development and use of AI systems to be answerable for the AI applications' decisions and actions. It encompasses ensuring that these stakeholders are transparent and take responsibility for their choices in designing and deploying AI, aligning the systems and their outcomes with ethical standards and societal values."
+        },
+        {
+            "id": "56",
+            "name": "A pathway towards responsible ai generated content",
+            "URL": "https://arxiv.org/pdf/2303.01325",
+            "answer": "In the given passage, the keyword \"accountability\" is not mentioned, nor is a definition of the term provided. Therefore, I am unable to return a definition based on this text."
+        },
+        {
+            "id": "60",
+            "name": "Responsible AI (RAI) Games and Ensembles",
+            "URL": "https://proceedings.neurips.cc/paper_files/paper/2023/file/e6057bf047bcc5f86ebf4e8db6e24a1f-Paper-Conference.pdf",
+            "answer": "The passage does not provide a definition for the keyword \"accountability.\""
+        },
+        {
+            "id": "61",
+            "name": "Progressing towards responsible AI",
+            "URL": "https://arxiv.org/pdf/2008.07326",
+            "answer": "In the context of this passage, \"accountability\" refers to the shift in focus from merely the technical performance of AI systems to ensuring their actions and decisions can be overseen and evaluated in terms of their impact on human rights and democratic values. This transition means that AI solutions should be assessed not just on their accuracy or computational efficiency but also on their fairness, transparency, and adherence to ethical standards. Accountability thus involves a broader set of considerations that ensure AI systems operate responsibly within the societal framework they are embedded in."
+        },
+        {
+            "id": "63",
+            "name": "Responsible ai pattern catalogue: a multivocal literature review",
+            "URL": "https://arxiv.org/pdf/2209.04963",
+            "answer": "The passage does not provide a clear definition of the keyword \"accountability\" within its context."
+        },
+        {
+            "id": "65",
+            "name": "Towards implementing responsible AI",
+            "URL": "https://arxiv.org/pdf/2205.04358",
+            "answer": "In the context of this passage, accountability is defined as the condition where the people and/or organizations responsible for the various phases of the AI system lifecycle are identifiable and answerable for the outcomes of the system. This also includes enabling human oversight of AI systems to ensure responsible and ethical operation."
+        },
+        {
+            "id": "67",
+            "name": "Responsible Artificial Intelligence: Recommendations and Lessons Learned",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/978-3-031-08215-3.pdf?sequence=1#page=210",
+            "answer": "The author does not mention or provide a definition for the keyword \"accountability\" in the given text."
+        },
+        {
+            "id": "79",
+            "name": "Towards responsible AI: a design space exploration of human-centered artificial intelligence user interfaces to investigate fairness",
+            "URL": "https://arxiv.org/pdf/2206.00474",
+            "answer": "The keyword \"accountability\" is not mentioned or defined in the provided passage."
+        },
+        {
+            "id": "82",
+            "name": "How Can Responsible AI Be Implemented?",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/89843/1/9781040033739.pdf#page=50",
+            "answer": "Accountability refers to the responsibility and answerability of individuals and states for their actions and decisions in the context of using AI in military systems. This includes ensuring that those who deploy and manage AI technologies in military applications are held liable for the consequences of their use, whether those outcomes are intentional or accidental."
+        },
+        {
+            "id": "83",
+            "name": "Responsible Artificial Intelligence: A Structured Literature Review",
+            "URL": "https://arxiv.org/pdf/2403.06910",
+            "answer": "The keyword \"accountability\" is not mentioned or defined in the provided passage."
+        },
+        {
+            "id": "87",
+            "name": "Responsible AI and analytics for an ethical and inclusive digitized society",
+            "URL": "https://uia.brage.unit.no/uia-xmlui/bitstream/handle/11250/2987440/article.pdf?sequence=5",
+            "answer": "The author does not mention or define the keyword \"accountability\" in the given text."
+        },
+        {
+            "id": "88",
+            "name": "Resolving ethics trade-offs in implementing responsible AI",
+            "URL": "https://arxiv.org/pdf/2401.08103",
+            "answer": "The author does not provide a detailed definition of accountability in the given passage. The term is listed as one of the underlying themes and aspects of high-level AI ethics principles but is not specifically defined or elaborated upon within the context of the text."
+        },
+        {
+            "id": "89",
+            "name": "Establishing data provenance for responsible artificial intelligence systems",
+            "URL": "https://kups.ub.uni-koeln.de/53868/1/TMIS_manuscript_DataProvenance.pdf",
+            "answer": "Accountability, within the context of this passage, refers to the challenge in AI-based systems where the complexity of these systems makes it difficult for users to determine who is responsible for the outcomes or errors produced by the AI. This is exacerbated by the integration of individual AI services into larger systems, creating opaqueness and ambiguity about ownership and accountability for the results. In essence, accountability in AI demands clarity on who can be held responsible for decisions made by AI systems, especially when they are integrated into broader contexts where specific accountability may become diffused."
+        },
+        {
+            "id": "90",
+            "name": "Fair and Responsible AI: A focus on the ability to contest",
+            "URL": "https://arxiv.org/pdf/2102.10787",
+            "answer": "The term \"accountability\" is not explicitly mentioned or defined in the passage provided."
+        },
+        {
+            "id": "92",
+            "name": "The use of responsible artificial intelligence techniques in the context of loan approval processes",
+            "URL": "https://erasmopurif.com/assets/pdf/publications/2022_IJHCI.pdf",
+            "answer": "In the context of this passage, the term \"accountability\" is not mentioned, defined, or explained by the author. Therefore, the research paper does not provide a definition of the term \"accountability.\""
+        },
+        {
+            "id": "93",
+            "name": "Responsible AI: Gender bias assessment in emotion recognition",
+            "URL": "https://arxiv.org/pdf/2103.11436",
+            "answer": "The author does not mention or define the keyword \"accountability\" in the provided text."
+        },
+        {
+            "id": "94",
+            "name": "Responsible AI in Africa: challenges and opportunities",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/978-3-031-08215-3.pdf?sequence=1",
+            "answer": "The passage provided does not mention the keyword \"accountability\" or provide a definition for it."
+        },
+        {
+            "id": "95",
+            "name": "Causal learning for socially responsible AI",
+            "URL": "https://arxiv.org/pdf/2104.12278",
+            "answer": "The keyword \"accountability\" is not mentioned or defined in the given passage."
+        },
+        {
+            "id": "96",
+            "name": "RAISE: leveraging responsible AI for service excellence",
+            "URL": "https://cba.lmu.edu/media/lmucollegeofbusinessadministration/documents/RAISE_2024.pdf",
+            "answer": "In the context of this passage, the author defines accountability as one of the ethical principles that should be respected and practiced in the design and deployment of responsible AI. Accountability in this framework involves the responsibility of service entities to ensure that AI applications are transparent, adhere to ethical guidelines, and positively contribute to societal well-being. This includes acknowledging potential risks associated with AI implementation and taking measures to address them as part of sustainable and ethical service practices."
+        },
+        {
+            "id": "100",
+            "name": "A Rapid Review of Responsible AI frameworks: How to guide the development of ethical AI",
+            "URL": "https://arxiv.org/pdf/2306.05003",
+            "answer": "The author does not mention the keyword \"accountability\" nor provide a definition within the provided text."
+        },
+        {
+            "id": "101",
+            "name": "Macro Ethics Principles for Responsible AI Systems: Taxonomy and Directions",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3672394",
+            "answer": "In the context of this passage, the author does not provide a clear definition of the keyword \"accountability.\" The term is mentioned only once in a list of AI principles without further elaboration, explanation, or contextual definition."
+        },
+        {
+            "id": "103",
+            "name": "Ethical implications of artificial intelligence in accounting: A framework for responsible ai adoption in multinational corporations in Jordan",
+            "URL": "http://growingscience.com/ijds/Vol8/ijdns_2023_162.pdf",
+            "answer": "The keyword *accountability* within the context of this passage is defined as the concept ensuring that individuals or entities involved in the process are held responsible for their decisions and actions. This responsibility is emphasized in the ethical framework for AI integration in accounting, where transparency and fairness are also prioritized to address ethical dilemmas and uphold trust in AI-driven decision-making processes. The concept aims to balance the benefits of AI while safeguarding stakeholders' interests by making sure that AI systems operate within set ethical boundaries."
+        },
+        {
+            "id": "104",
+            "name": "A decentralized approach towards responsible ai in social ecosystems",
+            "URL": "https://ojs.aaai.org/index.php/ICWSM/article/download/19274/19046",
+            "answer": "The author does not provide a definition or mention the keyword \"accountability\" within the given text."
+        },
+        {
+            "id": "105",
+            "name": "Strategies for Increasing Corporate Responsible AI Prioritization",
+            "URL": "https://arxiv.org/pdf/2405.03855",
+            "answer": "In the context of this passage, the author does not provide a clear definition of the term \"accountability.\" The term is mentioned briefly as part of a list of RAI components (\"things like fairness, privacy...accountability and transparency and labor impacts\"), but the text does not elaborate on what is meant by accountability in this specific context. Therefore, the author's definition of the term within this passage is unclear."
+        },
+        {
+            "id": "106",
+            "name": "Professionally responsible artificial intelligence",
+            "URL": "https://digitalcommons.law.uw.edu/cgi/viewcontent.cgi?article=1540&context=faculty-articles",
+            "answer": "In the context of this passage, the term \"accountability\" is not explicitly mentioned nor clearly defined by the author. Therefore, a detailed and concise definition based on the author's explanation within the given text cannot be provided."
+        },
+        {
+            "id": "109",
+            "name": "Responsible AI challenges in end-to-end machine learning",
+            "URL": "https://arxiv.org/pdf/2101.05967",
+            "answer": "In the context of this passage, \"accountability\" is mentioned as one of the major objectives of Responsible AI but the author does not provide a specific definition or detailed explanation of the term."
+        },
+        {
+            "id": "111",
+            "name": "Human-Centered Responsible Artificial Intelligence: Current & Future Trends",
+            "URL": "https://arxiv.org/pdf/2302.08157",
+            "answer": "Accountability refers to the responsibility of individuals (such as AI developers or decision makers) in ensuring that AI systems operate ethically and are accountable for their actions and outcomes. It emphasizes human oversight and responsibility, particularly when making ethical decisions, where humans are often seen as partly responsible for the actions or decisions of AI systems."
+        },
+        {
+            "id": "112",
+            "name": "Five Ps: Leverage zones towards responsible AI",
+            "URL": "https://arxiv.org/pdf/2205.01070",
+            "answer": "The author does not provide a clear definition of the term \"accountability\" within the passage."
+        },
+        {
+            "id": "114",
+            "name": "\u201cIt is currently hodgepodge\u201d: Examining AI/ML Practitioners' Challenges during Co-production of Responsible AI Values",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3544548.3580903",
+            "answer": "In the context of this passage, accountability refers to the responsibility AI/ML systems have towards their outcomes. It involves being answerable for the ethical implications and societal impact of these technologies. Accountability is a key value within Responsible AI (RAI) practices, ensuring that AI innovations are developed and deployed in ways that are fair, transparent, and aligned with shared ethical standards."
+        },
+        {
+            "id": "115",
+            "name": "Towards socially responsible ai: Cognitive bias-aware multi-objective learning",
+            "URL": "https://aaai.org/ojs/index.php/AAAI/article/download/5654/5510",
+            "answer": "The passage does not provide a definition for the keyword \"accountability.\""
+        },
+        {
+            "id": "120",
+            "name": "On the Road to Designing Responsible AI Systems in Military Cyber Operations",
+            "URL": "https://papers.academic-conferences.org/index.php/eccws/article/download/204/358",
+            "answer": "The author does not give a clear definition of the keyword \"accountability\" within the provided text."
+        },
+        {
+            "id": "123",
+            "name": "Responsible artificial intelligence in agriculture requires systemic understanding of risks and externalities",
+            "URL": "https://biblio.iita.org/documents/S22ArtTzachorResponsibleInthomNodev.pdf-7534ce8347d769bedd90ac59f392cc87.pdf",
+            "answer": "The passage does not explicitly mention or define the keyword \"accountability.\""
+        },
+        {
+            "id": "124",
+            "name": "Responsible artificial intelligence in Sub-Saharan Africa: landscape and general state of play",
+            "URL": "https://idl-bnc-idrc.dspacedirect.org/bitstream/10625/59997/1/739b3b9a-6a8a-4b32-8db8-291cb621d2dd.pdf",
+            "answer": "Accountability within the context of this passage refers to the ethical, transparent, and responsible use of AI technologies, ensuring that these technologies are utilized in a manner consistent with societal expectations, organizational values, and legal norms. This implies that all stakeholders, including researchers, innovators, and policymakers, must be answerable for the AI systems they develop and deploy, considering their potential impact on society and individual rights."
+        },
+        {
+            "id": "128",
+            "name": "Responsible AI for Earth Observation",
+            "URL": "https://arxiv.org/pdf/2405.20868",
+            "answer": "The passage does not provide a clear or specific definition of the keyword \"accountability.\" Therefore, a detailed, clear, and concise definition based on the author's text cannot be provided."
+        },
+        {
+            "id": "129",
+            "name": "A Scoping Study of Evaluation Practices for Responsible AI Tools: Steps Towards Effectiveness Evaluations",
+            "URL": "https://arxiv.org/pdf/2401.17486",
+            "answer": "The author does not explicitly define the term \"accountability\" within the passage provided. Therefore, there is no specific definition to extract from the text."
+        },
+        {
+            "id": "132",
+            "name": "Responsible AI practice and AI education are central to AI implementation: a rapid review for all medical imaging professionals in Europe",
+            "URL": "https://academic.oup.com/bjro/article-pdf/5/1/20230033/54224346/bjro.20230033.pdf",
+            "answer": "In the given text, the keyword \"accountability\" in decision-making is mentioned as part of the ethical concerns for AI in healthcare. It refers to the responsibility of ensuring that decisions made by AI systems are transparent and explainable, allowing stakeholders to understand and take responsibility for the outcomes. This includes adhering to standards and regulations to promote fairness, trust, and integrity in AI applications within healthcare."
+        },
+        {
+            "id": "141",
+            "name": "Making Responsible AI the Norm rather than the Exception",
+            "URL": "https://arxiv.org/pdf/2101.11832",
+            "answer": "The author does not mention the keyword \"accountability\" in the given passage, nor do they provide a definition of it."
+        },
+        {
+            "id": "142",
+            "name": "Responsible AI: Portraits with Intelligent Bibliometrics",
+            "URL": "https://arxiv.org/pdf/2405.02846",
+            "answer": "Accountability, within the context of this passage, refers to the principle that emphasizes the responsibility and awareness among AI developers and practitioners regarding the direct societal impact of AI. This includes ensuring that AI systems reason about and act according to human values while fostering accountability in the design, development, and deployment of AI under ethical, legal, and trustworthy frameworks."
+        },
+        {
+            "id": "146",
+            "name": "Towards a responsible AI development lifecycle: Lessons from information security",
+            "URL": "https://arxiv.org/pdf/2203.02958",
+            "answer": "The text does not provide a clear or specific definition of the term \"accountability.\""
+        },
+        {
+            "id": "149",
+            "name": "Responsible AI and the Arts: The Ethical and Legal Implications of AI in the Arts and Creative Industries",
+            "URL": "https://ora.ox.ac.uk/objects/uuid:a803ecc0-c8cc-42a0-be17-848334dc3cf5/files/r5d86p1015",
+            "answer": "The passage does not mention or define the keyword \"accountability.\""
+        }
+    ]
+}

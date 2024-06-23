@@ -1,0 +1,430 @@
+{
+    "documents": [
+        {
+            "id": "1",
+            "name": "Responsible artificial intelligence: how to develop and use AI in a responsible way",
+            "URL": "https://autosec.se/wp-content/uploads/2019/11/risevolvo2019.pdf",
+            "answer": "The term \"robustness\" was not defined or mentioned in the provided passage."
+        },
+        {
+            "id": "2",
+            "name": "Principles to practices for responsible AI: closing the gap",
+            "URL": "https://arxiv.org/pdf/2006.04707",
+            "answer": "The passage does not provide a definition of the keyword \"robustness.\""
+        },
+        {
+            "id": "3",
+            "name": "Responsible AI by design in practice",
+            "URL": "https://arxiv.org/pdf/1909.12838",
+            "answer": "The keyword \"robustness\" is mentioned in the context of the EC guidelines but is not defined in the passage. Consequently, the author does not provide a detailed or clear definition of robustness within this text."
+        },
+        {
+            "id": "8",
+            "name": "Characteristics and challenges in the industries towards responsible AI: a systematic literature review",
+            "URL": "https://lists.ellak.gr/epistimoniki-epitropi-ellak/2023/08/pdf7UNUr8HtGf.pdf",
+            "answer": "The term \"robustness\" is not mentioned, defined, or described in the provided passage from the research paper."
+        },
+        {
+            "id": "10",
+            "name": "The role and challenges of education for responsible AI",
+            "URL": "https://discovery.ucl.ac.uk/id/eprint/10121456/1/lre19010001.pdf",
+            "answer": "The term \"robust\" was not defined, mentioned, or alluded to in the provided passage."
+        },
+        {
+            "id": "11",
+            "name": "How different groups prioritize ethical values for responsible AI",
+            "URL": "https://arxiv.org/pdf/2205.07722",
+            "answer": "In the context of this passage, \"robustness\" is defined as the reliability and comprehensiveness of the data derived from the survey by assessing values from three perspectives: value selection, contextual assessment of values, and comparative prioritization of values. This multi-faceted approach was adopted to ensure that the survey results were thorough and could withstand scrutiny across different evaluation scenarios."
+        },
+        {
+            "id": "12",
+            "name": "Responsible AI for conservation",
+            "URL": "https://discovery.ucl.ac.uk/id/eprint/10065664/3/Jacoby_Leeuw_Figure%201%20Participant%20Timeline.pdf",
+            "answer": "The passage does not explicitly define the keyword \"robustness.\" Therefore, a definition based on the author's work cannot be provided."
+        },
+        {
+            "id": "13",
+            "name": "Responsible ai systems: who are the stakeholders?",
+            "URL": "https://oro.open.ac.uk/84505/1/84505VOR.pdf",
+            "answer": "The author does not give a definition of \"robustness\" in the given text."
+        },
+        {
+            "id": "16",
+            "name": "Measurement as governance in and for responsible AI",
+            "URL": "https://arxiv.org/pdf/2109.05658",
+            "answer": "\"Robustness\" within this passage assesses how well an AI system performs, particularly whether it can maintain functionality and expected outcomes across different contexts or scenarios. It involves evaluating if the system is good at its intended tasks, generalized beyond the training datasets, and ready for deployment. The term also implies a critical lens on the politics and governance involved in the technical decisions that impact the system's overall effectiveness and reliability."
+        },
+        {
+            "id": "17",
+            "name": "Leading your organization to responsible AI",
+            "URL": "https://www.mckinsey.com/~/media/McKinsey/Business%20Functions/McKinsey%20Analytics/Our%20Insights/Leading%20your%20organization%20to%20responsible%20AI/Leading-your-organization-to-responsible-AI.pdf",
+            "answer": "The keyword \"robustness\" is not mentioned or defined in the given text."
+        },
+        {
+            "id": "18",
+            "name": "Toward an understanding of responsible artificial intelligence practices",
+            "URL": "https://eprints.whiterose.ac.uk/162719/8/Toward%20an%20Understanding%20of%20Responsible%20Artificial%20Intelligence%20Practices.pdf",
+            "answer": "The text does not provide a definition, mention, or very clear explanation of the term \"robustness\" within the context of this passage."
+        },
+        {
+            "id": "20",
+            "name": "The role of cooperation in responsible AI development",
+            "URL": "https://arxiv.org/pdf/1907.04534.pdf?source=post_page---------------------------",
+            "answer": "The keyword \"robustness\" is not mentioned or defined in the given passage."
+        },
+        {
+            "id": "21",
+            "name": "Where responsible AI meets reality: Practitioner perspectives on enablers for shifting organizational practices",
+            "URL": "https://arxiv.org/pdf/2006.12358.pdf?utm_source=morning_brew",
+            "answer": "The term \"robustness\" is not mentioned, defined, or implied in the provided passage."
+        },
+        {
+            "id": "25",
+            "name": "Designing responsible ai: Adaptations of ux practice to meet responsible ai challenges",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3544548.3581278",
+            "answer": "The keyword \"robustness\" is not mentioned or defined in the given passage."
+        },
+        {
+            "id": "26",
+            "name": "Tools and practices for responsible AI engineering",
+            "URL": "https://arxiv.org/pdf/2201.05647",
+            "answer": "The definition of \"robustness\" in the context of this passage is the ability of AI models to maintain their performance and correct functionality under a wide variety of conditions, including stressful or adversarial inputs. This involves methods for evaluating and enhancing how well AI systems handle disturbances, adversarial attacks, or unexpected inputs while still producing reliable outputs. The rAI-toolbox library, in particular, focuses on supporting scalable and integrative methods for analyzing and improving robustness in AI models."
+        },
+        {
+            "id": "28",
+            "name": "Responsible ai pattern catalogue: A collection of best practices for ai governance and engineering",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3626234",
+            "answer": "The keyword \"robustness\" is not mentioned in the provided passage, and no definition is given by the author."
+        },
+        {
+            "id": "30",
+            "name": "Responsible-AI-by-design: A pattern collection for designing responsible AI systems",
+            "URL": "https://arxiv.org/pdf/2203.00905",
+            "answer": "The term \"robustness\" is not mentioned or defined in the given passage."
+        },
+        {
+            "id": "31",
+            "name": "Principles and business processes for responsible AI",
+            "URL": "http://rogerclarke.xamax.com.au/EC/AIP-Final.pdf",
+            "answer": "The passage does not provide a definition of the keyword \"robustness.\""
+        },
+        {
+            "id": "32",
+            "name": "Towards a roadmap on software engineering for responsible AI",
+            "URL": "https://arxiv.org/pdf/2203.08594",
+            "answer": "The author does not mention or define the keyword \"robustness\" in the provided text."
+        },
+        {
+            "id": "36",
+            "name": "Behavioral use licensing for responsible ai",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3531146.3533143",
+            "answer": "The author does not explicitly mention or define the keyword \"robustness\" within the provided passage."
+        },
+        {
+            "id": "37",
+            "name": "Software engineering for responsible AI: An empirical study and operationalised patterns",
+            "URL": "https://arxiv.org/pdf/2111.09478",
+            "answer": "In the provided text, the keyword \"robustness\" is not mentioned or defined."
+        },
+        {
+            "id": "38",
+            "name": "Responsible AI: Bridging from ethics to practice",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3445973",
+            "answer": "The author does not mention or define the keyword \"robustness\" in the given passage."
+        },
+        {
+            "id": "40",
+            "name": "Data cards: Purposeful and transparent dataset documentation for responsible ai",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3531146.3533231",
+            "answer": "In the context of this passage, the term \"robustness\" is not defined by the authors."
+        },
+        {
+            "id": "41",
+            "name": "AI and ethics\u2014Operationalizing responsible AI",
+            "URL": "https://arxiv.org/pdf/2105.08867",
+            "answer": "The term \"robustness\" is not mentioned, defined, or even implied in the provided passage."
+        },
+        {
+            "id": "42",
+            "name": "Responsible AI in Africa\u2014Challenges and opportunities",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/1/978-3-031-08215-3.pdf#page=55",
+            "answer": "The passage does not mention the keyword \"robustness,\" nor does it provide a definition for it."
+        },
+        {
+            "id": "43",
+            "name": "Towards responsible AI for financial transactions",
+            "URL": "https://arxiv.org/pdf/2206.02419",
+            "answer": "In the context of this passage, robustness refers to the ability of an AI model to maintain its performance and reliability even when subjected to adversarial attacks or perturbations. Specifically, it implies security against such attacks, ensuring that the system can withstand attempts to deliberately alter input data to deceive or confuse the model. The study demonstrates this concept by testing the transaction classification model's robustness against a targeted evasion attack and examining its vulnerability to perturbations."
+        },
+        {
+            "id": "44",
+            "name": "Introducing Responsible AI in Africa",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/978-3-031-08215-3.pdf?sequence=1#page=22",
+            "answer": "The text does not mention the keyword \"robustness\" nor does it provide a definition for it."
+        },
+        {
+            "id": "47",
+            "name": "Tackling COVID-19 through responsible AI innovation: Five steps in the right direction",
+            "URL": "https://assets.pubpub.org/97i4agr6/2192a7a6-61f5-4017-97ef-90cdaa139ead.pdf",
+            "answer": "The term \"robustness\" is not mentioned or defined in the provided passage."
+        },
+        {
+            "id": "49",
+            "name": "Responsible artificial intelligence: designing AI for human values",
+            "URL": "https://www.itu.int/dms_pub/itu-s/opb/journal/S-JOURNAL-ICTF.VOL1-2018-1-P01-PDF-E.pdf",
+            "answer": "The term \"robustness\" is not mentioned or defined in the provided passage."
+        },
+        {
+            "id": "51",
+            "name": "A human rights-based approach to responsible AI",
+            "URL": "https://arxiv.org/pdf/2210.02667",
+            "answer": "The passage does not provide a definition for the keyword \"robustness.\""
+        },
+        {
+            "id": "52",
+            "name": "Towards shaping the future of responsible AI in africa",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/1/978-3-031-08215-3.pdf#page=185",
+            "answer": "The passage provided does not mention or define the keyword \"robustness.\""
+        },
+        {
+            "id": "53",
+            "name": "Responsible Artificial Intelligence---From Principles to Practice: A Keynote at TheWebConf 2022",
+            "URL": "https://arxiv.org/pdf/2205.10785",
+            "answer": "The passage does not mention or define the keyword \"robustness.\""
+        },
+        {
+            "id": "56",
+            "name": "A pathway towards responsible ai generated content",
+            "URL": "https://arxiv.org/pdf/2303.01325",
+            "answer": "In the context of the given passage, no specific or detailed definition of the keyword \"robustness\" is provided by the author."
+        },
+        {
+            "id": "60",
+            "name": "Responsible AI (RAI) Games and Ensembles",
+            "URL": "https://proceedings.neurips.cc/paper_files/paper/2023/file/e6057bf047bcc5f86ebf4e8db6e24a1f-Paper-Conference.pdf",
+            "answer": "In the context of this passage, \"robustness\" refers to the capability of AI models to remain effective and accurate despite the presence of perturbations in the training data or shifts in the test distribution. This involves designing models that can handle adverse conditions without significant degradation in performance, ensuring reliable behavior across various scenarios and datasets. Robustness in this context aims to protect against both anticipated and unanticipated changes in data, thereby contributing to the resilience and dependability of AI systems."
+        },
+        {
+            "id": "61",
+            "name": "Progressing towards responsible AI",
+            "URL": "https://arxiv.org/pdf/2008.07326",
+            "answer": "The term \"robustness\" is not mentioned or defined in the provided passage from the research paper. Therefore, there is no detailed or clear definition of \"robustness\" given by the author within this text."
+        },
+        {
+            "id": "63",
+            "name": "Responsible ai pattern catalogue: a multivocal literature review",
+            "URL": "https://arxiv.org/pdf/2209.04963",
+            "answer": "The author does not mention the keyword \"robustness\" or provide a definition of the term in the given text."
+        },
+        {
+            "id": "65",
+            "name": "Towards implementing responsible AI",
+            "URL": "https://arxiv.org/pdf/2205.04358",
+            "answer": "The keyword \"robustness\" is not mentioned or defined in the provided passage."
+        },
+        {
+            "id": "67",
+            "name": "Responsible Artificial Intelligence: Recommendations and Lessons Learned",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/978-3-031-08215-3.pdf?sequence=1#page=210",
+            "answer": "The author does not mention or give a definition for the keyword \"robustness\" in the provided passage."
+        },
+        {
+            "id": "79",
+            "name": "Towards responsible AI: a design space exploration of human-centered artificial intelligence user interfaces to investigate fairness",
+            "URL": "https://arxiv.org/pdf/2206.00474",
+            "answer": "The keyword \"robustness\" does not appear in the provided text, and the author does not offer either a direct or an indirect definition of the term within the context of this passage. Without a mention or definition of \"robustness,\" it is not possible to provide a definition based on the author's explanation in the given text."
+        },
+        {
+            "id": "82",
+            "name": "How Can Responsible AI Be Implemented?",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/89843/1/9781040033739.pdf#page=50",
+            "answer": "The passage does not mention or define the keyword \"robustness.\""
+        },
+        {
+            "id": "83",
+            "name": "Responsible Artificial Intelligence: A Structured Literature Review",
+            "URL": "https://arxiv.org/pdf/2403.06910",
+            "answer": "The keyword \"robustness\" is not mentioned in the provided passage. Therefore, no definition is given by the author within this context."
+        },
+        {
+            "id": "87",
+            "name": "Responsible AI and analytics for an ethical and inclusive digitized society",
+            "URL": "https://uia.brage.unit.no/uia-xmlui/bitstream/handle/11250/2987440/article.pdf?sequence=5",
+            "answer": "The passage does not mention or provide a definition for the keyword \"robustness.\""
+        },
+        {
+            "id": "88",
+            "name": "Resolving ethics trade-offs in implementing responsible AI",
+            "URL": "https://arxiv.org/pdf/2401.08103",
+            "answer": "The term \"robustness\" within the context of this passage, particularly in the summary of high-level AI ethics principles, is indirectly referred to when discussing aspects like accuracy/performance and safety. It is suggested that robustness often relates to the system\u2019s ability to perform reliably under varying conditions and its resilience to failures or adversarial conditions. Therefore, in this context, robustness refers to the capacity of AI/ML systems to consistently achieve high performance and reliability despite fluctuations in input data or potential disruptions."
+        },
+        {
+            "id": "89",
+            "name": "Establishing data provenance for responsible artificial intelligence systems",
+            "URL": "https://kups.ub.uni-koeln.de/53868/1/TMIS_manuscript_DataProvenance.pdf",
+            "answer": "The passage does not mention the keyword \"robustness\" nor provide a definition for it."
+        },
+        {
+            "id": "90",
+            "name": "Fair and Responsible AI: A focus on the ability to contest",
+            "URL": "https://arxiv.org/pdf/2102.10787",
+            "answer": "The keyword \"robustness\" is not mentioned or defined in the passage provided."
+        },
+        {
+            "id": "92",
+            "name": "The use of responsible artificial intelligence techniques in the context of loan approval processes",
+            "URL": "https://erasmopurif.com/assets/pdf/publications/2022_IJHCI.pdf",
+            "answer": "Robustness, within the context of this passage, refers to the quality of an AI system to be reliable and resilient both from a technical and social perspective. This means avoiding incorrect behaviors that may cause unintentional harm and ensuring the system can handle various scenarios reliably without introducing new issues or biases."
+        },
+        {
+            "id": "93",
+            "name": "Responsible AI: Gender bias assessment in emotion recognition",
+            "URL": "https://arxiv.org/pdf/2103.11436",
+            "answer": "In the provided context, the term \"robust\" does not appear, nor does the author provide a clear definition of the term. Therefore, a definition cannot be extracted or interpreted from this passage."
+        },
+        {
+            "id": "94",
+            "name": "Responsible AI in Africa: challenges and opportunities",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/978-3-031-08215-3.pdf?sequence=1",
+            "answer": "The author does not mention or define the keyword \"robustness\" in the given passage."
+        },
+        {
+            "id": "95",
+            "name": "Causal learning for socially responsible AI",
+            "URL": "https://arxiv.org/pdf/2104.12278",
+            "answer": "In the context of this passage, **robustness** refers to an AI system's ability to maintain performance across different environments and under varying conditions, specifically when there are distributional shifts among heterogeneous environments. Robustness is achieved when AI algorithms can avoid overfitting to training data by learning invariant causal relations instead of spurious correlations, ensuring the model\u2019s predictions remain accurate and reliable despite changes in input data or environments."
+        },
+        {
+            "id": "96",
+            "name": "RAISE: leveraging responsible AI for service excellence",
+            "URL": "https://cba.lmu.edu/media/lmucollegeofbusinessadministration/documents/RAISE_2024.pdf",
+            "answer": "The passage does not mention or define the keyword \"robustness.\""
+        },
+        {
+            "id": "100",
+            "name": "A Rapid Review of Responsible AI frameworks: How to guide the development of ethical AI",
+            "URL": "https://arxiv.org/pdf/2306.05003",
+            "answer": "The author does not give a definition of \"robustness\" within the passage provided."
+        },
+        {
+            "id": "101",
+            "name": "Macro Ethics Principles for Responsible AI Systems: Taxonomy and Directions",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3672394",
+            "answer": "The term \"robustness\" is not mentioned or defined in the provided text."
+        },
+        {
+            "id": "103",
+            "name": "Ethical implications of artificial intelligence in accounting: A framework for responsible ai adoption in multinational corporations in Jordan",
+            "URL": "http://growingscience.com/ijds/Vol8/ijdns_2023_162.pdf",
+            "answer": "The text does not provide a clear, detailed definition of the keyword \"robustness\" within its context. In fact, the keyword \"robustness\" is not mentioned in the passage."
+        },
+        {
+            "id": "104",
+            "name": "A decentralized approach towards responsible ai in social ecosystems",
+            "URL": "https://ojs.aaai.org/index.php/ICWSM/article/download/19274/19046",
+            "answer": "Robustness: The term \"robustness\" in the context of this passage refers to the resilience and reliability of AI systems in maintaining their performance and functionality even under adverse conditions or potential vulnerabilities. It encompasses the capability of the AI system to handle disruptions, errors, or attempts to compromise its operations without failing or leading to unintended outcomes. This includes ensuring that AI systems are not easily susceptible to manipulation, biases, or failures that could undermine their intended responsible use."
+        },
+        {
+            "id": "105",
+            "name": "Strategies for Increasing Corporate Responsible AI Prioritization",
+            "URL": "https://arxiv.org/pdf/2405.03855",
+            "answer": "The keyword \"robustness\" neither appears in the passage nor is defined or mentioned by the author in the provided text."
+        },
+        {
+            "id": "106",
+            "name": "Professionally responsible artificial intelligence",
+            "URL": "https://digitalcommons.law.uw.edu/cgi/viewcontent.cgi?article=1540&context=faculty-articles",
+            "answer": "In the context of this passage, the term **\"robustness\"** is not mentioned or defined by the author."
+        },
+        {
+            "id": "109",
+            "name": "Responsible AI challenges in end-to-end machine learning",
+            "URL": "https://arxiv.org/pdf/2101.05967",
+            "answer": "Within the context of this passage, \"robustness\" refers to the capability of a machine learning model to remain effective and accurate in the presence of noisy or poisoned data. It involves developing techniques that ensure the resilience of the model against adversarial attacks, such as data poisoning, which can degrade performance by introducing erroneous or intentionally corrupted data into the training process. Robustness can be achieved through methods like data sanitization before model training or adapting the training process itself to withstand the presence of poisoned data."
+        },
+        {
+            "id": "111",
+            "name": "Human-Centered Responsible Artificial Intelligence: Current & Future Trends",
+            "URL": "https://arxiv.org/pdf/2302.08157",
+            "answer": "The passage does not mention or define the keyword \"robustness.\""
+        },
+        {
+            "id": "112",
+            "name": "Five Ps: Leverage zones towards responsible AI",
+            "URL": "https://arxiv.org/pdf/2205.01070",
+            "answer": "The author does not provide an explicit definition of the term \"robustness\" within the provided passage."
+        },
+        {
+            "id": "114",
+            "name": "\u201cIt is currently hodgepodge\u201d: Examining AI/ML Practitioners' Challenges during Co-production of Responsible AI Values",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3544548.3580903",
+            "answer": "The term \"robustness\" is not mentioned or defined in the provided passage."
+        },
+        {
+            "id": "115",
+            "name": "Towards socially responsible ai: Cognitive bias-aware multi-objective learning",
+            "URL": "https://aaai.org/ojs/index.php/AAAI/article/download/5654/5510",
+            "answer": "The text does not mention or define the keyword \"robustness.\""
+        },
+        {
+            "id": "120",
+            "name": "On the Road to Designing Responsible AI Systems in Military Cyber Operations",
+            "URL": "https://papers.academic-conferences.org/index.php/eccws/article/download/204/358",
+            "answer": "The text does not provide a definition for the keyword \"robustness.\""
+        },
+        {
+            "id": "123",
+            "name": "Responsible artificial intelligence in agriculture requires systemic understanding of risks and externalities",
+            "URL": "https://biblio.iita.org/documents/S22ArtTzachorResponsibleInthomNodev.pdf-7534ce8347d769bedd90ac59f392cc87.pdf",
+            "answer": "The author does not mention or define the keyword \"robustness\" within the context of this passage."
+        },
+        {
+            "id": "124",
+            "name": "Responsible artificial intelligence in Sub-Saharan Africa: landscape and general state of play",
+            "URL": "https://idl-bnc-idrc.dspacedirect.org/bitstream/10625/59997/1/739b3b9a-6a8a-4b32-8db8-291cb621d2dd.pdf",
+            "answer": "The passage provided does not mention the keyword \"robustness\" or offer a definition for it."
+        },
+        {
+            "id": "128",
+            "name": "Responsible AI for Earth Observation",
+            "URL": "https://arxiv.org/pdf/2405.20868",
+            "answer": "The keyword \"robustness\" is mentioned in the context of AI security measures in Earth Observation (EO). Here, robustness refers to the AI system's ability to handle and remain reliable under various uncertainties and potential adversarial conditions that may arise during data processing in EO missions. Robustness encompasses increasing the control of uncertainty and ensuring the explainability of the AI systems to maintain their dependable performance."
+        },
+        {
+            "id": "129",
+            "name": "A Scoping Study of Evaluation Practices for Responsible AI Tools: Steps Towards Effectiveness Evaluations",
+            "URL": "https://arxiv.org/pdf/2401.17486",
+            "answer": "The author does not mention or define the keyword \"robustness\" in the given text."
+        },
+        {
+            "id": "132",
+            "name": "Responsible AI practice and AI education are central to AI implementation: a rapid review for all medical imaging professionals in Europe",
+            "URL": "https://academic.oup.com/bjro/article-pdf/5/1/20230033/54224346/bjro.20230033.pdf",
+            "answer": "The term \"robustness\" is not mentioned or defined in the passage provided."
+        },
+        {
+            "id": "141",
+            "name": "Making Responsible AI the Norm rather than the Exception",
+            "URL": "https://arxiv.org/pdf/2101.11832",
+            "answer": "The passage does not mention or provide a definition for the keyword \"robustness.\""
+        },
+        {
+            "id": "142",
+            "name": "Responsible AI: Portraits with Intelligent Bibliometrics",
+            "URL": "https://arxiv.org/pdf/2405.02846",
+            "answer": "The author does not give a definition of the keyword \"robustness.\""
+        },
+        {
+            "id": "146",
+            "name": "Towards a responsible AI development lifecycle: Lessons from information security",
+            "URL": "https://arxiv.org/pdf/2203.02958",
+            "answer": "The term \"robustness\" within the context of this passage refers to the ability of model interpretation and explanation methods to withstand attempts to manipulate or deceive them, especially in adversarial settings. Robustness in this context ensures that these methods provide accurate, reliable explanations and maintain their integrity even when faced with potential gaming or hostile interventions. This includes having variance in the perturbations and gradients while being subjected to adversarial tests to establish their reliability and durability."
+        },
+        {
+            "id": "149",
+            "name": "Responsible AI and the Arts: The Ethical and Legal Implications of AI in the Arts and Creative Industries",
+            "URL": "https://ora.ox.ac.uk/objects/uuid:a803ecc0-c8cc-42a0-be17-848334dc3cf5/files/r5d86p1015",
+            "answer": "The keyword \"robustness\" is not mentioned or defined in the given passage."
+        }
+    ]
+}

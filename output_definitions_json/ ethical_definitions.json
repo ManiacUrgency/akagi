@@ -1,0 +1,430 @@
+{
+    "documents": [
+        {
+            "id": "1",
+            "name": "Responsible artificial intelligence: how to develop and use AI in a responsible way",
+            "URL": "https://autosec.se/wp-content/uploads/2019/11/risevolvo2019.pdf",
+            "answer": "The author does not give a definition of the keyword \"ethical\" within the provided text."
+        },
+        {
+            "id": "2",
+            "name": "Principles to practices for responsible AI: closing the gap",
+            "URL": "https://arxiv.org/pdf/2006.04707",
+            "answer": "The term \"ethical\" within the context of this passage refers to the set of social and moral principles and concerns that surround the development and use of artificial intelligence (AI). Specifically, it includes issues such as labor displacement, algorithmic bias, privacy, fairness, accountability, transparency, and the reliability and safety of AI products. Ethical AI aims to ensure that these systems are designed and implemented in ways that promote public, customer, and employee welfare while addressing broader societal impacts."
+        },
+        {
+            "id": "3",
+            "name": "Responsible AI by design in practice",
+            "URL": "https://arxiv.org/pdf/1909.12838",
+            "answer": "The term \"ethical\" within the context of this passage refers to the creation and deployment of AI systems in a manner that aligns with moral principles and societal values. Specifically, it involves ensuring that AI development and deployment processes are aligned with ethical principles such as fairness, transparency, explainability, human-centricity, and privacy and security. These principles aim to prevent discrimination, provide clear and understandable AI decision-making, maintain human control over AI, and protect privacy and security."
+        },
+        {
+            "id": "8",
+            "name": "Characteristics and challenges in the industries towards responsible AI: a systematic literature review",
+            "URL": "https://lists.ellak.gr/epistimoniki-epitropi-ellak/2023/08/pdf7UNUr8HtGf.pdf",
+            "answer": "The term \"ethical\" in the provided passage is not explicitly defined by the authors. The passage focuses on the broader subject of responsible AI and the challenges and principles associated with it, but does not specifically define the term \"ethical.\""
+        },
+        {
+            "id": "10",
+            "name": "The role and challenges of education for responsible AI",
+            "URL": "https://discovery.ucl.ac.uk/id/eprint/10121456/1/lre19010001.pdf",
+            "answer": "The keyword \"ethical\" in the context of this passage refers to the human-centric principles and responsibilities associated with the design, development, and deployment of AI systems. It underscores that ethics in AI is not about granting responsibility to the AI itself but ensuring that the individuals and organizations involved act in a manner that upholds human values and ethical standards. Ethical AI entails accountability, responsibility, and transparency (ART principles), requiring open reporting and inspection of the choices and decisions made throughout the AI system's lifecycle."
+        },
+        {
+            "id": "11",
+            "name": "How different groups prioritize ethical values for responsible AI",
+            "URL": "https://arxiv.org/pdf/2205.07722",
+            "answer": "In the passage, the keyword \"ethical\" refers to the values and principles considered important for the development and implementation of AI technologies to ensure they are responsible and beneficial for society. Specifically, ethical in this context refers to adherence to values such as transparency, fairness, safety, accountability, and privacy as outlined in AI ethics guidelines by various organizations. These ethical values are intended to guide the creation of AI systems that respect human and societal values."
+        },
+        {
+            "id": "12",
+            "name": "Responsible AI for conservation",
+            "URL": "https://discovery.ucl.ac.uk/id/eprint/10065664/3/Jacoby_Leeuw_Figure%201%20Participant%20Timeline.pdf",
+            "answer": "The keyword \"ethical\" in the context of this passage refers to the structured and responsible oversight of AI applications to ensure that their implementation in conservation efforts does not lead to unintended harmful outcomes. Ethical oversight involves developing and adhering to guidelines that mitigate risks such as algorithmic bias, misclassification, and failure to account for contextual background information. These guidelines aim to foster accountability, transparency, and fairness in AI's use within conservation to avoid wasting resources and eroding trust in conservation science."
+        },
+        {
+            "id": "13",
+            "name": "Responsible ai systems: who are the stakeholders?",
+            "URL": "https://oro.open.ac.uk/84505/1/84505VOR.pdf",
+            "answer": "In the given text, the term \"ethical\" within the context of \"ethical AI\" does not have a single, clear definition provided by the author. However, the passage describes \"ethical AI\" as an umbrella term encompassing different aspects, which include moral, ethical principles of AI operation, privacy, trust, transparency, responsibility, accountability, bias in AI systems, quality of data for training AI, and legal compliance. The definition is inherently complex due to the contributions from various guidelines and stakeholders, which leads to multiple interpretations and applications of the term \"ethical AI\"."
+        },
+        {
+            "id": "16",
+            "name": "Measurement as governance in and for responsible AI",
+            "URL": "https://arxiv.org/pdf/2109.05658",
+            "answer": "The text does not provide a definition for the keyword \"ethical.\""
+        },
+        {
+            "id": "17",
+            "name": "Leading your organization to responsible AI",
+            "URL": "https://www.mckinsey.com/~/media/McKinsey/Business%20Functions/McKinsey%20Analytics/Our%20Insights/Leading%20your%20organization%20to%20responsible%20AI/Leading-your-organization-to-responsible-AI.pdf",
+            "answer": "The text mentions the term **ethical** in the context of AI but does not provide a clear and explicit definition. The authors imply ethical considerations involve ensuring AI systems do no harm, avoiding biases, discrimination, privacy violations, and maintaining fairness and transparency. However, these descriptions do not amount to a definitive, concise definition of the term."
+        },
+        {
+            "id": "18",
+            "name": "Toward an understanding of responsible artificial intelligence practices",
+            "URL": "https://eprints.whiterose.ac.uk/162719/8/Toward%20an%20Understanding%20of%20Responsible%20Artificial%20Intelligence%20Practices.pdf",
+            "answer": "In the context of this passage, \"ethical\" refers to AI solutions that are designed and implemented to be ethical, transparent, and accountable in order to build individual trust and minimize privacy invasions. It centers on creating AI systems that act responsibly by meeting stakeholder expectations and adhering to applicable regulations and laws. Ethical AI prioritizes human-centered approaches and aims to mitigate biases and unethical practices through data governance, human-centric surveillance, and ongoing training and education."
+        },
+        {
+            "id": "20",
+            "name": "The role of cooperation in responsible AI development",
+            "URL": "https://arxiv.org/pdf/1907.04534.pdf?source=post_page---------------------------",
+            "answer": "The keyword \"ethical\" is not explicitly defined within the given passage, either because it is not mentioned or the definition is not clear from the text provided. Therefore, no definition can be provided based on the author's text."
+        },
+        {
+            "id": "21",
+            "name": "Where responsible AI meets reality: Practitioner perspectives on enablers for shifting organizational practices",
+            "URL": "https://arxiv.org/pdf/2006.12358.pdf?utm_source=morning_brew",
+            "answer": "The passage does not provide a clear or specific definition of the keyword \"ethical.\""
+        },
+        {
+            "id": "25",
+            "name": "Designing responsible ai: Adaptations of ux practice to meet responsible ai challenges",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3544548.3581278",
+            "answer": "In this paper, the term \"ethical\" is used interchangeably with \"responsible\" AI, as stated by the authors. Ethical or \"responsible\" AI efforts involve identifying and addressing ways that algorithmic systems perpetuate or amplify societal inequities and biases. While the authors acknowledge a variety of ways these principles are operationalized across sectors and organizations, they generally converge on high-level values related to fairness, accountability, transparency, and ethics in AI."
+        },
+        {
+            "id": "26",
+            "name": "Tools and practices for responsible AI engineering",
+            "URL": "https://arxiv.org/pdf/2201.05647",
+            "answer": "The term \"ethical\" is referred to as \"Responsible Artificial Intelligence (AI),\" which is the practice of creating and maintaining AI systems that are not only accurate but also exhibit important qualities such as robustness, safety, security, privacy, fairness, inclusiveness, transparency, interpretability, explainability, accountability, governability, and the promotion of societal and environmental well-being."
+        },
+        {
+            "id": "28",
+            "name": "Responsible ai pattern catalogue: A collection of best practices for ai governance and engineering",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3626234",
+            "answer": "The keyword \"ethical\" in the context of this passage refers to the development and use of AI systems that adhere to principles meant to benefit humans, society, and the environment. This includes behaviors and decision-making processes that align with established ethical principles such as fairness, privacy protection, and accountability."
+        },
+        {
+            "id": "30",
+            "name": "Responsible-AI-by-design: A pattern collection for designing responsible AI systems",
+            "URL": "https://arxiv.org/pdf/2203.00905",
+            "answer": "The author does not provide a clear definition of the term \"ethical\" within the passage. The text discusses various components and principles associated with responsible and ethical AI but does not explicitly define what \"ethical\" means in this context."
+        },
+        {
+            "id": "31",
+            "name": "Principles and business processes for responsible AI",
+            "URL": "http://rogerclarke.xamax.com.au/EC/AIP-Final.pdf",
+            "answer": "The author does not provide a clear, explicit definition of the term \"ethical\" within the passage. The discussion touches upon ethics in general and its relevance and challenges, particularly in the context of AI and business processes, but it does not define \"ethical\" specifically. Therefore, a concise and definitive interpretation of \"ethical\" based on the passage is not available."
+        },
+        {
+            "id": "32",
+            "name": "Towards a roadmap on software engineering for responsible AI",
+            "URL": "https://arxiv.org/pdf/2203.08594",
+            "answer": "The term \"ethical\" in this passage refers to adhering to established regulations, principles, and frameworks aimed at ensuring AI systems operate in a manner consistent with high standards of behavior and decision-making. Specifically, ethics in the context of AI involves considering maximum behavior standards that guide responsible AI, such as privacy, accountability, safety, transparency, fairness, human control, and the promotion of human values. The ethical considerations are meant to provide a broader set of requirements beyond legal compliance to ensure AI systems benefit individuals, society, and the environment."
+        },
+        {
+            "id": "36",
+            "name": "Behavioral use licensing for responsible ai",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3531146.3533143",
+            "answer": "Within the context of this passage, the term \"ethical\" refers to the guidelines, principles, and standards aimed at ensuring the responsible and appropriate use of AI systems. It encompasses the moral obligations of AI developers and stakeholders to prevent misuse, harm, or irresponsible deployment of technology, such as creating untrustworthy propaganda or imitating human characteristics to manipulate people. These guidelines are crucial for setting behavioral norms and influencing policy, albeit they often lack direct enforceability."
+        },
+        {
+            "id": "37",
+            "name": "Software engineering for responsible AI: An empirical study and operationalised patterns",
+            "URL": "https://arxiv.org/pdf/2111.09478",
+            "answer": "Within the context of this research paper, \"ethical\" refers to the standards and principles that guide the development and usage of AI systems to ensure they are responsible and beneficial to humans, society, and the environment. These ethical standards encompass various dimensions such as privacy protection, security, reliability, safety, transparency, explainability, fairness, accountability, human-centered values, and societal and environmental well-being. In this study, ethical considerations are emphasized as overarching requirements that go beyond mere legal compliance, aiming to establish maximum standards of behavior for AI systems."
+        },
+        {
+            "id": "38",
+            "name": "Responsible AI: Bridging from ethics to practice",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3445973",
+            "answer": "In the passage, \"ethical\" refers to the principles guiding the responsible development and implementation of AI systems. These principles encompass privacy, accountability, safety and security, transparency and explainability, fairness and non-discrimination, human control of technology, professional responsibility, and the promotion of human values. Ethical concerns serve as the foundational guidelines for making design decisions that ensure AI systems are reliable, safe, and trustworthy."
+        },
+        {
+            "id": "40",
+            "name": "Data cards: Purposeful and transparent dataset documentation for responsible ai",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3531146.3533231",
+            "answer": "In this passage, the term \"ethical\" refers to considerations that are part of a clear and thorough understanding of a dataset\u2019s origins, development, intent, and evolution for responsible and informed deployment of AI models. Ethical considerations emphasize the importance of transparency, fairness, and responsible practices that account for the impact of datasets in people-facing contexts and high-risk domains. These involve evaluating the processes and rationales behind the data to ensure it is used responsibly."
+        },
+        {
+            "id": "41",
+            "name": "AI and ethics\u2014Operationalizing responsible AI",
+            "URL": "https://arxiv.org/pdf/2105.08867",
+            "answer": "In the context of this passage, \"ethical\" pertains to the adherence to high-level moral and legal principles in the development and deployment of AI technologies and systems. It involves ensuring that AI systems align with human values, such as privacy, fairness, security, and broader considerations like labour rights and climate justice. Ethical AI aims to build and maintain public trust by meeting these maximum standards of behavior, beyond just legal compliance, through systematic methods and integrated frameworks."
+        },
+        {
+            "id": "42",
+            "name": "Responsible AI in Africa\u2014Challenges and opportunities",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/1/978-3-031-08215-3.pdf#page=55",
+            "answer": "The author does not mention or give a definition of the keyword \"ethical\" in the provided text."
+        },
+        {
+            "id": "43",
+            "name": "Towards responsible AI for financial transactions",
+            "URL": "https://arxiv.org/pdf/2206.02419",
+            "answer": "In the context of this passage, the keyword \"ethical\" is not explicitly mentioned by the author. Therefore, I'm unable to provide a definition based on the text provided."
+        },
+        {
+            "id": "44",
+            "name": "Introducing Responsible AI in Africa",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/978-3-031-08215-3.pdf?sequence=1#page=22",
+            "answer": "The term \"ethical\" is not defined in the given text."
+        },
+        {
+            "id": "47",
+            "name": "Tackling COVID-19 through responsible AI innovation: Five steps in the right direction",
+            "URL": "https://assets.pubpub.org/97i4agr6/2192a7a6-61f5-4017-97ef-90cdaa139ead.pdf",
+            "answer": "The passage does not provide a clear, concise definition of the term \"ethical.\" It mentions ethical challenges and the need for ethical practices, particularly in the context of AI/ML innovations and their societal impacts, but it does not offer a straightforward definition of \"ethical\" itself."
+        },
+        {
+            "id": "49",
+            "name": "Responsible artificial intelligence: designing AI for human values",
+            "URL": "https://www.itu.int/dms_pub/itu-s/opb/journal/S-JOURNAL-ICTF.VOL1-2018-1-P01-PDF-E.pdf",
+            "answer": "In the context of this passage, the keyword \"ethical\" refers to the principles and considerations associated with ensuring AI systems align with human values and moral standards. The passage discusses the need for AI to not only incorporate social and ethical values during the design process but also to be able to reason about and act according to these values, ensuring safe, beneficial, and fair use of AI technologies. Ethical considerations in AI design include accountability (explaining and justifying decisions), responsibility (answering for decisions and identifying errors), and transparency (describing and reproducing decision-making mechanisms)."
+        },
+        {
+            "id": "51",
+            "name": "A human rights-based approach to responsible AI",
+            "URL": "https://arxiv.org/pdf/2210.02667",
+            "answer": "The term \"ethical\" within the context of this passage refers to the alignment of AI interventions with a set of explicit normative values and principles. Ethical considerations in AI involve actively debating and critically examining the values that underpin the quest for a just and fair AI. Ethical principles for AI are not assumed to have a consensus but need to be explicitly defined and recognized, especially in a pluralistic world where different value systems exist."
+        },
+        {
+            "id": "52",
+            "name": "Towards shaping the future of responsible AI in africa",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/1/978-3-031-08215-3.pdf#page=185",
+            "answer": "The author does not define the keyword \"ethical\" in the given text."
+        },
+        {
+            "id": "53",
+            "name": "Responsible Artificial Intelligence---From Principles to Practice: A Keynote at TheWebConf 2022",
+            "URL": "https://arxiv.org/pdf/2205.10785",
+            "answer": "The keyword \"ethical\" within the context of this passage pertains to principles that guide the responsible development and use of AI systems. Specifically, \"ethical\" involves ensuring fairness, transparency, accountability, and the inclusion of human values in AI design and implementation. It emphasizes that ethical considerations go beyond merely trusting the system's results to include the motivations, design processes, and participants involved in creating AI technologies."
+        },
+        {
+            "id": "56",
+            "name": "A pathway towards responsible ai generated content",
+            "URL": "https://arxiv.org/pdf/2303.01325",
+            "answer": "In the context of this passage, the term \"ethical\" refers to the principles and guidelines aimed at ensuring that AI Generated Content (AIGC) is developed and used responsibly, considering factors such as privacy, bias, toxicity, misinformation, intellectual property, robustness, open source and explanation, technology abuse, consent, credit, compensation, and environmental impact. The ethical use of AIGC involves proactive actions to mitigate these risks and address concerns related to privacy leakage, social biases, and the reproduction of harmful or inaccurate content."
+        },
+        {
+            "id": "60",
+            "name": "Responsible AI (RAI) Games and Ensembles",
+            "URL": "https://proceedings.neurips.cc/paper_files/paper/2023/file/e6057bf047bcc5f86ebf4e8db6e24a1f-Paper-Conference.pdf",
+            "answer": "The term \"ethical\" is not explicitly defined or mentioned within the given text."
+        },
+        {
+            "id": "61",
+            "name": "Progressing towards responsible AI",
+            "URL": "https://arxiv.org/pdf/2008.07326",
+            "answer": "In the context of this passage, the term \"ethical\" refers to the standards, principles, and guidelines aimed at ensuring that AI development and deployment respect human rights, democratic values, and societal norms. These ethical considerations extend beyond technical performance metrics to include privacy, fairness, transparency, accountability, and social responsibility. The \"ethical turn\" in AI emphasizes a multidisciplinary and multi-stakeholder approach to AI, integrating diverse perspectives to promote responsible AI practices."
+        },
+        {
+            "id": "63",
+            "name": "Responsible ai pattern catalogue: a multivocal literature review",
+            "URL": "https://arxiv.org/pdf/2209.04963",
+            "answer": "The term \"ethical\" in the context of this passage is not explicitly defined by the author. The passage focuses on the broader concept of \"Responsible AI\" which encompasses ethical development among other principles. While it mentions \"ethical principles\" like fairness and privacy, a clear, specific definition of \"ethical\" itself is not provided in the text."
+        },
+        {
+            "id": "65",
+            "name": "Towards implementing responsible AI",
+            "URL": "https://arxiv.org/pdf/2205.04358",
+            "answer": "In the context of this passage, the keyword \"ethical\" pertains to the principles and considerations that guide the responsible design, development, and use of AI systems, ensuring they align with moral and societal values. These include aspects such as accountability, reliability, transparency, explainability, contestability, privacy, and fairness, all of which aim to ensure AI systems function in a manner that is just, secure, and respects human rights throughout their lifecycle. Ethical AI involves proactively addressing and integrating these principles into AI practices, rather than treating them as afterthoughts or merely formalities."
+        },
+        {
+            "id": "67",
+            "name": "Responsible Artificial Intelligence: Recommendations and Lessons Learned",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/978-3-031-08215-3.pdf?sequence=1#page=210",
+            "answer": "The text provided does not contain a definition for the keyword \"ethical\"."
+        },
+        {
+            "id": "79",
+            "name": "Towards responsible AI: a design space exploration of human-centered artificial intelligence user interfaces to investigate fairness",
+            "URL": "https://arxiv.org/pdf/2206.00474",
+            "answer": "The author does not provide a definition or mention the keyword \"ethical\" in the given passage."
+        },
+        {
+            "id": "82",
+            "name": "How Can Responsible AI Be Implemented?",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/89843/1/9781040033739.pdf#page=50",
+            "answer": "The text does not provide a definition of the keyword \"ethical.\""
+        },
+        {
+            "id": "83",
+            "name": "Responsible Artificial Intelligence: A Structured Literature Review",
+            "URL": "https://arxiv.org/pdf/2403.06910",
+            "answer": "The term \"ethical\" within the context of the passage is not explicitly defined by the author. Instead, the passage mentions \"ethical issues\" as one of the challenging aspects that need to be addressed within the broader discussions on AI. The term is grouped with other considerations like privacy, explainability, safety, and sustainability but does not receive a detailed, clear definition in the provided text. Therefore, there is no explicit definition of the term \"ethical\" provided by the author in this passage."
+        },
+        {
+            "id": "87",
+            "name": "Responsible AI and analytics for an ethical and inclusive digitized society",
+            "URL": "https://uia.brage.unit.no/uia-xmlui/bitstream/handle/11250/2987440/article.pdf?sequence=5",
+            "answer": "The author does not give a definition, doesn't mention the keyword, or gives a very unclear definition."
+        },
+        {
+            "id": "88",
+            "name": "Resolving ethics trade-offs in implementing responsible AI",
+            "URL": "https://arxiv.org/pdf/2401.08103",
+            "answer": "The term \"ethical\" within the context of this passage is not explicitly defined by the author. The passage primarily discusses the trade-offs and management of various AI ethics aspects, such as accuracy, privacy, fairness, and explainability. The term and a clear, concise definition of \"ethical\" in the given text are absent."
+        },
+        {
+            "id": "89",
+            "name": "Establishing data provenance for responsible artificial intelligence systems",
+            "URL": "https://kups.ub.uni-koeln.de/53868/1/TMIS_manuscript_DataProvenance.pdf",
+            "answer": "The keyword \"ethical\" is not mentioned, nor is it defined within the context of the provided passage."
+        },
+        {
+            "id": "90",
+            "name": "Fair and Responsible AI: A focus on the ability to contest",
+            "URL": "https://arxiv.org/pdf/2102.10787",
+            "answer": "The keyword \"ethical\" is not mentioned or defined in the given text."
+        },
+        {
+            "id": "92",
+            "name": "The use of responsible artificial intelligence techniques in the context of loan approval processes",
+            "URL": "https://erasmopurif.com/assets/pdf/publications/2022_IJHCI.pdf",
+            "answer": "In the context of the passage, the keyword \"ethical\" refers to the alignment of AI systems with society\u2019s ethical principles, which is crucial even in situations where no specific regulations exist. Ethical AI ensures adherence to fundamental human principles and values, promoting human flourishing and well-being in a sustainable world. The article emphasizes that for AI to be trustworthy, it should respect human autonomy, prevent harm, be fair, and provide clear explanations for its decisions."
+        },
+        {
+            "id": "93",
+            "name": "Responsible AI: Gender bias assessment in emotion recognition",
+            "URL": "https://arxiv.org/pdf/2103.11436",
+            "answer": "In the context of this passage, the term \"ethical\" is closely related to the principles and guidelines established for ensuring Artificial Intelligence (AI) systems operate in a trustworthy manner. This includes adherence to fairness, respect for human autonomy, prevention of harm, and explicability. Ethical AI systems are expected to behave in ways that are lawful, robust, and considerate of moral rules to avoid interference with human rights, achieve accountability, and maintain social justice."
+        },
+        {
+            "id": "94",
+            "name": "Responsible AI in Africa: challenges and opportunities",
+            "URL": "https://library.oapen.org/bitstream/handle/20.500.12657/60787/978-3-031-08215-3.pdf?sequence=1",
+            "answer": "The text does not mention the keyword \"ethical\" or provide a definition for it."
+        },
+        {
+            "id": "95",
+            "name": "Causal learning for socially responsible AI",
+            "URL": "https://arxiv.org/pdf/2104.12278",
+            "answer": "In the passage provided, the author does not give a definition for the term \"ethical.\" The term is not mentioned within the context of this text, and as such, no definition can be identified or stated."
+        },
+        {
+            "id": "96",
+            "name": "RAISE: leveraging responsible AI for service excellence",
+            "URL": "https://cba.lmu.edu/media/lmucollegeofbusinessadministration/documents/RAISE_2024.pdf",
+            "answer": "In the given text, the keyword \"ethical\" refers to the principles of privacy, transparency, accountability, justice and fairness, and non-maleficence. The authors emphasize the need for responsible AI deployment that respects human rights and prioritizes societal well-being. The term \"ethical\" aligns with globally evolving AI ethics guidelines and Sustainable Development Goals, aiming to ensure AI contributes positively to society while mitigating risks such as biases and privacy violations."
+        },
+        {
+            "id": "100",
+            "name": "A Rapid Review of Responsible AI frameworks: How to guide the development of ethical AI",
+            "URL": "https://arxiv.org/pdf/2306.05003",
+            "answer": "The keyword \"ethical\" is mentioned briefly in the context of Responsible Artificial Intelligence (RAI) and its principles, but it is not explicitly defined in the provided passage. Instead, the concept of \"Responsible AI\" is elaborated on, focusing on intelligent algorithms that prioritize the needs of all stakeholders. Therefore, the author does not give a detailed or clear definition of \"ethical\" in this context."
+        },
+        {
+            "id": "101",
+            "name": "Macro Ethics Principles for Responsible AI Systems: Taxonomy and Directions",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3672394",
+            "answer": "The term \"ethical\" in the context of this passage refers to operationalisable rules inferred from philosophical theories which imply logical propositions denoting moral acceptability. Ethical principles are normative in nature, meaning they are prescriptive about how things should be, and guide normative judgements to determine the moral permissibility of actions. These principles are abstract yet provide a framework for guiding judgement and action in a range of situations to enhance accountability and reasoned ethical decision-making in the development and deployment of AI systems."
+        },
+        {
+            "id": "103",
+            "name": "Ethical implications of artificial intelligence in accounting: A framework for responsible ai adoption in multinational corporations in Jordan",
+            "URL": "http://growingscience.com/ijds/Vol8/ijdns_2023_162.pdf",
+            "answer": "The term \"ethical\" in the context of this passage refers to the adherence to principles that ensure the responsible and morally acceptable use of artificial intelligence in accounting practices. This includes prioritizing transparency, fairness, accountability, and the protection of sensitive data. The term emphasizes the importance of ethical considerations such as mitigating algorithmic bias, ensuring data security, and maintaining the integrity and impartiality of AI-driven decisions within multinational corporations."
+        },
+        {
+            "id": "104",
+            "name": "A decentralized approach towards responsible ai in social ecosystems",
+            "URL": "https://ojs.aaai.org/index.php/ICWSM/article/download/19274/19046",
+            "answer": "The author does not provide a clear definition of the term \"ethical\" within the context of this passage."
+        },
+        {
+            "id": "105",
+            "name": "Strategies for Increasing Corporate Responsible AI Prioritization",
+            "URL": "https://arxiv.org/pdf/2405.03855",
+            "answer": "The text does not provide a clear, specific definition of the keyword \"ethical.\""
+        },
+        {
+            "id": "106",
+            "name": "Professionally responsible artificial intelligence",
+            "URL": "https://digitalcommons.law.uw.edu/cgi/viewcontent.cgi?article=1540&context=faculty-articles",
+            "answer": "The keyword \"ethical\" is not mentioned or defined in the provided text."
+        },
+        {
+            "id": "109",
+            "name": "Responsible AI challenges in end-to-end machine learning",
+            "URL": "https://arxiv.org/pdf/2101.05967",
+            "answer": "The keyword \"ethical\" is not mentioned in the passage provided. Hence, there is no definition for \"ethical\" within the context of this text."
+        },
+        {
+            "id": "111",
+            "name": "Human-Centered Responsible Artificial Intelligence: Current & Future Trends",
+            "URL": "https://arxiv.org/pdf/2302.08157",
+            "answer": "In the context of this passage, \"ethical\" in AI involves socio-cultural and technical factors and encompasses responsible AI values such as transparency, fairness, explainability, accountability, autonomy, sustainability, and trust. It denotes the principles and standards that govern the development and deployment of AI systems to ensure they are aligned with human rights and reduce potential harms. Different stakeholders may prioritize these ethical values differently, reflecting diverse perspectives on what is essential for responsible AI."
+        },
+        {
+            "id": "112",
+            "name": "Five Ps: Leverage zones towards responsible AI",
+            "URL": "https://arxiv.org/pdf/2205.01070",
+            "answer": "The keyword \"ethical\" in the context of this passage refers to the moral principles governing the appropriate and fair development, deployment, and management of AI systems. It specifically highlights the importance of addressing the social and political dimensions of AI management, ensuring fairness, accountability, and minimizing bias in AI operations to prevent unethical practices. Ethics in AI involve both the adherence to high-level principles and the avoidance of superficial efforts that serve merely to enhance corporate image without effecting meaningful change."
+        },
+        {
+            "id": "114",
+            "name": "\u201cIt is currently hodgepodge\u201d: Examining AI/ML Practitioners' Challenges during Co-production of Responsible AI Values",
+            "URL": "https://dl.acm.org/doi/pdf/10.1145/3544548.3580903",
+            "answer": "In this passage, the term \"ethical\" refers to the integration of ethical values and principles within the development and application of AI/ML systems, ensuring that these technologies do not cause harm and uphold various societal and humanistic values. This encompasses values like fairness, transparency, accountability, inclusion, and non-maleficence, promoting responsible innovation that aligns with broader community and human values. The paper highlights the importance of embedding these ethical values early in the AI/ML lifecycle and the challenges associated with prioritizing and operationalizing them in practice."
+        },
+        {
+            "id": "115",
+            "name": "Towards socially responsible ai: Cognitive bias-aware multi-objective learning",
+            "URL": "https://aaai.org/ojs/index.php/AAAI/article/download/5654/5510",
+            "answer": "The author does not provide a clear definition of the term \"ethical\" within the context of the passage."
+        },
+        {
+            "id": "120",
+            "name": "On the Road to Designing Responsible AI Systems in Military Cyber Operations",
+            "URL": "https://papers.academic-conferences.org/index.php/eccws/article/download/204/358",
+            "answer": "The term **ethical** is not explicitly defined by the author within the provided passage. The passage discusses the integration of ethical aspects in designing Responsible AI (RAI) systems for military Cyber Operations but does not offer a concrete definition of \"ethical\" itself."
+        },
+        {
+            "id": "123",
+            "name": "Responsible artificial intelligence in agriculture requires systemic understanding of risks and externalities",
+            "URL": "https://biblio.iita.org/documents/S22ArtTzachorResponsibleInthomNodev.pdf-7534ce8347d769bedd90ac59f392cc87.pdf",
+            "answer": "The passage does not provide a definition or mention the keyword \"ethical.\""
+        },
+        {
+            "id": "124",
+            "name": "Responsible artificial intelligence in Sub-Saharan Africa: landscape and general state of play",
+            "URL": "https://idl-bnc-idrc.dspacedirect.org/bitstream/10625/59997/1/739b3b9a-6a8a-4b32-8db8-291cb621d2dd.pdf",
+            "answer": "Within the context of the passage, \"ethical\" refers to the principles involved in ensuring that AI technologies are used in a manner that upholds transparency, accountability, and consistency with user expectations, organizational values, and societal laws and norms."
+        },
+        {
+            "id": "128",
+            "name": "Responsible AI for Earth Observation",
+            "URL": "https://arxiv.org/pdf/2405.20868",
+            "answer": "In the context of this passage, \"ethical\" refers to the guidelines and standards that govern the maintenance of scientific excellence, data availability, and the guidance of AI usage in the context of Earth Observation (EO) research and applications. Ethical considerations ensure that AI systems are designed and deployed responsibly, addressing issues like fairness, transparency, privacy, and societal impact. This ensures that the AI applications in EO not only adhere to technical standards but also align with broader societal values and principles."
+        },
+        {
+            "id": "129",
+            "name": "A Scoping Study of Evaluation Practices for Responsible AI Tools: Steps Towards Effectiveness Evaluations",
+            "URL": "https://arxiv.org/pdf/2401.17486",
+            "answer": "In the context of this passage, the keyword \"ethical\" refers to issues and principles concerning fairness, accountability, transparency, and equity in artificial intelligence (AI) development and deployment. Specifically, ethical issues in AI encompass identifying and mitigating potential societal impacts, such as discrimination and exacerbation of societal inequities, throughout the development and deployment of AI systems."
+        },
+        {
+            "id": "132",
+            "name": "Responsible AI practice and AI education are central to AI implementation: a rapid review for all medical imaging professionals in Europe",
+            "URL": "https://academic.oup.com/bjro/article-pdf/5/1/20230033/54224346/bjro.20230033.pdf",
+            "answer": "In the context of this passage, **ethical** refers to the principles guiding the use and implementation of AI in healthcare to ensure it is responsible and just. This includes maintaining standards such as beneficence (doing good), non-maleficence (avoiding harm), data privacy, informed consent, fairness and equity, accountability in decision-making, and transparency and explainability. These ethical standards help to enhance patient care, foster societal trust, and ensure that AI technologies are used in a manner that respects the dignity and rights of all stakeholders involved."
+        },
+        {
+            "id": "141",
+            "name": "Making Responsible AI the Norm rather than the Exception",
+            "URL": "https://arxiv.org/pdf/2101.11832",
+            "answer": "The text does not provide a definition of the term \"ethical.\" Therefore, no definition for the keyword \"ethical\" is available within the provided passage."
+        },
+        {
+            "id": "142",
+            "name": "Responsible AI: Portraits with Intelligent Bibliometrics",
+            "URL": "https://arxiv.org/pdf/2405.02846",
+            "answer": "In the provided passage, the term \"ethical\" (in the context of AI ethics or ethical AI) transcends the boundaries of the AI community and involves intensive societal interactions among academia, industry, government, and the public. It encapsulates the collective understanding and societal expectations regarding AI and its applications, emphasizing core ethical principles such as transparency, justice & fairness, non-maleficence, responsibility, privacy, beneficence, freedom & autonomy, trust, sustainability, dignity, and solidarity."
+        },
+        {
+            "id": "146",
+            "name": "Towards a responsible AI development lifecycle: Lessons from information security",
+            "URL": "https://arxiv.org/pdf/2203.02958",
+            "answer": "The keyword \"ethical\" in this passage refers to the principles and practices employed to minimize potential harms caused by artificial intelligence (AI) systems. This includes incorporating fairness metrics, interpretability, and explainability to ensure that AI systems are developed and deployed responsibly, with an emphasis on protecting users from both allocative and representational harms. Ethical AI development involves implementing strategies from information security like threat modeling, design review, and penetration testing to address and mitigate these potential harms effectively."
+        },
+        {
+            "id": "149",
+            "name": "Responsible AI and the Arts: The Ethical and Legal Implications of AI in the Arts and Creative Industries",
+            "URL": "https://ora.ox.ac.uk/objects/uuid:a803ecc0-c8cc-42a0-be17-848334dc3cf5/files/r5d86p1015",
+            "answer": "The text does not provide a clear, detailed definition of the term \"ethical.\""
+        }
+    ]
+}
