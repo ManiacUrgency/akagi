@@ -149,11 +149,3 @@ def main(input_dir, output_json, term, prompt):
         json.dump(papers, outfile, indent=4)
     print(f"Results written to JSON file: {output_json}")
 
-# Directory Path
-input_dir = "responsible_ai_research_papers"
-
-
-prompt = DEFAULT_TEMPLATE
-output_json = "output_definitions_json/responsible_ai_definitions.json"
-term = "Responsible Artificial Intelligence"
-main(input_dir, output_json, term, prompt)

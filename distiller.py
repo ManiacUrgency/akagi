@@ -2,7 +2,12 @@ import os
 import json
 import csv
 from prompt_templates.distiller_constants import *
+'''
+This script is supposed to generate a synthesize definition of Responsible AI along with identifying the "keywords" or subpillars
+used to define Responsible AI.
 
+***This script needs to be split into two scripts one defining the other identifying. A new prompt needs to be crafted.***
+'''
 def main():
     from langchain_openai import ChatOpenAI
 

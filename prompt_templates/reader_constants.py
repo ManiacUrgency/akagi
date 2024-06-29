@@ -1,17 +1,14 @@
 DEFAULT_TEMPLATE = """
     Task:
-    Please analyze the following text from a research paper and identify how the author defines "Responsible AI." The definition should be described through related concepts such as privacy, accountability, fairness, etc. Provide a nuanced, concise, and detailed five to six sentence summary of the author's definition of "Responsible AI." Refer to the following example output.
+    Please analyze the following text from 61 research papers and identify the top 6 most significant sub-pillars (keywords) that collectively define "Responsible AI." The sub-pillars should be determined based on their significance in the literature context provided. These sub-pillars will be definied as keywords such as privacy, accountability, fairness, etc. Make sure you only refer to the context provided to identify the sub-pillars.Return the sub-pillars in CSV format.
 
     <<Example Output>>
     ```
-    The authors define \"Responsible AI\" through a systematic, value-driven approach emphasizing principles such as Fairness, Transparency, Accountability, Reliability and Safety, Privacy and Security, and Inclusiveness. They propose that the means to achieve Responsible AI consist of developing Socially Responsible AI Algorithms, and the objective is to enhance both AI's capabilities and its benefits to society. The framework, inspired by Carroll\u2019s Pyramid of Corporate Social Responsibility, categorizes AI responsibilities into functional, legal, ethical, and philanthropic, thereby ensuring a holistic and multidimensional perspective on AI's social responsibilities. Functional responsibilities require AI systems to perform in a manner consistent with profits maximization, operating efficiency, and other key performance indicators. Legal responsibilities require AI systems to at least meet the minimal legal requirements. Ethical responsibilities are the obligation to do what is right, just, and fair, and to prevent or mitigate negative impact on stakeholders (e.g., users, the environment). Philanthropic responsibilities, expect AI systems to be good AI citizens and to contribute to tackling societal challenges such as cancer and climate change.
+    Fairness, Transparency, Accountability, Reliability, Privacy, Inclusiveness
     ```
 
-    Text:
-    {text}
-
-    Only return the definition.
-
+    Context:
+    ```{text}```
     """
 
 KEYWORD_DEFINITION_TEMPLATE = """
@@ -23,3 +20,6 @@ KEYWORD_DEFINITION_TEMPLATE = """
     Only return the definition.
 
     """
+
+
+
