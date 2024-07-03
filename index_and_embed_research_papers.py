@@ -90,14 +90,27 @@ def main():
     index_name = "research-papers"
     index = initialize_pinecone(PINECONE_API_KEY, index_name)
 
-    # Initialize hash map
-    hash_map = {"papers": []}
+    # Read existing hash map from JSON file
+    if os.path.exists("hash_map.json"):
+        try:
+            with open("hash_map.json", "r") as infile:
+                content = infile.read().strip()
+                if content:
+                    hash_map = json.loads(content)
+                else:
+                    hash_map = {"papers": []}
+        except (json.JSONDecodeError, ValueError):
+            # Handle empty or malformed JSON file
+            hash_map = {"papers": []}
+    else:
+        hash_map = {"papers": []}
 
     # Process JSON and create embeddings
     json_file_path = "headings_with_text.json"
     process_json_and_create_embeddings(json_file_path, embed, index, hash_map)
 
-    # Save hash map to JSON file
+    # Save updated hash map to JSON file
     with open("hash_map.json", "w") as outfile:
         json.dump(hash_map, outfile, indent=4)
 
+main()

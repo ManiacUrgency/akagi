@@ -1,136 +1,106 @@
 import os
-import json
-import re
-from pdfminer.high_level import extract_text_to_fp
-from pdfminer.layout import LAParams
-from io import StringIO
-from langchain_openai import ChatOpenAI
-from langchain.prompts import PromptTemplate
-import tiktoken
+import requests
+import tempfile
+from pdfminer.high_level import extract_pages
+from pdfminer.layout import LTTextBoxHorizontal, LTTextLineHorizontal, LTChar
 
-# Define file paths
-file_path = os.path.dirname(os.path.realpath(__file__))
-pdf_path = os.path.join(file_path, 'XAI.pdf')
-output_file = 'RAI_paper.json'
-debug_file = 'RAI_extracted_text.txt'
-cleaned_output_file_json = 'RAI_cleaned_paper.json'
-cleaned_output_file_txt = 'RAI_cleaned_paper.txt'
+def extract_text_with_attributes(pdf_path):
+    text_elements = []
 
-# Create a string buffer
-output_string = StringIO()
+    for page_layout in extract_pages(pdf_path):
+        for element in page_layout:
+            if isinstance(element, LTTextBoxHorizontal):
+                for text_line in element:
+                    if isinstance(text_line, LTTextLineHorizontal):
+                        # Check if any character in the text line is rotated
+                        is_rotated = any(abs(round(char.matrix[1])) != 0 for char in text_line if isinstance(char, LTChar))
+                        if is_rotated:
+                            continue  # Ignore rotated text lines
 
-# Define layout analysis parameters
-laparams = LAParams(
-    line_overlap=0.5,
-    char_margin=2.0,
-    line_margin=0.5,
-    word_margin=0.1,
-    boxes_flow=0.5,
-    detect_vertical=False,
-    all_texts=False  # Set to False to ignore non-text elements
-)
+                        for char in text_line:
+                            if isinstance(char, LTChar):
+                                char_data = {
+                                    "text": char.get_text(),
+                                    "font_size": char.size,
+                                    "fontname": char.fontname,
+                                    "x0": char.x0,
+                                    "x1": char.x1,
+                                    "y0": char.y0,
+                                    "y1": char.y1,
+                                }
+                                text_elements.append(char_data)
 
-# Extract text
-try:
-    with open(pdf_path, 'rb') as fp:
-        extract_text_to_fp(fp, output_string, laparams=laparams)
-    extracted_text = output_string.getvalue()
-    print("Extracted text:", extracted_text[:1000])  # Print first 1000 characters for debug
-except Exception as e:
-    print(f"Error extracting text: {e}")
+    return text_elements
 
-# Save extracted text to a debug file
-try:
-    with open(debug_file, 'w') as f:
-        f.write(extracted_text)
-except Exception as e:
-    print(f"Error saving debug file: {e}")
+def determine_common_text_attributes(text_elements):
+    font_sizes = {}
+    font_names = {}
 
-# Save extracted text to a JSON file with the specified structure
-try:
-    with open(output_file, 'w') as f:
-        json.dump({"paper_title": "", "subtitles": [], "text": extracted_text}, f, indent=4)
-except Exception as e:
-    print(f"Error saving output JSON file: {e}")
+    for element in text_elements:
+        if element["font_size"]:
+            font_sizes[element["font_size"]] = font_sizes.get(element["font_size"], 0) + 1
+        if element["fontname"]:
+            font_names[element["fontname"]] = font_names.get(element["fontname"], 0) + 1
 
-print(f"Text extracted to {debug_file} and saved as JSON to {output_file}")
+    common_font_size = round(max(font_sizes, key=font_sizes.get))
+    common_fontname = max(font_names, key=font_names.get)
 
-def clean_text(text):
-    # Remove non-alphanumeric characters except spaces and basic punctuation
-    text = re.sub(r'[^a-zA-Z0-9\s.,;?!]', '', text)
+    return common_font_size, common_fontname
+
+def save_text_elements_to_txt(text_elements, output_path, common_font_size, common_fontname):
+    with open(output_path, 'w') as txt_file:
+        previous_x1 = None
+        for element in text_elements:
+            char = element["text"]
+            font_size = round(element["font_size"])
+
+            if font_size < common_font_size:
+                continue
+
+            if previous_x1 is not None and element["x0"] > previous_x1 + 1:
+                txt_file.write(" ")
+
+            txt_file.write(char)
+            previous_x1 = element["x1"]
+
+def download_pdf(url):
+    print(f"Downloading PDF from URL: {url}")
+    HEADERS = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1'
+    }
+    session = requests.Session()
+    session.headers.update(HEADERS)
     
-    # Remove repetitive words
-    text = re.sub(r'\b(\w+)( \1\b)+', r'\1', text)
-    
-    # Correct simple grammar and punctuation mistakes
-    text = text.replace(' ,', ',')
-    text = text.replace(' .', '.')
-    text = text.replace(' ;', ';')
-    text = text.replace(' ?', '?')
-    text = text.replace(' !', '!')
-    
-    return text
+    try:
+        response = session.get(url, stream=True)
+        response.raise_for_status()
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
+        temp_file.write(response.content)
+        temp_file.close()
+        print(f"PDF downloaded and saved to: {temp_file.name}")
+        return temp_file.name
+    except requests.exceptions.RequestException as e:
+        print(f"Failed to download PDF from URL: {url}. Error: {e}")
+        raise Exception(f"Failed to download PDF. Status code: {response.status_code}")
 
-def split_into_chunks(text, max_tokens=2000):
-    tokenizer = tiktoken.get_encoding("cl100k_base")
-    tokens = tokenizer.encode(text)
+def main(pdf_url):
+    output_path = "raw_text.txt"
 
-    for i in range(0, len(tokens), max_tokens):
-        chunk_tokens = tokens[i:i + max_tokens]
-        yield tokenizer.decode(chunk_tokens)
+    pdf_path = download_pdf(pdf_url)
+    text_elements = extract_text_with_attributes(pdf_path)
+    common_font_size, common_fontname = determine_common_text_attributes(text_elements)
 
-# Clean the text
-cleaned_text = clean_text(extracted_text)
+    print("common font size: ", common_font_size)
+    print("common font name: ", common_fontname)
 
-# Split the cleaned text into chunks
-chunks = list(split_into_chunks(cleaned_text))
-total_chunks = len(chunks)
+    save_text_elements_to_txt(text_elements, output_path, common_font_size, common_fontname)
 
-# Load OpenAI API key from environment variable
-OPENAI_API_QUERY_KEY = os.getenv("OPENAI_API_QUERY_KEY")
+    print(f"Character-by-character text extraction saved to {output_path}")
+    os.remove(pdf_path)
+    print(f"Temporary PDF file removed: {pdf_path}")
 
-# Initialize the OpenAI API client
-query_llm = ChatOpenAI(
-    openai_api_key=OPENAI_API_QUERY_KEY,
-    model_name='gpt-3.5-turbo-0125',
-    temperature=0.7,
-    streaming=True
-)
-
-# Define the prompt template
-prompt_template = """Clean the provided text by removing instances of gibberish, which include scrambled letters, nonsensical combinations, random words, and repetitive sequences of numbers without context. Ensure all titles, headers, and numbered sections are preserved exactly as they appear, without altering any part of the text except for obvious instances of gibberish or repetitive words. The output should solely consist of the cleaned text, maintaining the original formatting and structure without any additional introductions or formatting changes. Here are some examples of gibberish:
-
-1. alsdfjll
-2. [5, 10, 24, 32, 33, 34, 35, 36, 37]
-3. (love)(love)(love)
-4. Https/love
-5. 23applesalsdfjlj124
-
-Here is the text:
-```{text}```
-"""
-
-# Process each chunk using OpenAI API with progress tracking
-final_cleaned_text = ""
-for i, chunk in enumerate(chunks):
-    prompt = prompt_template.format(text=chunk)
-    response = query_llm.invoke(prompt)
-    final_cleaned_text += response.content + " "
-    print(f"Processed chunk {i+1}/{total_chunks}")
-
-# Save final cleaned text to a JSON file
-try:
-    cleaned_research_papers = [{"paper_title": "", "subtitles": [], "text": final_cleaned_text.strip()}]
-    with open(cleaned_output_file_json, 'w') as f:
-        json.dump({"research_papers": cleaned_research_papers}, f, indent=4)
-    print(f"Cleaned text saved as JSON to {cleaned_output_file_json}")
-except Exception as e:
-    print(f"Error saving cleaned output JSON file: {e}")
-
-# Save final cleaned text to a text file
-try:
-    with open(cleaned_output_file_txt, 'w') as f:
-        f.write(final_cleaned_text.strip())
-    print(f"Cleaned text saved as TXT to {cleaned_output_file_txt}")
-except Exception as e:
-    print(f"Error saving cleaned output TXT file: {e}")

@@ -39,6 +39,7 @@ with open(csv_file_path, 'r') as csvfile:
             heading_extractor_main(title, authors, publication_info, publication_year, url)
             extract_text_under_headings_main()
             index_and_embed_research_papers_main()
+
             successes += 1
         except Exception as e:
             num_errors += 1
