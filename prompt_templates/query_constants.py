@@ -32,7 +32,7 @@ As black-box Machine Learning (ML) models are increasingly being employed to mak
 [1] A. Preece, D. Harborne, D. Braines, R. Tomsett, S. Chakraborty. Stakeholders in Explainable AI.
 ```
 
-Ensure all your responses follow this structure to maintain zero hallucinations.
+Ensure all your responses are detailed, clear, and concise, following this structure to maintain zero hallucinations.
 
 Here is the user question:
 ```{question}```
@@ -72,7 +72,8 @@ As black-box Machine Learning (ML) models are increasingly being employed to mak
 [3] E. Tjoa, C. Guan, A survey on explainable artificial intelligence (XAI): Towards medical XAI (2019). arXiv:1907.07374.
 ```
 
-Ensure all your responses follow this structure to maintain zero hallucinations.
+Ensure all your responses are detailed, clear, and concise, following this structure to maintain zero hallucinations.
+
 Here is the user question:
 ```{question}```
 
