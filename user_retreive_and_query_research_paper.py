@@ -9,10 +9,6 @@ from langchain.prompts import PromptTemplate
 
 from prompt_templates.query_constants import *
 
-# Load the JSON hash map
-with open("hash_map.json", "r") as file:
-    hash_map = json.load(file)
-
 # Initialize OpenAI embeddings and Pinecone
 def initialize_openai_embeddings(model_name, api_key):
     return OpenAIEmbeddings(model=model_name, openai_api_key=api_key)
@@ -42,14 +38,14 @@ def get_text_by_id(chunk_id, hash_map):
     for paper in hash_map["papers"]:
         for chunk in paper["chunks"]:
             if chunk["id"] == chunk_id:
-                text = chunk["text"] + "\n" + chunk["reference"]
+                text = "<text> " + chunk["text"] + "</text>\n<reference>" + chunk["reference"] + "</reference>"
 
                 print("\nDOCUMENT:\n", text)
                 return text
     return ""
 
 # Function to handle queries
-async def handle_query(query, retriever, prompt, llm):
+async def handle_query(query, retriever, prompt, llm, hash_map):
     id_and_metadata_dict = retriever.invoke(query)
 
     print("\n\nId and Metadata: ", id_and_metadata_dict, "\n\n")
@@ -66,13 +62,14 @@ async def handle_query(query, retriever, prompt, llm):
 
     
     request = prompt.format(context=context.strip(), question=query)
-    
+    print("\n\nPrompt AFTER formatting:\n", request)
+
     print("\n\n\nAI Response: \n")
     async for chunk in stream_llm_responses(llm, request):
         print(chunk, end="")
 
 # Main function to perform retrieval-augmented generation
-async def retrieval_augmented_generation():
+async def retrieval_augmented_generation(hash_map):
     # Initialize OpenAI embeddings
     OPENAI_API_EMBEDDINGS_KEY = os.environ["OPENAI_API_EMBEDDINGS_KEY"]
     embed = initialize_openai_embeddings("text-embedding-3-large", OPENAI_API_EMBEDDINGS_KEY)
@@ -101,6 +98,7 @@ async def retrieval_augmented_generation():
         template=MULTIPLE_REFERENCES_RESPONSE_TEMPLATE
     )
 
+    print("\n\nPrompt BEFORE formatting:\n", prompt)
     while True:
         query = input("\n>>> ")
         if query.lower() == "quit":
@@ -108,11 +106,15 @@ async def retrieval_augmented_generation():
         
         retriever = setup_retriever(vectorstore)
         
-        await handle_query(query, retriever, prompt, query_llm)
+        await handle_query(query, retriever, prompt, query_llm, hash_map)
 
 # Define the async function to run the main logic
 async def main():
-    await retrieval_augmented_generation()
+    file_path = os.path.dirname(os.path.realpath(__file__))
+    json_file_path = file_path + "/hash_map.json"
+    with open(json_file_path, "r") as file:
+        hash_map = json.load(file)
+    await retrieval_augmented_generation(hash_map)
 
 # Run the main function
 asyncio.run(main())

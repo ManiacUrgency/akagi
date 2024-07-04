@@ -2,15 +2,11 @@ import os
 import requests
 import tempfile
 import json
-import logging
 from collections import Counter
 from pdfminer.high_level import extract_pages
 from pdfminer.layout import LTTextBoxHorizontal, LTTextLineHorizontal, LTPage, LTChar
 import string
 
-# Configure logging
-logging.basicConfig(filename='pdf_extraction.log', level=logging.DEBUG,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 # List of Roman numerals
 roman_numerals = [
@@ -22,7 +18,6 @@ roman_numerals = [
 def is_same_line(current_y0, previous_y0):
     if current_y0 is None or previous_y0 is None:
         print("Last line of text.")
-        logging.debug("Last line of text.")
     else:
         return abs(previous_y0 - current_y0) < 0.5
     
@@ -37,19 +32,12 @@ def count_digits_in_line(text_elements, start_index, common_fontname, digits):
     # print("\n\ncurrent_y0: ", text_elements[i]["y0"])
     # print("next_y0: ", next_y0)
     # print("Line Changed (TF): ", is_same_line(text_elements[i]["y0"], next_y0))
-    # logging.debug("\n\ncurrent_y0: %s", text_elements[i]["y0"])
-    # logging.debug("next_y0: %s", next_y0)
-    # logging.debug("Line Changed (TF): %s", is_same_line(text_elements[i]["y0"], next_y0))
-    
     while i < len(text_elements) and is_same_line(text_elements[i]["y0"], next_y0) and text_elements[i]["fontname"] != common_fontname:
         # print("\n\ncurrent_y0: ", text_elements[i]["y0"])
         # print("next_y0: ", next_y0)
         # print("Line Changed (TF): ", is_same_line(text_elements[i]["y0"], next_y0))
         next_y0 = text_elements[i+1]["y0"]
         # print("Digit Counting... Layer 1 Passed")
-        # logging.debug("\n\ncurrent_y0: %s", text_elements[i]["y0"])
-        # logging.debug("next_y0: %s", next_y0)
-        # logging.debug("Line Changed (TF): %s", is_same_line(text_elements[i]["y0"], next_y0))
         if text_elements[i]["text"] in digits:
             digit_count += 1
         i += 1
@@ -120,15 +108,11 @@ def check_no_normal_text_on_line(start_index, current_y0, text_elements, common_
 def filter_number_headings(text_elements, common_font_size, second_common_font_size, common_fontname, headings, digits):
 
     print("Running Filter Number Headings")
-    logging.debug("Running Filter Number Headings")
     temp_heading = ""
     heading_detected = False
     print("common font name: ", common_fontname)
     print("commmon font size: ", common_font_size)
     print("text elements length: ", len(text_elements))
-    logging.debug("common font name: %s", common_fontname)
-    logging.debug("commmon font size: %s", common_font_size)
-    logging.debug("text elements length: %s", len(text_elements))
     
     abstract_found = False 
     j = 0
@@ -140,7 +124,6 @@ def filter_number_headings(text_elements, common_font_size, second_common_font_s
         previous_y0 = text_elements[j-1]["y0"] if j > 0 else None
         num_digits = None
 
-        
         if font_name != common_fontname and (is_same_line(current_y0, previous_y0) == False):
             if check_no_normal_text_on_line(j, text_elements[j]["y0"], text_elements, common_fontname):
                 temp = ""
@@ -152,7 +135,6 @@ def filter_number_headings(text_elements, common_font_size, second_common_font_s
                     headings.append(temp.strip())
                     abstract_found = True
                     print("\n---------------Starting!!!----------------\n")
-                    logging.debug("\n---------------Starting!!!----------------\n")
                     break
         j += 1
 
@@ -168,7 +150,6 @@ def filter_number_headings(text_elements, common_font_size, second_common_font_s
                 headings.append("Abstract")
                 print("\nNo Abstract title\n")
                 print("\n---------------Starting!!!----------------\n")
-                logging.debug("\n---------------Starting!!!----------------\n")
                 break
             k += 1
         j = 0
@@ -192,7 +173,6 @@ def filter_number_headings(text_elements, common_font_size, second_common_font_s
                 if temp.strip().lower() == "references":
                     headings.append(temp.strip())
                     print("---------------Breaking!!!----------------")
-                    logging.debug("---------------Breaking!!!----------------")
                     break
         
         if font_size < common_font_size:
@@ -203,12 +183,10 @@ def filter_number_headings(text_elements, common_font_size, second_common_font_s
             heading_detected = True
             num_digits = count_digits_in_line(text_elements, i, common_fontname, digits)
             # print("\nnum digits: ", num_digits, "\n")
-            logging.debug("\nnum digits: %s\n", num_digits)
-
             if num_digits == 1:
                 if check_no_normal_text_on_line(i, current_y0, text_elements, common_fontname):
                     print("----------Digit 1 Activation----------")
-                    logging.debug("----------Digit 1 Activation----------")
+                    
                     j = i
                     while j < len(text_elements) and text_elements[j]["fontname"] != common_fontname:
                         if previous_x1 is not None and text_elements[j]["x0"] > previous_x1 + 1:
@@ -220,7 +198,7 @@ def filter_number_headings(text_elements, common_font_size, second_common_font_s
             elif num_digits == 2:
                 if check_no_normal_text_on_line(i, current_y0, text_elements, common_fontname):
                     print("----------Digit 2 Activation----------")
-                    logging.debug("----------Digit 2 Activation----------")
+                    
                     j = i
                     while j < len(text_elements) and text_elements[j]["fontname"] != common_fontname:
                         if previous_x1 is not None and text_elements[j]["x0"] > previous_x1 + 1:
@@ -231,7 +209,7 @@ def filter_number_headings(text_elements, common_font_size, second_common_font_s
                     i = j
             elif num_digits == 3:
                 print("----------Digit 3 Activation----------")
-                logging.debug("----------Digit 3 Activation----------")
+                
                 j = i
                 while j < len(text_elements) and text_elements[j]["fontname"] != common_fontname:
                     if previous_x1 is not None and text_elements[j]["x0"] > previous_x1 + 1:
@@ -242,19 +220,18 @@ def filter_number_headings(text_elements, common_font_size, second_common_font_s
                 i = j
 
         # print("Same line? ", is_same_line(text_elements[i]["y0"], previous_y0))
-        # logging.debug("Same line? %s", is_same_line(text_elements[i]["y0"], previous_y0))
         if heading_detected and i < len(text_elements) and not is_same_line(text_elements[i]["y0"], previous_y0) and len(temp_heading.strip()) > 0 and any(char.isalpha() for char in temp_heading):
             print("Adding Heading")
-            logging.debug("Adding Heading")
+            
             heading_detected = False
             print("\ntemp heading: ", temp_heading)
-            logging.debug("\ntemp heading: %s", temp_heading)
+            
             headings.append(temp_heading.strip())
             temp_heading = ""
         i += 1
     
     # print("\n\n\nHeadings: ", headings, "\n\n\n")
-    logging.debug("\n\n\nHeadings: %s\n\n\n", headings)
+    
     return headings
 
 def is_roman_numeral(text):
@@ -262,9 +239,7 @@ def is_roman_numeral(text):
     
 def detect_roman_numeral(start_index, text_elements):
     # print("start index: ", start_index)
-    # logging.debug("start index: %s", start_index)
     i = start_index
-
     current_y0 = text_elements[i]["y0"]
     next_y0 = text_elements[i+1]["y0"]
     text = ""
@@ -281,25 +256,22 @@ def detect_roman_numeral(start_index, text_elements):
             while h < i:
                 print("\n", text_elements[h], end = "")
                 h += 1
-            logging.debug("Roman Numeral: %s, character after roman numeral: %s", text, text_elements[i]["text"])
+            
             # print(text, "\n", text_elements[i-1]["text"], end = "")
             print(text_elements[i], end = "")
             z = i+1
             while z < i + 50:
                 print("\n", text_elements[z], end = "")
                 z += 1
-            logging.debug("Roman Numeral: %s, character after roman numeral: %s", text, text_elements[i]["text"])
-
+            
             k = i+1
             while is_same_line(text_elements[k]["y0"], text_elements[k-1]["y0"]):
                 # print("text: ", text_elements[k]["text"])
-                logging.debug("text: %s", text_elements[k]["text"])
+                
                 if (text_elements[k]["text"] not in string.punctuation) and (text_elements[k]["text"] != " "):
                     if (text_elements[k]["text"].isupper() == False) and (text_elements[k]["text"].isalpha() == False):
                         print("Roman Numeral: ", text, "and character that is an exception: ", text_elements[k]["text"])
                         # print("Roman Numeral: ", text_elements[i-3:i+1])
-                        logging.debug("Roman Numeral: %s %s", text, text_elements[i]["text"])
-                        logging.debug("Roman Numeral: %s", text_elements[i-3:i+1])
                         return False
                 k += 1
 
@@ -321,24 +293,22 @@ def detect_alphabetical_letter(start_index, text_elements):
     
     if text.isalpha() and text.isupper():
         # print("text: ", text, "character after text: ", text_elements[i]["text"])
-        logging.debug("text: %s, character after text: %s", text, text_elements[i]["text"])
         letter_detected = True
 
     if letter_detected and i < len(text_elements) and text_elements[i]["text"] == ".":
         # print("Capitalized Alpha Letter Detected")
-        logging.debug("Capitalized Alpha Letter Detected")
         return True
     return False
 
 def check_no_lowercase_on_line(start_index, text_elements, current_y0):
     # print("Running Checking Lowercase Function")
-    # logging.debug("Running Checking Lowercase Function")
+    # 
     i = start_index
     while is_same_line(text_elements[i]["y0"], current_y0):
         if text_elements[i]["text"] != string.punctuation:
             if text_elements[i]["text"].islower():
                 print("lowercase text: ", text_elements[i]["text"])
-                logging.debug("lowercase text: %s", text_elements[i]["text"])
+                
                 return False
         i += 1
     return True
@@ -346,10 +316,7 @@ def check_no_lowercase_on_line(start_index, text_elements, current_y0):
 def filter_ieee_headings(text_elements, common_font_size, common_fontname, headings):
 
     heading_detected = False
-    logging.debug("common font name: %s", common_fontname)
-    logging.debug("commmon font size: %s", common_font_size)
-    logging.debug("text elements length: %s", len(text_elements))
-
+    
     j = 0
     while j < len(text_elements):
         font_size = round(text_elements[j]["font_size"])
@@ -361,14 +328,13 @@ def filter_ieee_headings(text_elements, common_font_size, common_fontname, headi
 
         if not is_same_line(text_elements[j]["y0"], previous_y0) and font_name != common_fontname:
             # print("Identified Possible Abstract Word")
-            logging.debug("Identified Possible Abstract Word")
             temp = ""
             for k in range(8):
                 if (j + k) < len(text_elements):
                     temp += text_elements[j + k]["text"]
             if temp.strip().lower() == "abstract":
                 print("\n---------------Starting!!!----------------\n")
-                logging.debug("\n---------------Starting!!!----------------\n")
+                
                 headings.append(temp.strip())
                 break
         j += 1
@@ -389,18 +355,16 @@ def filter_ieee_headings(text_elements, common_font_size, common_fontname, headi
                 if (i + k) < len(text_elements):
                     if text_elements[i+k]["text"].isupper():
                         # print("Reference elements: ", text_elements[i+k])
-                        logging.debug("Reference elements: %s", text_elements[i+k])
                         temp += text_elements[i + k]["text"]
                     else:
                         break
             if temp.strip().lower() == "references":
                 headings.append(temp.strip())
                 print("---------------Breaking!!!----------------")
-                logging.debug("---------------Breaking!!!----------------")
+                
                 break
         
         # print("text element: ", text_elements[i]["text"])
-        logging.debug("text element: %s", text_elements[i]["text"])
 
         if font_size < common_font_size:
             i += 1
@@ -409,7 +373,7 @@ def filter_ieee_headings(text_elements, common_font_size, common_fontname, headi
         if not is_same_line(current_y0, previous_y0):
             if detect_roman_numeral(i, text_elements):
                 print("\nMain Heading Detected Baby\n")
-                logging.debug("\nMain Heading Detected Baby\n")
+                
                 heading_detected = True
                 j = i
                 while is_same_line(text_elements[j]["y0"], current_y0):
@@ -425,7 +389,7 @@ def filter_ieee_headings(text_elements, common_font_size, common_fontname, headi
                 if detect_alphabetical_letter(i, text_elements):
                     if check_no_normal_text_on_line(i, current_y0, text_elements, common_fontname):
                         print("\nSub Heading Detected Baby\n")
-                        logging.debug("\nSub Heading Detected Baby\n")
+                        
                         heading_detected = True
                         j = i
                         while is_same_line(text_elements[j]["y0"], current_y0) and font_name != common_fontname:
@@ -435,34 +399,34 @@ def filter_ieee_headings(text_elements, common_font_size, common_fontname, headi
                             previous_x1 = text_elements[j]["x1"]
                             j += 1
                         # print("temp heading: ", temp_heading)
-                        logging.debug("temp heading: %s", temp_heading)
+                        
                         i = j
 
         if heading_detected and i < len(text_elements) and not is_same_line(text_elements[i]["y0"], previous_y0) and len(temp_heading.strip()) > 0 and any(char.isalpha() for char in temp_heading):   
             heading_detected = False
             print("\nAdding Heading\n")
             print("temp heading: ", temp_heading)
-            logging.debug("temp heading: %s", temp_heading)
+            
             headings.append(temp_heading.strip())
             temp_heading = ""
 
         i += 1
     print("\n\n\nheadings: ", headings, "\n\n\n")
-    logging.debug("\n\n\nheadings: %s\n\n\n", headings)
+    
     return headings
 
 def has_columns(text_elements, pdf_path):
     print("\nRunning has_columns function\n")
-    logging.debug("\nRunning has_columns function\n")
+    
     radius = 10
     pages = list(extract_pages(pdf_path))  # Convert the generator to a list
     if isinstance(pages[0], LTPage):
         print("Page 1 is a pdf page object.")
-        logging.debug("Page 1 is a pdf page object.")
+        
         width = pages[0].x1 - pages[0].x0
         middle = width / 2
         print("\nwidth: ", width, "\n")
-        logging.debug("\nwidth: %s\n", width)
+        
         for element in text_elements:
             if middle - radius < element["x0"] < middle + radius or middle - radius < element["x1"] < middle + radius:
                 return False
@@ -497,10 +461,7 @@ def identify_key_font_sizes(unique_font_sizes, most_common_font_size):
 def filter_fontname_fontsize_headings(text_elements, main_heading_font_size, sub_heading_font_size, common_fontname, common_font_size, headings):
     
     heading_detected = False
-    logging.debug("common font name: %s", common_fontname)
-    logging.debug("commmon font size: %s", common_font_size)
-    logging.debug("text elements length: %s", len(text_elements)) 
-
+    
     j = 0
     while j < len(text_elements):
         font_size = round(text_elements[j]["font_size"])
@@ -517,7 +478,7 @@ def filter_fontname_fontsize_headings(text_elements, main_heading_font_size, sub
                     temp += text_elements[j + k]["text"]
             if temp.strip().lower() == "abstract":
                 print("\n---------------Starting!!!----------------\n")
-                logging.debug("\n---------------Starting!!!----------------\n")
+                
                 headings.append(temp.strip())
                 break
         j += 1
@@ -541,7 +502,7 @@ def filter_fontname_fontsize_headings(text_elements, main_heading_font_size, sub
             if temp.strip().lower() == "references":
                 headings.append(temp)
                 print("---------------Breaking!!!----------------")
-                logging.debug("---------------Breaking!!!----------------")
+                
                 break
 
         if font_size < common_font_size:
@@ -589,7 +550,7 @@ def filter_fontname_fontsize_headings(text_elements, main_heading_font_size, sub
         if heading_detected and i < len(text_elements) and not is_same_line(text_elements[i]["y0"], previous_y0) and len(temp_heading.strip()) > 0 and any(char.isalpha() for char in temp_heading):
             heading_detected = False
             # print("temp heading: ", temp_heading)
-            logging.debug("temp heading: %s", temp_heading)
+            
             headings.append(temp_heading.strip())
             temp_heading = ""
 
@@ -597,7 +558,7 @@ def filter_fontname_fontsize_headings(text_elements, main_heading_font_size, sub
         #     print("\n\n\nThis is the text at index 6973: ", text_elements[i]["text"], "\n\n\n")
         i += 1
     print("\n\n\nheadings: ", headings, "\n\n\n")
-    logging.debug("\n\n\nheadings: %s\n\n\n", headings)
+    
     
     return headings
 
@@ -612,7 +573,7 @@ def filter_headings(text_elements, common_font_size, second_common_font_size, co
    
     if has_columns(text_elements, pdf_path):
         print("Has Columns")
-        logging.debug("Has Columns")
+        
     else:
         print("***Running Number Filter Headings***") 
         i = 0
@@ -634,47 +595,34 @@ def filter_headings(text_elements, common_font_size, second_common_font_size, co
                             temp += text_elements[i + k]["text"]
                     if temp.strip().lower() == "references":
                         print("---------------NUMBER Breaking!!!----------------")
-                        logging.debug("---------------NUMBER Breaking!!!----------------")
                         break
 
             if not is_same_line(current_y0, previous_y0):
                 # print("\n Level 1 Passed\n")
-                logging.debug("\n Level 1 Passed\n")
                 if font_name != common_fontname and char in digits and font_size >= common_font_size:
                     # print("\n Level 2 Passed\n")
-                    logging.debug("\n Level 2 Passed\n")
                     if text_elements[i+1]["text"] not in punctuation_except_periods:
                         # print("\n Level 3 Passed\n")
-                        logging.debug("\n Level 3 Passed\n")
                         if check_no_normal_text_on_line(i, current_y0, text_elements, common_fontname):
                             print("\n Level 4 Passed\n")
-                            logging.debug("\n Level 4 Passed\n")
 
                             k = i+1
                             while k < i + 6:
                                 print("text: ", text_elements[k]["text"])
                                 # print("is alphabetical letter: ", text_elements[k]["text"].isalpha() == False)
-                                logging.debug("text: %s", text_elements[k]["text"])
-                                logging.debug("is alphabetical letter: %s", text_elements[k]["text"].isalpha() == False)
                                 if text_elements[k]["text"] != "." and (font_size < common_font_size or not text_elements[k]["text"].isalpha()):
                                     # print("Num: ", text, text_elements[i]["text"])
                                     no_title_exceptions = False
                                 k += 1
                             
                             print("\n\nboolean value: ", no_title_exceptions, "\n\n")
-                            logging.debug("\n\nboolean value: %s\n\n", no_title_exceptions)
                             if no_title_exceptions:
                                 print("----------Identified NUMBER Pattern Sequence----------")
-                                logging.debug("----------Identified NUMBER Pattern Sequence----------")
                                 running_number_headings = True
                                 print("+- 10 elements discovered: ", text_elements[i-10:i+10])
                                 print("\nelement discovered: ", text_elements[i])
                                 print("\n\ncurrent y0: ", current_y0, "compared with pervious y0: ", previous_y0, "\n\n")
                                 # print("\n\nelement font: ", font_size, "compared to normal font size: ", common_font_size, "\n\n")
-                                logging.debug("+- 10 elements discovered: %s", text_elements[i-10:i+10])
-                                logging.debug("\nelement discovered: %s", text_elements[i])
-                                logging.debug("\n\ncurrent y0: %s compared with pervious y0: %s\n\n", current_y0, previous_y0)
-                                logging.debug("\n\nelement font: %s compared to normal font size: %s\n\n", font_size, common_font_size)
                                 
                                 headings = filter_number_headings(text_elements, common_font_size, second_common_font_size, common_fontname, headings, digits)
                                 # Skip the processed elements
@@ -684,7 +632,6 @@ def filter_headings(text_elements, common_font_size, second_common_font_size, co
     if not running_number_headings:
         if has_columns(text_elements, pdf_path):
             print("Has Columns")
-            logging.debug("Has Columns")
         else:
             print("***Running IEEE Filter Headings***")
             found_roman_numeral = False
@@ -701,33 +648,27 @@ def filter_headings(text_elements, common_font_size, second_common_font_size, co
                         if (i + k) < len(text_elements):
                             if text_elements[i+k]["text"].isupper() or font_name != common_fontname:
                                 # print("Reference elements: ", text_elements[i+k])
-                                logging.debug("Reference elements: %s", text_elements[i+k])
                                 temp += text_elements[i + k]["text"]
                             else:
                                 break
                     if temp.strip().lower() == "references":
                         print("\nREFERENCES DETECTED BITCH\n")
                         print("---------------IEEE Breaking!!!----------------")
-                        logging.debug("---------------IEEE Breaking!!!----------------")
                         break
 
                 if (is_same_line(current_y0, previous_y0) == False):
                     if detect_roman_numeral(i, text_elements):
                             print("----------Identified ROMAN NUMERAL Pattern Sequence----------")
-                            logging.debug("----------Identified ROMAN NUMERAL Pattern Sequence----------")
                             found_roman_numeral = True       
                     
                 if (is_same_line(current_y0, previous_y0) == False):
                     # print("Detected change in line.")
-                    logging.debug("Detected change in line.")
                     if detect_alphabetical_letter(i, text_elements):
                             print("----------Identified ALPHABETICAL LETTER Pattern Sequence----------")
-                            logging.debug("----------Identified ALPHABETICAL LETTER Pattern Sequence----------")
                             found_alphabetical_letter = True
                 
                 if found_roman_numeral and found_alphabetical_letter:
                     print("----------Identified IEEE Pattern Sequence----------")
-                    logging.debug("----------Identified IEEE Pattern Sequence----------")
                     running_roman_headings = True 
                     headings = filter_ieee_headings(text_elements, common_font_size, common_fontname, headings)
                     break
@@ -736,24 +677,19 @@ def filter_headings(text_elements, common_font_size, second_common_font_size, co
     
     if not running_number_headings and not running_roman_headings:
         print("----------Identified FONTNAME & FONTSIZE Pattern Sequence----------") 
-        logging.debug("----------Identified FONTNAME & FONTSIZE Pattern Sequence----------") 
         font_sizes = extract_font_sizes(text_elements)
         unique_font_sizes, most_common_font_size = get_unique_font_sizes_and_most_common(font_sizes)
         main_heading_font_size, sub_heading_font_size = identify_key_font_sizes(unique_font_sizes, most_common_font_size)
         
         print("\nmain heading font size: ", main_heading_font_size)
         print("sub heading font size: ", sub_heading_font_size, "\n")
-        logging.debug("\nmain heading font size: %s", main_heading_font_size)
-        logging.debug("sub heading font size: %s\n", sub_heading_font_size)
 
         headings = filter_fontname_fontsize_headings(text_elements, main_heading_font_size, sub_heading_font_size, common_fontname, common_font_size, headings)
 
     return headings
 
-
 def download_pdf(url):
     print(f"Downloading PDF from URL: {url}")
-    logging.debug("Downloading PDF from URL: %s", url)
     HEADERS = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -772,11 +708,9 @@ def download_pdf(url):
         temp_file.write(response.content)
         temp_file.close()
         print(f"PDF downloaded and saved to: {temp_file.name}")
-        logging.debug("PDF downloaded and saved to: %s", temp_file.name)
         return temp_file.name
     except requests.exceptions.RequestException as e:
         print(f"Failed to download PDF from URL: {url}. Error: {e}")
-        logging.error("Failed to download PDF from URL: %s. Error: %s", url, e)
         raise Exception(f"Failed to download PDF. Status code: {response.status_code}")
 
 def main(paper_title, authors, publication_info, publication_year, pdf_url):
@@ -788,7 +722,6 @@ def main(paper_title, authors, publication_info, publication_year, pdf_url):
     headings = filter_headings(text_elements, common_font_size, second_common_font_size, common_fontname, pdf_path)
 
     print("\n\n\nheadings before decare: ", headings, "\n\n\n")
-    logging.debug("\n\n\nheadings before decare: %s\n\n\n", headings)
     headings_json = {
         "paper_title": paper_title,
         "authors": authors,
@@ -802,10 +735,8 @@ def main(paper_title, authors, publication_info, publication_year, pdf_url):
         json.dump(headings_json, json_file, indent=4)
 
     print("Headings extracted and saved to headings.json")
-    logging.debug("Headings extracted and saved to headings.json")
     os.remove(pdf_path)
     print(f"Temporary PDF file removed: {pdf_path}")
-    logging.debug("Temporary PDF file removed: %s", pdf_path)
 
 # main("Intrinsic Action Tendency Consistency for Cooperative Multi-Agent Reinforcement Learning", "https://arxiv.org/pdf/2406.18152")
 # main("A Decentralized Approach towards Responsible AIin Social Ecosystems", "https://ojs.aaai.org/index.php/ICWSM/article/download/19274/19046")
@@ -816,23 +747,22 @@ def main(paper_title, authors, publication_info, publication_year, pdf_url):
 # main("Responsible AI: Portraits with Intelligent Bibliometrics", "https://arxiv.org/pdf/2405.02846")
 # main("Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI", "AB Arrieta, N Díaz-Rodríguez, J Del Ser, A Bennetot…","Information fusion, 2020 - Elsevier", 2019, "https://arxiv.org/pdf/1910.10045")
 # import csv
-# import logging
+# import 
 
 # valid_pdf_paths = []
 # num_errors = 0
 # successes = 0
 # csv_file_path = "responsible_ai_research_papers/extracted_data.csv"
 
-# # Initialize logging
-# logging.basicConfig(filename='process.log', level=logging.DEBUG)
-
+# # Initialize 
+# 
 # with open(csv_file_path, 'r') as csvfile:
 #     reader = csv.reader(csvfile)
 #     header = next(reader)  # Skip the header row
 #     for i, row in enumerate(reader, start=2):  # Start counting from 2 to account for the header row
 #         if len(row) < 5:
 #             print(f"Skipping line {i}: Invalid format {row}")
-#             logging.error("Skipping line %d: Invalid format %s", i, row)
+#             
 #             continue
         
 #         title = row[0].strip() if len(row) > 0 else "Unknown"
@@ -844,10 +774,7 @@ def main(paper_title, authors, publication_info, publication_year, pdf_url):
 #         print("\n\n\n---------------New Paper---------------")
 #         print(f"Title: {title}")
 #         print(f"URL: {url}")
-#         logging.debug("\n\n\n---------------New Paper---------------")
-#         logging.debug("Title: %s", title)
-#         logging.debug("URL: %s", url)
-        
+#         
 #         try:
 #             main(title, authors, publication_info, publication_year, url)
 #             successes += 1
@@ -858,12 +785,8 @@ def main(paper_title, authors, publication_info, publication_year, pdf_url):
 #             print(f"URL: {url}")
 #             print(f"Error: {e}")
 #             print("\n\n\n")
-#             logging.error("\n\n\n**********ERROR**********")
-#             logging.error("Title: %s", title)
-#             logging.error("URL: %s", url)
-#             logging.error("Error: %s", e)
-
+#             
 # print("\n\nNumber of total papers extracted: ", successes)
 # print("Number of total errors: ", num_errors, "\n\n")
-# logging.debug("\n\nNumber of total papers extracted: %s", successes)
-# logging.debug("Number of total errors: %s\n\n", num_errors)
+# 
+# 

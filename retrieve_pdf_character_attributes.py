@@ -27,7 +27,7 @@ def extract_pdf_structure(pdf_path, output_path):
             parse_obj([page_layout], output_file)
 
 # Example usage
-pdf_path = 'HumanSimulacra.pdf'
+pdf_path = 'research_paper_pdfs/AAAI5.pdf'
 output_path = 'pdf_structure.txt'
 extract_pdf_structure(pdf_path, output_path)
 

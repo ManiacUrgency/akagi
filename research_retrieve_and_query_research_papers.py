@@ -9,10 +9,6 @@ from langchain.prompts import PromptTemplate
 
 from prompt_templates.query_constants import *
 
-# Load the JSON hash map
-with open("hash_map.json", "r") as file:
-    hash_map = json.load(file)
-
 # Initialize OpenAI embeddings and Pinecone
 def initialize_openai_embeddings(model_name, api_key):
     return OpenAIEmbeddings(model=model_name, openai_api_key=api_key)
@@ -30,7 +26,7 @@ async def stream_llm_responses(llm, request):
 # Function to setup retriever
 def setup_retriever(vectorstore, paper_title):
     filter_request_json = {
-            "paper_title": {"$eq": paper_title}
+        "paper_title": {"$eq": paper_title}
     }
     
     retriever = vectorstore.as_retriever(
@@ -47,20 +43,17 @@ def get_text_by_id(chunk_id, hash_map):
     for paper in hash_map["papers"]:
         for chunk in paper["chunks"]:
             if chunk["id"] == chunk_id:
-                text = chunk["text"] + "\n" + chunk["reference"]
-
+                text = "<text> " + chunk["text"] + "</text>\n<reference>" + chunk["reference"] + "</reference>"
                 print("\nDOCUMENT:\n", text)
                 return text
     return ""
 
 # Function to handle queries
-async def handle_query(question, retriever, prompt, llm):
+async def handle_query(question, retriever, prompt, llm, hash_map):
     id_and_metadata_dict = retriever.invoke(question)
-
     print("\n\nId and Metadata: ", id_and_metadata_dict, "\n\n")
     
     context = ""
-
     for doc in id_and_metadata_dict:
         chunk_id = doc.page_content
         if chunk_id:
@@ -68,23 +61,27 @@ async def handle_query(question, retriever, prompt, llm):
             if text:
                 context += text + "\n"
     
-    
-    request = prompt.format(context=context.strip(), question = question)
-    
+    request = prompt.format(context=context.strip(), question=question)
     print("\n\n\nAI Response: \n")
+    response_text = ""
     async for chunk in stream_llm_responses(llm, request):
+        response_text += chunk
         print(chunk, end="")
+    
+    return response_text
 
 # Main function to perform retrieval-augmented generation
-async def retrieval_augmented_generation(pdf_file_path):
+async def retrieval_augmented_generation(input_json_file, output_json_file):
+    with open(input_json_file, "r") as file:
+        hash_map = json.load(file)
     # Initialize OpenAI embeddings
     OPENAI_API_EMBEDDINGS_KEY = os.environ["OPENAI_API_EMBEDDINGS_KEY"]
     embed = initialize_openai_embeddings("text-embedding-3-large", OPENAI_API_EMBEDDINGS_KEY)
 
     # Initialize Pinecone
     PINECONE_API_KEY = os.environ["PINECONE_API_KEY"]
-    index_name = "research-papers"  
-    text_field = "id"  
+    index_name = "research-papers"
+    text_field = "id"
     
     index = initialize_pinecone(PINECONE_API_KEY, index_name)
     vectorstore = PineconeVectorStore(index, embed, text_field)
@@ -99,30 +96,45 @@ async def retrieval_augmented_generation(pdf_file_path):
     )
 
     # Define prompt template
-    
     prompt = PromptTemplate(
         input_variables=["context", "question"], 
         template=SINGLE_REFERENCE_RESPONSE_TEMPLATE
     )
 
-    question = "How is Responsible AI conceptualized and defined in this research paper? If the paper does not provide an explicit definition of Responsible AI, does it discuss any sub-pillars of RAI? If so, which sub-pillar is most prominently featured or emphasized in the paper? Elaborate on how this primary sub-pillar contributes to a comprehensive understanding of Responsible AI, and briefly mention any secondary sub-pillars discussed. If multiple sub-pillars are given equal emphasis, please note this. Additionally, explain how the paper's focus on specific sub-pillar(s) might influence or shape its overall approach to Responsible AI. If the paper neither defines RAI nor discusses relevant sub-pillars, please state this clearly."
+    question = "How is Responsible AI conceptualized and defined in this research paper? If the paper provides an explicit definition of Responsible AI, describe it in detail. If no explicit definition is given, identify any conceptual frameworks or broader categories used to define Responsible AI. For instance, consider whether the paper classifies Responsible AI in terms of broader concepts such as competence/functionality (e.g., performance, usability, impact) and ethical considerations (e.g., explainability, safety). If the paper discusses sub-pillars, identify which sub-pillar is most prominently featured or emphasized and elaborate on how this primary sub-pillar contributes to a comprehensive understanding of Responsible AI. Briefly mention any secondary sub-pillars discussed, noting if multiple sub-pillars are given equal emphasis. Additionally, explain how the paper's focus on specific sub-pillars or broader conceptual frameworks might influence or shape its overall approach to Responsible AI. If the paper neither defines Responsible AI nor discusses relevant sub-pillars or frameworks, please state this clearly."
+    
+    # Initialize the output JSON file with an empty structure if it does not exist
+    if not os.path.exists(output_json_file):
+        with open(output_json_file, "w") as outfile:
+            json.dump({"papers": []}, outfile, indent=4)
+    
+    # Read the existing content
+    with open(output_json_file, "r") as infile:
+        output_data = json.load(infile)
 
-    retriever = setup_retriever(vectorstore, "Socially responsible ai algorithms: Issues, purposes, and challenges")
-    await handle_query(question, retriever, prompt, query_llm)
-
-    # with open(pdf_file_path, "r") as file:
-    #     data = json.load(file)
-    #     for paper in data["papers"]:
-    #         paper_title = paper["paper_title"]
-    #         retriever = setup_retriever(vectorstore, paper_title)
+    with open(input_json_file, "r") as file:
+        data = json.load(file)
+        for paper in data["papers"]:
+            paper_title = paper["paper_title"]
+            retriever = setup_retriever(vectorstore, paper_title)
             
-    #         await handle_query(retriever, prompt, query_llm)
+            response = await handle_query(question, retriever, prompt, query_llm, hash_map)
+
+            output_data["papers"].append({
+                "paper_title": paper_title,
+                "rai_definition_1": response
+            })
+    
+            with open(output_json_file, "w") as outfile:
+                json.dump(output_data, outfile, indent=4)
 
 # Define the async function to run the main logic
 async def main():
     file_path = os.path.dirname(os.path.realpath(__file__))
-    pdf_file_path = file_path + "hash_map.json"
-    await retrieval_augmented_generation(pdf_file_path)
+    input_json_file = os.path.join(file_path, "processed_hash_map.json") 
+    output_json_file = os.path.join(file_path, "rai_definitions.json")
+    
+    await retrieval_augmented_generation(input_json_file, output_json_file)
 
 # Run the main function
 asyncio.run(main())
