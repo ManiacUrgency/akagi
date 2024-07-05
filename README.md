@@ -21,10 +21,10 @@ The system architecture is split into four parts: 1) Data Collection 2) Data Pro
   _2.2 Indexing & Embedding_
 
   1. "index_and_embed_reserach_papers.py" initializes a _Pinecone_ vector database index if one does not already exist.
-  2. "index_and_embed_reserach_papers.py" uses _OpenAIEmbeddings_ model _text-embedding-3-large_ to embed the text extracted from "headings_with_text.json". Then the metadata is extracted for the heading and "research_paper_reference_generator.py" is called to generate an APA scientific paper standard formated citation for the research paper the headingn belongs to using the metadata of the heading.
-  3. For each heading text entry indexed "index_and_embed_reserach_papers.py" uses _uuid_ to generate a unique ID for a hash-map function that stores text under each heading entry indexed to Pinecone. The following metadata values: authors, heading_title, id, paper_title, paper_url, publication_info (publication venue or destination), publications_year, text_snippet (first 100 words of text) are stored alongside the text embedding per each Pinecone entry.
+  2. "index_and_embed_reserach_papers.py" uses _OpenAIEmbeddings_ model _text-embedding-3-large_ to embed the text extracted from "headings_with_text.json". Then the metadata is extracted for the heading and "research_paper_reference_generator.py" is called to generate an APA scientific paper standard formated citation for the research paper the heading belongs to using the metadata of the heading.
+  3. For each heading text entry indexed "index_and_embed_reserach_papers.py" uses _uuid_ to generate a unique ID for a hash-map function that stores text under each heading entry indexed to Pinecone. The following metadata values: authors, heading_title, id, paper_title, paper_url, publication_info (publication venue or destination), publications_year, text_snippet (first 100 words of text) are stored alongside the text embedding per each Pinecone entry. We only store the first 100 words for text_snippeet to provide context for each vector entry. We use the full text stored in our json source file. 
   4. "hash_map.json" is created to store the metadata, complete text, and id for the headings of each research paper.
-  5. "process_hash_map_text.py" processes "hash_map.json" by deleting any in-text citations (e.g. Input: I love apples [67]. Apples are great. Output: I love apples. Apples are great.) and outputs the processed hash-map to "processed_hash_map.json". 
+  5. "process_hash_map_text.py" processes "hash_map.json" by deleting any in-text citations (e.g. Input: I love apples [67]. Apples are great. Output: I love apples. Apples are great.) and outputs the processed hash-map to "processed_hash_map.json". This is because we will add citation references in []'s later in our sythesized result, so we do not want any previous citation in the text when we cite it (and the paper it belongs to).  
 
 **3 Retrieval & Query**
 
@@ -38,6 +38,6 @@ The system architecture is split into four parts: 1) Data Collection 2) Data Pro
 
 **4 Synthesis & Analysis**
 
-  1. "research_paper_synthesis_and_analysis.py" extracts the definitions Responsible AI from each reserach paper by reading the "rai_definitions.json".
+  1. "research_paper_synthesis_and_analysis.py" extracts the definitions of Responsible AI from each reserach paper by reading the "rai_definitions.json".
   2. The definitions are concatenated and inputted as context for the prompt, which invokes the LLM (_GPT-4o_).
   3. The LLM response is printed to the terminal.
