@@ -652,7 +652,7 @@ def filter_headings(text_elements, common_font_size, second_common_font_size, co
                             else:
                                 break
                     if temp.strip().lower() == "references":
-                        print("\nREFERENCES DETECTED BITCH\n")
+                        print("\nREFERENCES DETECTED\n")
                         print("---------------IEEE Breaking!!!----------------")
                         break
 
