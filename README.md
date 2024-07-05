@@ -8,13 +8,13 @@ The system architecture is split into four parts: 1) Data Collection 2) Data Pro
   
 **2 Data Processing and Indexing & Embedding**
 
-  1. "data_processing.py" is the main pythone module for processing, indexing, and embedding text data. "data_processing.py" uses three submodules: "heading_extractor.py", "extract_text_under_headings.py", and "index_and_embed_research_papers.py".
+  1. "data_processing.py" is the main python module for processing, indexing, and embedding text data. "data_processing.py" calls three submodules, respectively: "heading_extractor.py", "extract_text_under_headings.py", and "index_and_embed_research_papers.py".
 
   _2.1 Data Processing_
   
-  1. "heading_extractor.py" reads "extracted_data.csv" and uses the URL to download and access the PDF using _requests_ api, which provides internet access. PDFs that can't be accessed or downloaded are skipped.
+  1. "heading_extractor.py" reads "extracted_data.csv" and uses the URL to download and access the PDF using _requests_ api, which provides internet access. PDFs that can't be accessed or downloaded are skipped (an error message is printed out).
   2. "heading_extractor.py" uses _PDFMiner.six_, a PDF text extraction library that uses the underlying encoding of the PDF to identify relationships between characters, words, paragraphs, columns, etc, to extract the PDF text. To filter the headings, _PDFMiner.six_ extracts all the text from the PDF in a structered format.
-  3. Based on criteria that matches the template format of four major AI conferences: ACM, IEEE, AAAI, and NeurIPS, "heading_extractor.py" extracts the headings of each research paper. PDFs that don't fit the heading criteria one of the four templates will be skipped because they are most likely not a research paper. The headings are outputted to "headings.json" along with metadata.
+  3. Based on criteria that matches the template format of four major AI conferences: ACM, IEEE, AAAI, and NeurIPS, "heading_extractor.py" extracts the headings of each research paper. PDFs that don't fit the heading criteria any of the four templates will be skipped because they are most likely not a research paper. The headings are organized their research paper and outputted to "headings.json". The metadata for each research paper is also added to "headings.json".
   4. "extract_text_under_headings.py" uses _PDFMiner.six_ to extract all the text in the PDF, outputted to "raw_text.txt".
   5. "extract_text_under_headings.py" uses "headings.json" to conduct a String comparison for finding headings within the "raw_text.txt" and extracts the text underneath each heading. The headings with the text corresponding to the heading is outputted to "headings_with_text.json" along with metadata extracted from "headings.json"
 
