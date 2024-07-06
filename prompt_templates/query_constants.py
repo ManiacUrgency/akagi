@@ -18,7 +18,7 @@ Here is an example of input and proper response format:
 Example of input:
 ```
 <text>
-Although AI has signiﬁcant potential to transform society, there are serious concerns about its abilityto behave and make decisions responsibly. Many ethical regulations, principles, and guidelines forresponsible AI have been issued recently. However, these principles are high-level and difﬁcult toput into practice. In the meantime much effort has been put into responsible AI from the algorithmperspective, but they are limited to a small subset of ethical principles amenable to mathematicalanalysis. Responsible AI issues go beyond data and algorithms and are often at the system-levelcrosscutting many system components and the entire software engineering lifecycle. 
+Although AI has signiﬁcant potential to transform society, there are serious concerns about its ability to behave and make decisions responsibly. Many ethical regulations, principles, and guidelines for responsible AI have been issued recently. However, these principles are high-level and difﬁcult to put into practice. In the meantime much effort has been put into responsible AI from the algorithm perspective, but they are limited to a small subset of ethical principles amenable to mathematical analysis. Responsible AI issues go beyond data and algorithms and are often at the system-level crosscutting many system components and the entire software engineering lifecycle. 
 </text>
 
 <reference>
@@ -45,9 +45,7 @@ The research question is: ”What solutions forresponsible AI can be identiﬁed
 
 Example of proper response formatting:
 ```
-Lifecycle of a provisioned AI system.behaviors and decision-making outcomes of the AI system are monitored and validated through continuous ethicalvalidator. Incentives for the ethical behaviors can be maintained by an incentive registry. If the system is failed to meetthe requirements (including ethical requirements) or a near-miss is detected, the system need to be updated.[1].
-
-[1] Qian Yang, Liming Zhu, Xiwei Xu, and Jon Whittle. 2023. Responsible-AI-by-design: A pattern collection for designing responsible AI systems. IEEE Software. Retrieved from https://arxiv.org/pdf/2203.00905.
+Lifecycle of a provisioned AI system behaviors and decision-making outcomes of the AI system are monitored and validated through continuous ethical validator. Incentives for the ethical behaviors can be maintained by an incentive registry. If the system is failed to meet the requirements (including ethical requirements) or a near-miss is detected, the system need to be updated.
 ```
 
 Ensure all your responses are detailed, clear, and concise, following this structure to maintain zero hallucinations.

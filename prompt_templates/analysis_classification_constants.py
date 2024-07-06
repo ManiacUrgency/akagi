@@ -102,7 +102,7 @@ SUB_PILLAR_CLASSIFICATION = """
 """
 
 FRAMEWORK_CLASSIFICATION = """
-    Your task is to write a prompt that instructs an LLM to learn patterns across the definitions to classify the definition frameworks into categories based on their similarities. For example, if two frameworks both emphasize functionality and similar umbrella terms the should be classified into the same category.
+    Your task is to write a prompt that instructs an LLM to learn patterns across the definitions to classify the definition frameworks into categories based on their similarities. For example, if two frameworks both emphasize functionality and similar umbrella terms they should be classified into the same category.
 
     Each definition should be classified using the paper’s title. 
 

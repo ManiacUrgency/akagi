@@ -5,7 +5,7 @@ def remove_bracketed_numbers(text):
     # Regex pattern to match single numbers or comma-separated lists of numbers enclosed in square brackets
     pattern = r'\[\d+(,\s*\d+)*\]'
     # Replace the pattern with an empty string
-    cleaned_text = re.sub(pattern, '', text)
+    cleaned_text = re.sub(pattern, '', text).strip()
     return cleaned_text
 
 def process_json_file(input_file_path, output_file_path):
@@ -17,6 +17,7 @@ def process_json_file(input_file_path, output_file_path):
     for paper in data['papers']:
         for chunk in paper['chunks']:
             chunk['text'] = remove_bracketed_numbers(chunk['text'])
+            chunk['reference'] = remove_bracketed_numbers(chunk['reference'])
 
     # Write the cleaned data back to the output JSON file
     with open(output_file_path, 'w', encoding='utf-8') as file:
