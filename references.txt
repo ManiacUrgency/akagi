@@ -1,0 +1,52 @@
+[1] Qin Lu, Liming Zhu, Xiwei Xu, and Jon Whittle. 2023. Responsible-AI-by-design: A pattern collection for designing responsible AI systems. IEEE Software. https://arxiv.org/pdf/2203.00905
+[2] Alejandro Barredo Arrieta, Natalia Díaz-Rodríguez, Javier Del Ser, Adrien Bennetot, Siham Tabik, Alberto Barbado, Salvador Garcia, Sergio Gil-Lopez, Daniel Molina, Richard Benjamins, Raja Chatila, and Francisco Herrera. 2020. Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion, Elsevier. arXiv:1910.10045.
+[3] David Schiff, Beena Ammanath, Amanda Ayesh, Antonietta Fanti, Andrew Zaldivar. 2020. Principles to practices for responsible AI: closing the gap. arXiv:2006.04707.
+[4] Ricardo Baeza-Yates Benjamins, Almudena Barbado, and David Sierra. 2019. Responsible AI by design in practice. arXiv:1909.12838.
+[5] Lu Cheng, Kush R. Varshney, and Huan Liu. 2021. Socially responsible AI algorithms: Issues, purposes, and challenges. Journal of Artificial Intelligence Research.
+[6] Virginia Dignum. 2021. The role and challenges of education for responsible AI. London Review of Education.
+[7] Julian Jakesch, Zana Buçinca, Saleema Amershi. 2022. How different groups prioritize ethical values for responsible AI. arXiv:2205.07722.
+[8] AZ Jacobs. 2021. Measurement as governance in and for responsible AI. arXiv:2109.05658.
+[9] Yixin Wang, Minyuan Xiong, and Hamed Olya. 2020. Toward an understanding of responsible artificial intelligence practices. In Proceedings of the 53rd Hawaii International Conference on System Sciences (HICSS-53).
+[10] Amanda Askell, Miles Brundage, and Gillian Hadfield. 2019. The role of cooperation in responsible AI development. arXiv:1907.04534.
+[11] Beena Ammanath Rakova, Jieyu Jay Yang, Henriette Cramer, and Rumman Chowdhury. 2021. Where responsible AI meets reality: Practitioner perspectives on enablers for shifting organizational practices. arXiv:2006.12358.
+[12] Qian Yang, Michael Madaio, Sean Kane, Sandeep Kapania, et al. 2023. Designing responsible AI: Adaptations of UX practice to meet responsible AI challenges. In Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems. https://doi.org/10.1145/3544548.3581278
+[13] Ryan Soklaski, Jason Goodwin, Olivia Brown, Maya Yee, Dawei Yang, Victoria Alsina, Jie Xu, and Brent Hecht. 2022. Tools and practices for responsible AI engineering. arXiv:2201.05647.
+[14] Qinghua Lu, Liming Zhu, Xiaoxi Xu, Jon Whittle, Didar Zowghi, Jia Zhang, and Laura Rutgersson. 2023. Responsible AI Pattern Catalogue: A Collection of Best Practices for AI Governance and Engineering. ACM Computing Surveys. https://doi.org/10.1145/3626234
+[15] Qin Lu, Liming Zhu, Xiwei Xu, and Jon Whittle. 2023. Responsible-AI-by-design: A pattern collection for designing responsible AI systems. IEEE Software. https://arxiv.org/pdf/2203.00905
+[16] Qinghua Lu, Liming Zhu, Xiwei Xu, Jon Whittle, Zhenchang Xing, and others. 2022. Towards a roadmap on software engineering for responsible AI. In 1st International Conference on AI.
+[17] Daniel McDuff, Jaron Lee, and Jeannette K. Haines. 2022. Behavioral use licensing for responsible AI. In Proceedings of the 2022 ACM Conference on Fairness, Accountability, and Transparency (FAccT '22). ACM, New York, NY, USA, Article 35, 1-10. https://doi.org/10.1145/3531146.3533143
+[18] Qian Lu, Liming Zhu, Xiwei Xu, Jon Whittle, Damith C. Ranasinghe, and David Douglas. 2022. Software engineering for responsible AI: An empirical study and operationalised patterns. Proceedings of the 44th International Conference on Software Engineering (ICSE 2022). https://arxiv.org/pdf/2111.09478
+[19] Mehtab Singh Pushkarna, Alejandro Zaldivar, and Ondrej Kjartansson. 2022. Data cards: Purposeful and transparent dataset documentation for responsible AI. In Proceedings of the ACM Conference. ACM, New York, NY, USA. https://doi.org/10.1145/3531146.3533231
+[20] Xiuwen Zhu, Qinghua Xu, Guoxiang Lu, Guido Governatori, Jon Whittle. 2022. AI and ethics—Operationalizing responsible AI. AI: Productivity, well-being. arXiv:2105.08867.
+[21] Craige Maree, Jethro E. Modal, and Christian W. Omlin. 2020. Towards responsible AI for financial transactions. In 2020 IEEE Symposium Series. IEEE, 2020.
+[22] Mitali Prabhakaran, Margaret Mitchell, Timothy Gebru, et al. 2022. A human rights-based approach to responsible AI. arXiv preprint arXiv:2210.02667.
+[23] Virginia Dignum. 2023. Responsible Artificial Intelligence---From Principles to Practice: A Keynote at TheWebConf 2022. ACM SIGIR Forum.
+[24] Carol Chen, Joanna Fu, and Lucas Lyu. 2023. A pathway towards responsible AI generated content. arXiv:2303.01325.
+[25] Yash Gupta, Ruishan Zhai, Alexander Suggala, and others. 2024. Responsible AI (RAI) Games and Ensembles. In Advances in Neural Information Processing Systems 2024.
+[26] Antonella Scantamburlo, Amanda Cortés, and Michael Schacht. 2020. Progressing towards responsible AI. arXiv:2008.07326.
+[27] Qinghua Lu, Liming Zhu, Xuyen Xu, Jon Whittle, and Didar Zowghi. 2022. Responsible AI pattern catalogue: a multivocal literature review. arXiv:2209.04963.
+[28] Christopher Sanderson, Qing Lu, Dhruv Douglas, and Xiaohong Xu. 2022. Towards implementing responsible AI. In Conference on Big … - IEEE Xplore.
+[29] Michael Madaio, Shreya Kapania, Rabee Qadri, and Diyi Wang. 2024. Learning about Responsible AI On-The-Job: Learning Pathways, Orientations, and Aspirations. In Proceedings of the 2024 ACM Conference. ACM, New York, NY, USA. https://doi.org/10.1145/3630106.3658988
+[30] Yuko Nakao, Lorenzo Strappelli, Simone Stumpf, Ali Naseer, et al. 2023. Towards responsible AI: a design space exploration of human-centered artificial intelligence user interfaces to investigate fairness. J. Humans. Taylor & Francis.
+[31] Sabrina Goellner, Maximilian Tropmann-Frick, and Bernhard Brumen. 2024. Responsible Artificial Intelligence: A Structured Literature Review. arXiv:2403.06910.
+[32] Elizabeth Sanderson, Elise Schleiger, and Daniel Douglas. 2024. Resolving ethics trade-offs in implementing responsible AI. arXiv:2401.08103.
+[33] Karen Werder, Balasubramaniam Ramesh, and Ruixuan Zhang. 2022. Establishing data provenance for responsible artificial intelligence systems. ACM Trans. Manage. Inf. Syst. 2022.
+[34] Helena Liang Lyons, Ehsan Velloso, and Tim Miller. 2021. Fair and Responsible AI: A focus on the ability to contest. arXiv:2102.10787.
+[35] Erasmo Purificato, Francesco Lorenzo, and Francesco Fallucchi. 2023. The use of responsible artificial intelligence techniques in the context of loan approval processes. Int. J. Hum.-Comput. Interact. Taylor & Francis.
+[36] Aleksandra Faustine Cheng, Amin Mosallanezhad, Payam M. Barnaghi, Hemant Purohit, and Huan Liu. 2021. Causal learning for socially responsible AI. arXiv preprint arXiv:2104.12278.
+[37] Laurel Alkire, Ahmet Bilgihan, Mai Bui, Anthony J. Buoye, and others. 2024. RAISE: leveraging responsible AI for service excellence. Journal of Service ... emerald.com.
+[38] Davi Barletta, Dario Caivano, and Davide Gigante. 2023. A Rapid Review of Responsible AI frameworks: How to guide the development of ethical AI. In Proceedings of the 27th ... ACM Inc.
+[39] Jesse Woodgate and Nadinia Ajmeri. 2024. Macro Ethics Principles for Responsible AI Systems: Taxonomy and Directions. ACM Comput. Surv. https://doi.org/10.1145/3672394.
+[40] Angeline Wang, Trisha Datta, and John P. Dickerson. 2024. Strategies for Increasing Corporate Responsible AI Prioritization. arXiv:2405.03855.
+[41] Steven E. Whang, Kunwoo H. Tae, Young-Standards Roh, and Geon Heo. 2021. Responsible AI challenges in end-to-end machine learning. arXiv:2101.05967.
+[42] Marzieh Tahaei, Myrsini Constantinides, Daniele Quercia, P. Alex Dow, and Dave Murray-Rust. 2023. Human-Centered Responsible Artificial Intelligence: Current & Future Trends. arXiv:2302.08157.
+[43] Nazanin Nabavi and Clare Browne. 2022. Five Ps: Leverage zones towards responsible AIE. arXiv:2205.01070.
+[44] Oktie Inel, Tobias Draws, and Lora Aroyo. 2023. Collect, measure, repeat: Reliability factors for responsible AI data collection. In Proceedings of the AAAI Conference on Human Computation and Crowdsourcing.
+[45] Rakshya A. Varanasi and Niyati Goyal. 2023. "It is currently hodgepodge": Examining AI/ML Practitioners' Challenges during Co-production of Responsible AI Values. In Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI '23). ACM, New York, NY, USA. https://doi.org/10.1145/3544548.3580903
+[46] C. Maathuis. 2022. On the Road to Designing Responsible AI Systems in Military Cyber Operations. European Conference on Cyber Warfare and Security.
+[47] Pedram Ghamisi, Wei Yu, Andrea Marinoni, Carmen Maria Gevaert, Marcela A. Guedes de Silva R. de Souza, Shih-Yuan Lin, Julian A. Tordillos, Devis Tuia, and Naoto Yokoya. 2024. Responsible AI for Earth Observation. arXiv:2405.20868.
+[48] Gilad Berman, Navrati Goyal, and Michael Madaio. 2024. A Scoping Study of Evaluation Practices for Responsible AI Tools: Steps Towards Effectiveness Evaluations. arXiv:2401.17486.
+[49] A. Gupta. 2021. Making responsible AI the norm rather than the exception. arXiv:2101.11832.
+[50] Yuxin Zhang, Mu Wu, Guang-Zhong Zhang, and Jing Luan. 2024. Responsible AI: Portraits with Intelligent Bibliometrics. arXiv:2405.02846.
+[51] Ece Galinki. 2022. Towards a responsible AI development lifecycle: Lessons from information security. arXiv:2203.02958.
+[52] Amanda Piskopani and Alan Chamberlain. 2023. Responsible AI and the Arts: The Ethical and Legal Implications of AI in the Arts and Creative Industries. In Proceedings of the First.

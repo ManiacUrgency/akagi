@@ -36,7 +36,10 @@ def process_json_file(input_file_path, output_file_path):
         data = json.load(file)
 
     # Iterate over each paper and its chunks
+    count = 1
     for paper in data['papers']:
+        paper['id'] = count
+        count += 1
         paper['rai_definition_1'], reference  = remove_reference(paper['rai_definition_1']) 
         paper['reference'] = reference 
         paper['rai_definition_1'] = remove_bracketed_numbers(paper['rai_definition_1'])

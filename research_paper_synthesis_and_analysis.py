@@ -14,30 +14,29 @@ async def stream_llm_responses(llm, request):
         yield chunk.content.replace("\n", "\n\t")
 
 # Function to handle queries
-async def handle_query(query_prompt, llm, context):
+async def handle_query(query_prompt, llm, context, question):
     print("context:\n\n", context)
 
-    query_request = query_prompt.format(definitions = context)
-    # query_request = query_prompt.format(context = context, question = analysis_prompt)
+    query_request = query_prompt.format(definitions = context, question = question)
     print("\n\n\n---------------------------------------------QUERY REQUEST START---------------------------------------------\n\n\n", query_request)
     print("\n\n\n---------------------------------------------QUERY REQUEST END---------------------------------------------\n\n\n")
         
     response = ""
     print("\n\n\nAI Response: \n")
-    # async for chunk in stream_llm_responses(llm, query_request):
-    #     print(chunk, end="")
-    #     response += chunk
+    async for chunk in stream_llm_responses(llm, query_request):
+        print(chunk, end="")
+        response += chunk
     
     return response
 
 # Main function to perform retrieval-augmented generation
-async def retrieval_augmented_generation(input_json_file_path, output_txt_file_path):
+async def retrieval_augmented_generation(input_json_file_path, output_txt_file_path, question):
     with open(input_json_file_path, "r") as file:
         definitions = json.load(file)
 
         context = ""
-        for i, paper in enumerate(definitions["papers"]):
-            context += "Definition " + str(i + 1) + ": " + paper["rai_definition_1"] + "\n\n"
+        for paper in definitions["papers"]:
+            context += "<paper> <definition>" + paper["rai_definition_1"] + "</definition> <reference> [" + str(paper['id']) + "]" + paper['reference'] + "</reference> </paper>\n\n"
 
         OPENAI_API_QUERY_KEY = os.environ["OPENAI_API_QUERY_KEY"]
         query_llm = ChatOpenAI(
@@ -54,12 +53,12 @@ async def retrieval_augmented_generation(input_json_file_path, output_txt_file_p
         # )
 
         query_prompt = PromptTemplate(
-            input_variables=["definitions"], 
-            template=FRAMEWORK_CLASSIFICATION
+            input_variables=["definitions", "question"], 
+            template=DEFAULT_QUERY_TEMPLATE
         ) 
         # thematic_prompt = THEMATIC_ANALYSIS_TEMPLATE
 
-        response = await handle_query(query_prompt, query_llm, context)
+        response = await handle_query(query_prompt, query_llm, context, question["content"])
 
         with open(output_txt_file_path, "w") as file:
             file.write(response)
@@ -81,10 +80,11 @@ async def retrieval_augmented_generation(input_json_file_path, output_txt_file_p
 # Define the async function to run the main logic
 async def main():
     file_path = os.path.dirname(os.path.realpath(__file__))
-    input_json_file_path = file_path + "/rai_definitions.json"
-    output_txt_file_path = file_path + "/output_analysis.txt"
+    input_json_file_path = file_path + "/processed_rai_definitions.json"
+    question = LEGITMACY_QUESTION
+    output_txt_file_path = file_path + "/output_analysis_" + question["name"] + ".txt"
     
-    await retrieval_augmented_generation(input_json_file_path, output_txt_file_path)
+    await retrieval_augmented_generation(input_json_file_path, output_txt_file_path, question)
 
 # Run the main function
 asyncio.run(main())

@@ -102,7 +102,7 @@ SUB_PILLAR_CLASSIFICATION = """
 """
 
 FRAMEWORK_CLASSIFICATION = """
-    Your task is to write a prompt that instructs an LLM to learn patterns across the definitions to classify the definition frameworks into categories based on their similarities. For example, if two frameworks both emphasize functionality and similar umbrella terms they should be classified into the same category.
+    Your task is to write a prompt that instructs an LLM to learn patterns across the definitions to classify the definition frameworks into categories based on their similarities. For example, if two frameworks both emphasize functionality and similar umbrella terms the should be classified into the same category.
 
     Each definition should be classified using the paper’s title. 
 
@@ -139,3 +139,31 @@ FRAMEWORK_CLASSIFICATION = """
     Here are the definitions:
     {definitions}
 """
+
+
+DEFAULT_QUERY_TEMPLATE = """
+
+<role>You are a researcher who's writing a paper surveying the existing papers on a subject. You are writing to answer a specific question based on the following definitions from all the papers.</role>
+
+<task> You are given the following definitions of Responsible Artificial Intelligence (RAI) from all the papers. You are also given a question. Please answer the question by sythesizing the definitions. That means your answer should draw from the most relevant definitions. If the definition does not provide any relevant information, please do not use it. Each sentence of your answer should include at least one reference number in the form of "[number]", with the number representing the "id" of the paper that this sentence's statement is referencing or paraphrased from. An example of response is given below. </task> 
+
+<example>
+As black-box Machine Learning (ML) models are increasingly being employed to make important
+predictions in critical contexts, the demand for transparency is increasing from the various stakeholders in
+AI [6]. The danger is on creating and using decisions that are not justifiable, legitimate, or that simply do
+not allow obtaining detailed explanations of their behaviour [7]. Explanations supporting the output of a
+model are crucial, e.g., in precision medicine, where experts require far more information from the model
+than a simple binary prediction for supporting their diagnosis [8, 12].</example>
+
+<definitions> 
+{definitions}
+</definitions>
+<question>
+{question}
+</question>
+"""
+
+LEGITMACY_QUESTION = {
+    "name": "legitmacy", 
+    "content": "What makes an AI system legitimate?"
+}
