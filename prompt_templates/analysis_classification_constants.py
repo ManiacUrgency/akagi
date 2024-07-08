@@ -145,7 +145,9 @@ DEFAULT_QUERY_TEMPLATE = """
 
 <role>You are a researcher who's writing a paper surveying the existing papers on a subject. You are writing to answer a specific question based on the following definitions from all the papers.</role>
 
-<task> You are given the following definitions of Responsible Artificial Intelligence (RAI) from all the papers. You are also given a question. Please answer the question by sythesizing the definitions. That means your answer should draw from the most relevant definitions. If the definition does not provide any relevant information, please do not use it. Each sentence of your answer should include at least one reference number in the form of "[number]", with the number representing the "id" of the paper that this sentence's statement is referencing or paraphrased from. An example of response is given below. </task> 
+<task> You are given the following definitions of Responsible Artificial Intelligence (RAI) from all the papers. You are also given a question. Please answer the question by sythesizing the definitions. That means your answer should draw from the most relevant definitions. If the definition does not provide any relevant information, please do not use it. Every sentence you generate, should be either a paraphase or direct quotation from one of the definitions provided below.
+
+Each sentence of your answer should include at least one reference number in the form of "[number]", with the number representing the "id" of the paper that this sentence is paraphrasing or quoting from. An example of response is given below. </task> 
 
 <example>
 As black-box Machine Learning (ML) models are increasingly being employed to make important
@@ -167,3 +169,82 @@ LEGITMACY_QUESTION = {
     "name": "legitmacy", 
     "content": "What makes an AI system legitimate?"
 }
+
+# Model validation and test
+MODEL_QUESTION_CONTEXT = """
+Algorithm selection is the second conceptual stage for building an AI model that starts with model training then evaluation. Once the model has been thoroughly tested and validated the model can be deployed. There are five RAI principles that must be accounted for which are 1) security, 2) privacy, 3) explainability for understandability, 4) sustainability, and 5) truthfulness.
+"""
+
+# Sythesizer script
+SECURITY_QUESTION = {
+    "name": "security",
+    "content": MODEL_QUESTION_CONTEXT + "What makes an AI system secure?"
+}
+# User script: 
+# What are the best practices such as methods, tools and techniques that makes an AI system secure? 
+
+# Please write a simple definition for the "security" principle in model validation and testing for an AI system under the context of Responsbile AI.
+
+PRIVACY_QUESTION = {
+    "name": "privacy",
+    "content": MODEL_QUESTION_CONTEXT + "What makes an AI system privacy compliant?"
+}
+# User script: 
+# What are the best practices such as methods, tools and techniques that makes an AI system privacy compliant? 
+
+EXPLAINABILITY_QUESTION = {
+    "name": "explainability",
+    "content": MODEL_QUESTION_CONTEXT + "What makes an AI system explainable so that all stakeholders can understand the system's behavior?"
+}
+# User script: 
+# What are the best practices such as methods, tools and techniques that makes an AI system explainable and understandable? 
+
+SUSTAINABILITY_QUESTION = {
+    "name": "sustainability",
+    "content": MODEL_QUESTION_CONTEXT + "What makes an AI system sustainable to maximize long-term benefits while minimizing negative environmental impact?"
+}
+# User script: 
+# What are the best practices such as methods, tools and techniques that makes an AI system sustainable to minimize negative environmental impact? 
+
+# Please write a simple definition for the "sustainability" principle in model validation and testing for an AI system under the context of Responsbile AI. It should focus on minimizing negative environmental impact.
+
+
+
+# Used the user retrieval script instead due to few references using sythesizer script
+# This means querying all the content (chucks) of all papers can produce better result than 
+# querying only the processed RAI definitions (of all papers).  
+TRUTHFULNESS_QUESTION = {
+    "name": "truthfulness",
+    "content": MODEL_QUESTION_CONTEXT + "What makes an AI system truthful in that it seeks facts and truth and does not give misinformation?"
+}
+# User script: 
+# What are the best practices such as methods, tools and techniques that makes an AI system truthful adhereing to facts? 
+
+MAINTAINABILITY_QUESTION = {
+    "name": "maintainability",
+    "content": MODEL_QUESTION_CONTEXT + "What are the best techincal practices and principles for Model monitoring?"
+}
+# User script: 
+# What are the best practices such as methods, tools and techniques that makes an AI system maintainble? 
+
+CONTESTABILITY_QUESION = {
+    "name": "contestability",
+    "content": MODEL_QUESTION_CONTEXT + "What are the best techincal practices and principles to make an AI model contestable?" 
+}
+
+AUDITABILITY_QUESION = {
+    "name": "auditability",
+    "content": MODEL_QUESTION_CONTEXT + "What are the best techincal practices and principles to make an AI model auditable?" 
+}
+
+
+# Please write a simple defintion of "data transparency" for AI system.   
+# What are the best practices such as methods, tools and techniques that makes an AI system that ensures data transparency?
+
+# Please write a simple defintion for the "Legality" principle of System Design and Risk Assessment stage. 
+# What are the best practices such as methods, tools and techniques that makes an AI system legal?
+
+
+
+# Please write a simple defintion for the "Ethical" principle of System Design and Risk Assessment stage. 
+# What are the best practices such as methods, tools and techniques that makes an AI system ethnical?

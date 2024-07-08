@@ -28,7 +28,7 @@ def setup_retriever(vectorstore):
     retriever = vectorstore.as_retriever(
         search_type="similarity",
         search_kwargs={
-            "k": 4
+            "k": 8
         }
     )
     return retriever
@@ -65,8 +65,11 @@ async def handle_query(query, retriever, prompt, llm, hash_map):
     print("\n\nPrompt AFTER formatting:\n", request)
 
     print("\n\n\nAI Response: \n")
+    response = ''
     async for chunk in stream_llm_responses(llm, request):
         print(chunk, end="")
+        response += chunk
+    return response
 
 # Main function to perform retrieval-augmented generation
 async def retrieval_augmented_generation(hash_map):
@@ -106,7 +109,7 @@ async def retrieval_augmented_generation(hash_map):
         
         retriever = setup_retriever(vectorstore)
         
-        await handle_query(query, retriever, prompt, query_llm, hash_map)
+        response = await handle_query(query, retriever, prompt, query_llm, hash_map)
 
 # Define the async function to run the main logic
 async def main():

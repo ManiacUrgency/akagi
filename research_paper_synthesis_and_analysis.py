@@ -81,7 +81,7 @@ async def retrieval_augmented_generation(input_json_file_path, output_txt_file_p
 async def main():
     file_path = os.path.dirname(os.path.realpath(__file__))
     input_json_file_path = file_path + "/processed_rai_definitions.json"
-    question = LEGITMACY_QUESTION
+    question = AUDITABILITY_QUESION
     output_txt_file_path = file_path + "/output_analysis_" + question["name"] + ".txt"
     
     await retrieval_augmented_generation(input_json_file_path, output_txt_file_path, question)
