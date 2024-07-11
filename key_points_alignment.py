@@ -29,8 +29,9 @@ def setup_retriever(vectorstore, paper_title):
     retriever = vectorstore.as_retriever(
         search_type="similarity",
         search_kwargs={
+            "namespace": "responsible_ai",
             "k": 10,
-            #"filter": filter_request_json
+            "filter": filter_request_json
         }
     )
     return retriever
@@ -55,8 +56,11 @@ async def handle_query(question, retriever, prompt, llm, hash_map):
             text = get_text_by_id(chunk_id, hash_map)
             if text:
                 context += text + "\n"
-    
+
     request = prompt.format(context=context.strip())
+
+    print("\n\nPost formated prompt:\n", request)
+
     print("\n\n\nAI Response: \n")
     response_text = ""
     async for chunk in stream_llm_responses(llm, request):
@@ -128,7 +132,7 @@ async def retrieval_augmented_generation(input_text_json_file, input_reference_j
 # Define the async function to run the main logic
 async def main():
     file_path = os.path.dirname(os.path.realpath(__file__))
-    input_text_json_file = os.path.join(file_path, "processed_hash_map.json") 
+    input_text_json_file = os.path.join(file_path, "rai_hash_map.json") 
     input_reference_json_file = os.path.join(file_path, "processed_rai_definitions.json") 
     
     await retrieval_augmented_generation(input_text_json_file, input_reference_json_file)
