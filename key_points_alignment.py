@@ -109,8 +109,8 @@ async def retrieval_augmented_generation(input_text_json_file, input_reference_j
         template=KEY_POINTS_ALIGNMENT_PROMPT
     )
 
-    #question = "Functionality, Security, Legality, Fairness, Privacy, Transparency,  Explainability for Understandability, Sustainability, Truthfulness, Maintainability, Contestability, Auditability, Accountability"
-    question = "governance"
+    question = "Functionality, Security, Legality, Fairness, Privacy, Transparency,  Explainability for Understandability, Sustainability, Truthfulness, Maintainability, Contestability, Auditability, Accountability"
+    #question = "governance"
     
     id_to_title_map = get_id_to_title_map(reference_hash_map)
     print(id_to_title_map, "\n\n")
