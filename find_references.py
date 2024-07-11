@@ -1,4 +1,9 @@
-with open("/Users/stephenjin/Documents/Leonard/paper.txt", "r") as file:
+import os
+
+file_path = os.path.dirname(os.path.realpath(__file__))
+input_file = os.path.join(file_path, "papers_reference_check.txt") 
+
+with open(input_file, "r") as file:
     content = file.read()
     count = 0
     for number in range(64):
