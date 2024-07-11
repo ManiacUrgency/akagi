@@ -29,6 +29,7 @@ def setup_retriever(vectorstore, paper_title):
     retriever = vectorstore.as_retriever(
         search_type="similarity",
         search_kwargs={
+            "namespace": "responsible_ai",
             "k": 10,
             #"filter": filter_request_json
         }
