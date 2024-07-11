@@ -26,8 +26,9 @@ async def stream_llm_responses(llm, request):
 # Function to setup retriever
 def setup_retriever(vectorstore):
     retriever = vectorstore.as_retriever(
-        search_type="similarity",
+        search_type="mmr",
         search_kwargs={
+            "namespace": "responsible_ai",
             "k": 8
         }
     )
@@ -114,7 +115,7 @@ async def retrieval_augmented_generation(hash_map):
 # Define the async function to run the main logic
 async def main():
     file_path = os.path.dirname(os.path.realpath(__file__))
-    json_file_path = file_path + "/hash_map.json"
+    json_file_path = file_path + "/rai_hash_map.json"
     with open(json_file_path, "r") as file:
         hash_map = json.load(file)
     await retrieval_augmented_generation(hash_map)

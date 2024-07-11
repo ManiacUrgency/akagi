@@ -8,7 +8,7 @@ import logging
 valid_pdf_paths = []
 num_errors = 0
 successes = 0
-csv_file_path = "responsible_ai_research_papers/extracted_data.csv"
+csv_file_path = "responsible_ai_research_papers/xai_extracted_data.csv"
 
 # Initialize logging
 logging.basicConfig(filename='process.log', level=logging.DEBUG)
