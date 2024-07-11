@@ -41,3 +41,25 @@ The system architecture is split into four parts: 1) Data Collection 2) Data Pro
   1. "research_paper_synthesis_and_analysis.py" extracts the definitions of Responsible AI from each reserach paper by reading the "rai_definitions.json".
   2. The definitions are concatenated and inputted as context for the prompt, which invokes the LLM (_GPT-4o_).
   3. The LLM response is printed to the terminal.
+
+**5 Reference management
+
+  1. "find_references.py" prints out for each numbered paper in Reference section of the paper, if it was referenced in the paper. You can run a grep command to only see the ones that weren't: 
+
+% ../akagi/find_references.py | grep NO
+
+NO  [7]  How different groups prioritize ethical values for responsible AI
+NO  [8]  Measurement as governance in and for responsible AI
+NO  [11]  Where responsible AI meets reality: Practitioner perspect...
+....
+
+  2. "key_points_alignment.py": it asks for a number representing the paper, retrieves relevant content for all the principles from this paper, and ask if the content retrieved agrees, disagrees or has no opinion of each of the principles in the paper. 
+
+For example: 
+
+% ../akagi/key_points_alignment.py
+
+  >>> 7 
+
+Analyze paper:  How different groups prioritize ethical values for responsible AI
+....

@@ -113,9 +113,9 @@ async def retrieval_augmented_generation(input_text_json_file, input_reference_j
     #question = "governance"
     
     id_to_title_map = get_id_to_title_map(reference_hash_map)
-    print(id_to_title_map, "\n\n")
+    #print(id_to_title_map, "\n\n")
 
-    print("\n\nPrompt BEFORE formatting:\n", prompt)
+    #print("\n\nPrompt BEFORE formatting:\n", prompt)
     while True:
         print("\nPlease enter the id of the reference:")
         query = input("\n>>> ")
