@@ -237,14 +237,63 @@ AUDITABILITY_QUESION = {
     "content": MODEL_QUESTION_CONTEXT + "What are the best techincal practices and principles to make an AI model auditable?" 
 }
 
+# More queries for user script:
 
-# Please write a simple defintion of "data transparency" for AI system.   
-# What are the best practices such as methods, tools and techniques that makes an AI system that ensures data transparency?
+# Please write a simple defintion of "accountable" for AI system.   
+# What are the best practices such as methods, tools and techniques that makes an AI system to be accountable?
 
 # Please write a simple defintion for the "Legality" principle of System Design and Risk Assessment stage. 
 # What are the best practices such as methods, tools and techniques that makes an AI system legal?
-
-
-
 # Please write a simple defintion for the "Ethical" principle of System Design and Risk Assessment stage. 
 # What are the best practices such as methods, tools and techniques that makes an AI system ethnical?
+
+
+KEY_POINTS_ALIGNMENT_PROMPT = """
+
+There are four stages of Responsible AI Life Cycle and their principles: 
+
+Stage 1: System Design and Risk Assessment
+1. Functionality 
+A functional AI system is one that performs in a manner consistent with profit maximization, operating efficiency, and other key performance indicators.
+2. Security 
+The Security principle ensures that AI systems are protected from being attacked, co-opted, or misused by malicious actors.
+3. Legality
+The Legality principle of an AI system refers to the requirement that AI systems must be developed and used in compliance with existing and upcoming laws. This includes ensuring that AI systems respect citizens' fundamental rights and avoid potential liability. 
+
+Stage 2: Data Validation and Testing
+1. Fairness
+Fairness in AI can be defined as the absence of any prejudice or favoritism toward an individual or a group based on their inherent or acquired characteristics. 
+2. Privacy
+An AI system is considered privacy compliant when it adheres to principles and practices that ensure the protection of personal data and respect for individuals' privacy rights throughout its lifecycle. 
+3. Transparency
+Transparency in AI systems refers to the clear, timely, easily understandable, and plain language explanation of what data is used, how it is collected, and how it influences the AI model's decisions.
+
+Stage 3: Model Validation and Testing
+1. Explainability for Understandability
+An AI system is considered explainable when it provides clear, understandable, and transparent explanations of its decision-making processes to all stakeholders. 
+2. Sustainability
+Sustainability is the ability of the AI system to balance economic growth with social and environmental impacts. 
+3. Truthfulness
+An AI system is truthful if it describes the literal truth about the real world. Its output is consistent with facts that most domain experts agree upon.
+
+Stage 4: System Monitoring
+1. Maintainability
+Maintainability refers to the ease with which an AI system can be modified to correct faults, improve performance, or adapt to a changed environment.
+
+Stage 5: Algorithmic Auditing and Reassessment
+1. Contestability
+Contestability refers to the ability of individuals to challenge and seek redress against decisions made by AI systems. 
+2. Auditability
+Auditability is defined as the assessment of algorithms, data, and design processes while preserving the intellectual property related to the AI systems. This involves both internal and external auditors performing the assessment and making the reports available to contribute to the trustworthiness of the technology.
+3. Accountability  
+Accountability in AI systems refers to the mechanisms and practices that ensure individuals or organizations are held responsible for the actions and decisions made by AI systems.
+
+Your task is to read the content below, and find out for each principle of each stage, which is the answer from the content:
+1. Agree: because the content has similar definition, and provide a quote from your definition or explanation.
+2. Disgree: because the content has a different definition, and provide a quote for that. 
+3. No opinion: because the content hasn't discussed anything related.
+
+Here's the content:
+{context}
+
+"""
