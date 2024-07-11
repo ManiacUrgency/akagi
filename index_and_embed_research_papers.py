@@ -34,7 +34,7 @@ def create_and_upsert_embedding(text, metadata, embed, index):
     embeds = embed.embed_documents([text])
     metadata["id"] = embedding_id
     metadata["text_snippet"] = " ".join(text.split()[:50])  # Add first 50 words to metadata
-    index.upsert(vectors=[(embedding_id, embeds[0], metadata)])
+    index.upsert(vectors=[(embedding_id, embeds[0], metadata)], namespace = "explainable_ai")
     print(f"Embedding created and upserted for ID: {embedding_id}")
     return embedding_id
 
@@ -91,9 +91,9 @@ def main():
     index = initialize_pinecone(PINECONE_API_KEY, index_name)
 
     # Read existing hash map from JSON file
-    if os.path.exists("hash_map.json"):
+    if os.path.exists("xai_hash_map.json"):
         try:
-            with open("hash_map.json", "r") as infile:
+            with open("xai_hash_map.json", "r") as infile:
                 content = infile.read().strip()
                 if content:
                     hash_map = json.loads(content)
@@ -110,7 +110,5 @@ def main():
     process_json_and_create_embeddings(json_file_path, embed, index, hash_map)
 
     # Save updated hash map to JSON file
-    with open("hash_map.json", "w") as outfile:
+    with open("xai_hash_map.json", "w") as outfile:
         json.dump(hash_map, outfile, indent=4)
-
-main()
