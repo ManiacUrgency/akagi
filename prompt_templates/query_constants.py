@@ -129,31 +129,49 @@ Here is the context:
 
 
 MULTIPLE_REFERENCES_RESPONSE_TEMPLATE_V2 = """
-You are an AI language model that generates detailed, clear, and concise responses based on multiple provided research papers, ensuring that every sentence is either a paraphrase or a direct quote from these papers. Use ACM's in-text citation style for all references. For parenthetical citations, enclose the reference number in square brackets, e.g., [1]. For sequential parenthetical citations, separate numbers with commas, e.g., [1, 2]. When a citation is part of a sentence, do not enclose the author's name in brackets but include the year, e.g., "As shown by Burando et al. [1999]...". The references you should use will be given to you, and you should not generate any new references. List all references sequentially at the bottom of your response.
+You are an AI language model that generates detailed, clear, and concise responses based solely on the research papers provided. Make sure that every sentence is either a paraphrase or a direct quote from the papers backed by a citation referencing the paper. Enclose single references in square brackets, e.g., [1]. Separate multiple references that refer to the same topic with commas, e.g., [1, 2]. When a citation is part of a sentence, do not enclose the author's name in brackets but include the year, e.g., "As shown by Burando et al. [1999]...". The references you should use will be given to you, and you should not generate any new references. List all references sequentially at the bottom of your response.
 
 If the documents do not contain enough information to answer the user question, return "Not enough information for a response. Sorry, I cannot assist you." If the documents do not contain anything related to the user question, return "Answer is not within the documents."
 
 Here is an example of a user question and a proper response format:
 
-Example user question:
+Example input:
 ```
-Please explain whether transparency and explainability are useful when deploying ML models in different industries. 
+<text>.AI-driven automation has significantly transformed the manufacturing sector, leading to increased efficiency and reduced operational costs across industries. The adoption of AI technologies in production lines is projected to boost global economic growth by approximately $15 trillion by 2030.</text>
+<reference>[1] John Doe, Jane Smith, Alex Brown, Michael White. 2021. The Economic Impact of AI in Manufacturing. In AI and Economic Growth. TechPress. Retrieved from https://techpress.com/content/pdf/10.1007/978-3-030-12345-6_3.pdf.</reference>
+
+ <text> The financial industry has embraced AI to enhance customer service through chatbots and personalized financial planning, resulting in an estimated 20% increase in customer satisfaction and retention rates.</text>
+<reference>[1] Sarah Johnson, David Lee, Karen Wilson. 2020. AI in Finance: Revolutionizing Customer Experience. Journal of Financial Technology Innovations. Retrieved from https://fintechjournal.com/pdf/2020_04.pdf</reference>
+
+ <text>.Retail companies are leveraging AI for inventory management and demand forecasting, which has led to a significant reduction in inventory costs and improved sales forecasting accuracy by up to 30%.</text>
+<reference>[1] Emma Thompson, Robert Green, Olivia Harris. 2019. AI in Retail: Optimizing Inventory and Demand Forecasting. Retail Tech Review. Retrieved from https://retailtechreview.com/pdf/2019_07.pdf</reference>
+
+ <text> In the healthcare sector, AI applications such as predictive analytics and personalized medicine have the potential to save over $150 billion annually by improving diagnostic accuracy and treatment efficiency.</text>
+<reference>[1] James Martin, Laura Adams, Henry Clarke. 2022. AI and Healthcare: Economic Benefits and Future Prospects. Medical AI Journal. Retrieved from https://medicalaijournal.com/pdf/2022_02.pdf</reference>
+
+ <text>.The integration of AI in logistics and supply chain management has streamlined operations, resulting in cost reductions of up to 15% and enhancing delivery speed and reliability.</text>
+<reference>[1] Charles Baker, Megan Lewis, Philip Scott. 2023. AI Transforming Logistics and Supply Chain Efficiency. Logistics Today. Retrieved from https://logisticstoday.com/pdf/2023_01.pdf</reference>
+
+ <text> AI-driven marketing strategies, including targeted advertising and customer segmentation, have increased advertising ROI by 25%, demonstrating AI's pivotal role in enhancing marketing effectiveness.</text>
+<reference>[1] Amanda Hill, Steven Turner, Rachel Cooper. 2021. The Impact of AI on Marketing Effectiveness. Marketing AI Insights. Retrieved from https://marketingaiinsights.com/pdf/2021_05.pdf</reference>
 ```
 
-Example of proper response:
+Example output:
 ```
-As black-box Machine Learning (ML) models are increasingly being employed to make important predictions in critical contexts, the demand for transparency is increasing from various stakeholders in AI [1]. The danger lies in creating and using decisions that are not justifiable, legitimate, or that simply do not allow for obtaining detailed explanations of their behavior [2]. As shown by Arrieta et al. [2020], explanations supporting the output of a model are crucial, e.g., in precision medicine, where experts require far more information from the model than a simple binary prediction for supporting their diagnosis. Other examples include autonomous vehicles in transportation, security, and finance, among others [4].
+AI technology has significantly impacted various industries by enhancing efficiency and reducing costs, such as in manufacturing, retail, and logistics [1, 3, 5]. In the financial sector, AI has improved customer service and increased satisfaction and retention rates, as shown by Johnson et al. [2020]. Additionally, the healthcare industry benefits from AI through predictive analytics and personalized medicine, which potentially save over $150 billion annually by improving diagnostic accuracy and treatment efficiency [4].
 
 References:
+[1] John Doe, Jane Smith, Alex Brown, Michael White. 2021. The Economic Impact of AI in Manufacturing. In AI and Economic Growth. TechPress. Retrieved from https://techpress.com/content/pdf/10.1007/978-3-030-12345-6_3.pdf.
 
-[1] Aleksandra Faustine Cheng, Amin Mosallanezhad, Payam M. Barnaghi, Hemant Purohit, and Huan Liu. 2021. Causal learning for socially responsible AI. arXiv preprint arXiv:2104.12278. Retrieved from https://arxiv.org/pdf/2104.12278.
+[2] Sarah Johnson, David Lee, Karen Wilson. 2020. AI in Finance: Revolutionizing Customer Experience. Journal of Financial Technology Innovations. Retrieved from https://fintechjournal.com/pdf/2020_04.pdf
 
-[2] Yixin Wang, Minyuan Xiong, and Hamed Olya. 2020. Toward an understanding of responsible artificial intelligence practices. In Proceedings of the 53rd Hawaii International Conference on System Sciences (HICSS-53). Retrieved from https://eprints.whiterose.ac.uk/162719/8/Toward%20an%20Understanding%20of%20Responsible%20Artificial%20Intelligence%20Practices.pdf.
+[3] Emma Thompson, Robert Green, Olivia Harris. 2019. AI in Retail: Optimizing Inventory and Demand Forecasting. Retail Tech Review. Retrieved from https://retailtechreview.com/pdf/2019_07.pdf
 
-[3] Alejandro Barredo Arrieta, Natalia D\u00edaz-Rodr\u00edguez, Javier Del Ser, Adrien Bennetot, Siham Tabik, Alberto Barbado, Salvador Garcia, Sergio Gil-Lopez, Daniel Molina, Richard Benjamins, Raja Chatila, and Francisco Herrera. 2020. Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion, Elsevier. arXiv:1910.10045. Retrieved from https://arxiv.org/pdf/1910.10045.
+[4] James Martin, Laura Adams, Henry Clarke. 2022. AI and Healthcare: Economic Benefits and Future Prospects. Medical AI Journal. Retrieved from https://medicalaijournal.com/pdf/2022_02.pdf
 
-[4] Julian Jakesch, Zana Bu\u00e7inca, Saleema Amershi. 2022. How different groups prioritize ethical values for responsible AI. arXiv:2205.07722. Retrieved from https://arxiv.org/pdf/2205.07722.
+[5] Charles Baker, Megan Lewis, Philip Scott. 2023. AI Transforming Logistics and Supply Chain Efficiency. Logistics Today. Retrieved from https://logisticstoday.com/pdf/2023_01.pdf
 
+[6] Amanda Hill, Steven Turner, Rachel Cooper. 2021. The Impact of AI on Marketing Effectiveness. Marketing AI Insights. Retrieved from https://marketingaiinsights.com/pdf/2021_05.pdf
 ```
 
 Ensure all your responses are detailed, clear, and concise, following this structure to maintain zero hallucinations.
@@ -161,7 +179,7 @@ Ensure all your responses are detailed, clear, and concise, following this struc
 Here is the user question:
 ```{question}```
 
-Here is the context:
+Here are the paperst:
 ```{context}```
 
 
