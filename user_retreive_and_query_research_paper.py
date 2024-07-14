@@ -28,7 +28,7 @@ def setup_retriever(vectorstore):
     retriever = vectorstore.as_retriever(
         search_type="similarity",
         search_kwargs={
-            "namespace": "explainable_ai",
+            "namespace": "responsible_ai",
             "k": 10
         }
     )
@@ -52,7 +52,6 @@ async def handle_query(query, retriever, prompt, llm, hash_map):
     print("\n\nId and Metadata: ", id_and_metadata_dict, "\n\n")
     
     context = ""
-
     for doc in id_and_metadata_dict:
         chunk_id = doc.page_content
         if chunk_id:
@@ -63,9 +62,11 @@ async def handle_query(query, retriever, prompt, llm, hash_map):
 
     
     request = prompt.format(context=context.strip(), question=query)
-    print("\n\nPrompt AFTER formatting:\n", request)
 
-    print("\n\n\nAI Response: \n")
+    print("\n\nPrompt AFTER formatting:\n", request)
+    print("\n\nUser question: ", query)
+    print("\n\nAI Response: \n")
+
     response = ''
     async for chunk in stream_llm_responses(llm, request):
         print(chunk, end="")
@@ -99,7 +100,7 @@ async def retrieval_augmented_generation(hash_map):
     
     prompt = PromptTemplate(
         input_variables=["context", "question"], 
-        template=MULTIPLE_REFERENCES_RESPONSE_TEMPLATE
+        template=MULTIPLE_REFERENCES_RESPONSE_TEMPLATE_V2
     )
 
     print("\n\nPrompt BEFORE formatting:\n", prompt)
