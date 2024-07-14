@@ -138,22 +138,22 @@ Here is an example of a user question and a proper response format:
 Example input:
 ```
 <text>.AI-driven automation has significantly transformed the manufacturing sector, leading to increased efficiency and reduced operational costs across industries. The adoption of AI technologies in production lines is projected to boost global economic growth by approximately $15 trillion by 2030.</text>
-<reference>[1] John Doe, Jane Smith, Alex Brown, Michael White. 2021. The Economic Impact of AI in Manufacturing. In AI and Economic Growth. TechPress. Retrieved from https://techpress.com/content/pdf/10.1007/978-3-030-12345-6_3.pdf.</reference>
+<reference> John Doe, Jane Smith, Alex Brown, Michael White. 2021. The Economic Impact of AI in Manufacturing. In AI and Economic Growth. TechPress. Retrieved from https://techpress.com/content/pdf/10.1007/978-3-030-12345-6_3.pdf.</reference>
 
  <text> The financial industry has embraced AI to enhance customer service through chatbots and personalized financial planning, resulting in an estimated 20% increase in customer satisfaction and retention rates.</text>
-<reference>[1] Sarah Johnson, David Lee, Karen Wilson. 2020. AI in Finance: Revolutionizing Customer Experience. Journal of Financial Technology Innovations. Retrieved from https://fintechjournal.com/pdf/2020_04.pdf</reference>
+<reference> Sarah Johnson, David Lee, Karen Wilson. 2020. AI in Finance: Revolutionizing Customer Experience. Journal of Financial Technology Innovations. Retrieved from https://fintechjournal.com/pdf/2020_04.pdf</reference>
 
  <text>.Retail companies are leveraging AI for inventory management and demand forecasting, which has led to a significant reduction in inventory costs and improved sales forecasting accuracy by up to 30%.</text>
-<reference>[1] Emma Thompson, Robert Green, Olivia Harris. 2019. AI in Retail: Optimizing Inventory and Demand Forecasting. Retail Tech Review. Retrieved from https://retailtechreview.com/pdf/2019_07.pdf</reference>
+<reference> Emma Thompson, Robert Green, Olivia Harris. 2019. AI in Retail: Optimizing Inventory and Demand Forecasting. Retail Tech Review. Retrieved from https://retailtechreview.com/pdf/2019_07.pdf</reference>
 
  <text> In the healthcare sector, AI applications such as predictive analytics and personalized medicine have the potential to save over $150 billion annually by improving diagnostic accuracy and treatment efficiency.</text>
-<reference>[1] James Martin, Laura Adams, Henry Clarke. 2022. AI and Healthcare: Economic Benefits and Future Prospects. Medical AI Journal. Retrieved from https://medicalaijournal.com/pdf/2022_02.pdf</reference>
+<reference> James Martin, Laura Adams, Henry Clarke. 2022. AI and Healthcare: Economic Benefits and Future Prospects. Medical AI Journal. Retrieved from https://medicalaijournal.com/pdf/2022_02.pdf</reference>
 
  <text>.The integration of AI in logistics and supply chain management has streamlined operations, resulting in cost reductions of up to 15% and enhancing delivery speed and reliability.</text>
-<reference>[1] Charles Baker, Megan Lewis, Philip Scott. 2023. AI Transforming Logistics and Supply Chain Efficiency. Logistics Today. Retrieved from https://logisticstoday.com/pdf/2023_01.pdf</reference>
+<reference> Charles Baker, Megan Lewis, Philip Scott. 2023. AI Transforming Logistics and Supply Chain Efficiency. Logistics Today. Retrieved from https://logisticstoday.com/pdf/2023_01.pdf</reference>
 
  <text> AI-driven marketing strategies, including targeted advertising and customer segmentation, have increased advertising ROI by 25%, demonstrating AI's pivotal role in enhancing marketing effectiveness.</text>
-<reference>[1] Amanda Hill, Steven Turner, Rachel Cooper. 2021. The Impact of AI on Marketing Effectiveness. Marketing AI Insights. Retrieved from https://marketingaiinsights.com/pdf/2021_05.pdf</reference>
+<reference> Amanda Hill, Steven Turner, Rachel Cooper. 2021. The Impact of AI on Marketing Effectiveness. Marketing AI Insights. Retrieved from https://marketingaiinsights.com/pdf/2021_05.pdf</reference>
 ```
 
 Example output:
