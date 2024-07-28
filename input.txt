@@ -1,0 +1,13 @@
+Accountability in AI systems refers to the mechanisms and practices that ensure individuals or organizations are held responsible for the actions and decisions made by AI systems. [7] It encompasses the explainability (section 3.4.1) and auditability (section 3.6.2) principles of AI systems [2]. To ensure accountability in AI systems, several best practices have been identified across various research papers. These practices cover a range of strategies from technical implementations to organizational policies.
+
+Minimization and Reporting of Negative Impacts: AI systems should include mechanisms for reporting actions or decisions that yield certain outcomes. This involves the identification, assessment, documentation, and minimization of potential negative impacts. Impact assessments should be carried out both prior to and during the development, deployment, and use of AI systems [2].
+
+Trade-offs and Redress: When implementing accountability measures, any trade-offs should be ethically acceptable, reasoned, explicitly acknowledged, and documented. Additionally, mechanisms should be in place to ensure adequate redress for unforeseen adverse impacts, with special attention to vulnerable groups [2].
+
+Co-versioning and Ethical Audit Trails: Co-versioning traces the datasets and configuration parameters used to train and evaluate models, facilitating maintenance and communication between AI and non-AI component teams. Ethical audit trails record every step of AI systems from an ethics perspective, balancing accountability and performance [16].
+
+Accountability Knowledge Graphs: These graphs capture accountability information throughout the lifecycle of AI systems and allow for programmatic auditing. Ontologies can be used to describe and model this accountability information [16].
+
+Principles and Guidelines: Technology companies and policy institutions have released principles and guidelines for AI use, emphasizing transparency, trust, accountability, and fairness. These guidelines suggest that AI decisions should be interpretable and explainable to trained human workers and that AI systems should explicitly identify themselves as such [17].
+
+Design for Values Methodologies: These methodologies provide a structured way to translate abstract values into concrete norms, ensuring that fulfilling the norm adheres to the value. This involves identifying societal values, deciding on a moral deliberation approach, and linking values to formal system requirements and functionalities [23].
