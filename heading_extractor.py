@@ -743,9 +743,10 @@ def main(paper_title, authors, publication_info, publication_year, pdf_url):
 # main("Resolving Ethics Trade-offs in Implementing Responsible AI", "https://arxiv.org/pdf/2401.08103")
 # main("Towards Socially Responsible AI: Cognitive Bias-Aware Multi-Objective Learning", "https://arxiv.org/pdf/2005.06618")
 # main("A Scoping Study of Evaluation Practices for Responsible AI Tools: Steps Towards Effectiveness Evaluations", "https://arxiv.org/pdf/2401.17486")
-# main("Using Explainable AI for EEG-based Reduced Montage Neonatal Seizure Detection", "https://arxiv.org/pdf/2406.16908")
+# main("Using Explainable AI for EEG-based Reduced Montage Neonatal Seizure Detection","Dinuka Sandun Udayantha, Kavindu Weerasinghe, Nima Wickramasinghe1, Akila Abeyratne1, Kithmin Wickremasinghe2, Jithangi Wanigasinghe3, Anjula De Silva1, and Chamira Edussooriya", "Information fusion, 2020 - Elsevier", 2019, "https://arxiv.org/pdf/2406.16908")
 # main("Responsible AI: Portraits with Intelligent Bibliometrics", "https://arxiv.org/pdf/2405.02846")
 # main("Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI", "AB Arrieta, N Díaz-Rodríguez, J Del Ser, A Bennetot…","Information fusion, 2020 - Elsevier", 2019, "https://arxiv.org/pdf/1910.10045")
+main("Human Simulacra", "Authors", "Publications", 2023, "https://arxiv.org/pdf/2304.03442")
 # import csv
 # import 
 
