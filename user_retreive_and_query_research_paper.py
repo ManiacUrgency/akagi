@@ -24,7 +24,18 @@ async def stream_llm_responses(llm, request):
         yield chunk.content.replace("\n", "\n\t")
 
 # Function to setup retriever
-def setup_retriever(vectorstore):
+def get_openai_retriever():
+    # Initialize OpenAI embeddings
+    OPENAI_API_EMBEDDINGS_KEY = os.environ["OPENAI_API_EMBEDDINGS_KEY"]
+    embed = initialize_openai_embeddings("text-embedding-3-large", OPENAI_API_EMBEDDINGS_KEY)
+
+   # Initialize Pinecone
+    PINECONE_API_KEY = os.environ["PINECONE_API_KEY"]
+    index_name = "research-papers"  # Ensure this matches the index used in the embedding script
+    text_field = "id"  # Updated to reflect the changes in metadata
+    
+    index = initialize_pinecone(PINECONE_API_KEY, index_name)
+    vectorstore = PineconeVectorStore(index, embed, text_field)    
     retriever = vectorstore.as_retriever(
         search_type="similarity",
         search_kwargs={
@@ -59,8 +70,7 @@ async def handle_query(query, retriever, prompt, llm, hash_map):
             if text:
                 # print("\nDOUCMENT:\n", text)
                 context += text + "\n"
-
-    
+ 
     request = prompt.format(context=context.strip(), question=query)
 
     print("\n\nPrompt AFTER formatting:\n", request)
@@ -75,18 +85,6 @@ async def handle_query(query, retriever, prompt, llm, hash_map):
 
 # Main function to perform retrieval-augmented generation
 async def retrieval_augmented_generation(hash_map):
-    # Initialize OpenAI embeddings
-    OPENAI_API_EMBEDDINGS_KEY = os.environ["OPENAI_API_EMBEDDINGS_KEY"]
-    embed = initialize_openai_embeddings("text-embedding-3-large", OPENAI_API_EMBEDDINGS_KEY)
-
-    # Initialize Pinecone
-    PINECONE_API_KEY = os.environ["PINECONE_API_KEY"]
-    index_name = "research-papers"  # Ensure this matches the index used in the embedding script
-    text_field = "id"  # Updated to reflect the changes in metadata
-    
-    index = initialize_pinecone(PINECONE_API_KEY, index_name)
-    vectorstore = PineconeVectorStore(index, embed, text_field)
-
     # Setup LLM
     OPENAI_API_QUERY_KEY = os.environ["OPENAI_API_QUERY_KEY"]
     query_llm = ChatOpenAI(
@@ -97,7 +95,6 @@ async def retrieval_augmented_generation(hash_map):
     )
 
     # Define prompt template
-    
     prompt = PromptTemplate(
         input_variables=["context", "question"], 
         template=MULTIPLE_REFERENCES_RESPONSE_TEMPLATE_V2
@@ -109,9 +106,8 @@ async def retrieval_augmented_generation(hash_map):
         if query.lower() == "quit":
             break
         
-        retriever = setup_retriever(vectorstore)
-        
-        response = await handle_query(query, retriever, prompt, query_llm, hash_map)
+        retriever = get_openai_retriever()
+        await handle_query(query, retriever, prompt, query_llm, hash_map)
 
 # Define the async function to run the main logic
 async def main():
