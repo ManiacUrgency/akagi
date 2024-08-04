@@ -122,9 +122,6 @@ Here is the user question:
 
 Here is the context:
 ```{context}```
-
-
-
 """
 
 
@@ -181,7 +178,76 @@ Here is the user question:
 
 Here are the paperst:
 ```{context}```
+"""
 
+MULTIPLE_REFERENCES_RESPONSE_TEMPLATE_V3 = """
+You will be provided with a user question and several research paper documents related to Explainable Artificial Intelligence (XAI). Your task is to generate a comprehensive, well-cited response that directly addresses the user question. Each sentence in your response must be paraphrased or directly quoted from the provided documents, ensuring zero hallucinations. Your goal is to create a detailed answer using specific examples from the documents and referencing as many documents as possible.
+
+Instructions:
+
+1. Read the User Question:
+Carefully read the user question to understand the specific information or analysis required.
+
+2. Analyze the Documents:
+Thoroughly review each provided document to identify relevant information, facts, and examples that address the user question.
+
+3. Generate the Response:
+
+Begin by summarizing the key aspects of the question.
+Provide a detailed answer using information directly from the documents.
+Paraphrase or quote directly from the documents without adding any information not present in the documents.
+Ensure each sentence is supported by at least one document. When multiple documents support a sentence, cite them together.
+Cite References:
+
+4. Use ACM's in-text citation style.
+Enclose the reference number in square brackets, e.g., [1] or [4].
+If multiple papers support the same topic, separate numbers with commas, e.g., [1, 2, 5, 7].
+When a citation is part of a sentence, do not enclose the author's name in brackets but include the year, e.g., "As shown by Burando et al. [1999]...".
+List all references at the end of the response.
+
+<<Example 1.>>
+```
+User Question:
+<userQuestion>
+What are the key economic impacts of AI across various industries, and how have specific sectors leveraged AI technologies to achieve cost reductions, efficiency improvements, and enhanced customer experiences?
+</userQuestion>
+
+Documents:
+<text>.AI-driven automation has significantly transformed the manufacturing sector, leading to increased efficiency and reduced operational costs across industries. The adoption of AI technologies in production lines is projected to boost global economic growth by approximately $15 trillion by 2030.</text>
+<reference> John Doe, Jane Smith, Alex Brown, Michael White. 2021. The Economic Impact of AI in Manufacturing. In AI and Economic Growth. TechPress. Retrieved from https://techpress.com/content/pdf/10.1007/978-3-030-12345-6_3.pdf.</reference>
+
+ <text> The financial industry has embraced AI to enhance customer service through chatbots and personalized financial planning, resulting in an estimated 20% increase in customer satisfaction and retention rates.</text>
+<reference> Sarah Johnson, David Lee, Karen Wilson. 2020. AI in Finance: Revolutionizing Customer Experience. Journal of Financial Technology Innovations. Retrieved from https://fintechjournal.com/pdf/2020_04.pdf</reference>
+
+ <text>.Retail companies are leveraging AI for inventory management and demand forecasting, which has led to a significant reduction in inventory costs and improved sales forecasting accuracy by up to 30%.</text>
+<reference> Emma Thompson, Robert Green, Olivia Harris. 2019. AI in Retail: Optimizing Inventory and Demand Forecasting. Retail Tech Review. Retrieved from https://retailtechreview.com/pdf/2019_07.pdf</reference>
+
+ <text> In the healthcare sector, AI applications such as predictive analytics and personalized medicine have the potential to save over $150 billion annually by improving diagnostic accuracy and treatment efficiency.</text>
+<reference> James Martin, Laura Adams, Henry Clarke. 2022. AI and Healthcare: Economic Benefits and Future Prospects. Medical AI Journal. Retrieved from https://medicalaijournal.com/pdf/2022_02.pdf</reference>
+
+ <text>.The integration of AI in logistics and supply chain management has streamlined operations, resulting in cost reductions of up to 15% and enhancing delivery speed and reliability.</text>
+<reference> Charles Baker, Megan Lewis, Philip Scott. 2023. AI Transforming Logistics and Supply Chain Efficiency. Logistics Today. Retrieved from https://logisticstoday.com/pdf/2023_01.pdf</reference>
+
+ <text> AI-driven marketing strategies, including targeted advertising and customer segmentation, have increased advertising ROI by 25%, demonstrating AI's pivotal role in enhancing marketing effectiveness.</text>
+<reference> Amanda Hill, Steven Turner, Rachel Cooper. 2021. The Impact of AI on Marketing Effectiveness. Marketing AI Insights. Retrieved from https://marketingaiinsights.com/pdf/2021_05.pdf</reference>
+
+Response:
+
+AI technologies have significantly impacted various industries by enhancing efficiency and reducing costs. In manufacturing, AI-driven automation is projected to boost global economic growth by $15 trillion by 2030 [1]. The financial sector has seen a 20% increase in customer satisfaction due to AI-enhanced services [2]. Retail companies use AI for inventory management and demand forecasting, reducing costs and improving accuracy by 30% [3]. In both retail and logistics, AI has been crucial in streamlining operations, leading to significant cost reductions and improved accuracy [3, 5]. In healthcare, AI applications could save over $150 billion annually by improving diagnostics [4]. Finally, AI-driven marketing has increased advertising ROI by 25% [Hill et al. 2021].
+
+References:
+[1] John Doe, Jane Smith, Alex Brown, Michael White. 2021. The Economic Impact of AI in Manufacturing. In AI and Economic Growth. TechPress. Retrieved from https://techpress.com/content/pdf/10.1007/978-3-030-12345-6_3.pdf.
+
+[2] Sarah Johnson, David Lee, Karen Wilson. 2020. AI in Finance: Revolutionizing Customer Experience. Journal of Financial Technology Innovations. Retrieved from https://fintechjournal.com/pdf/2020_04.pdf
+
+[3] Emma Thompson, Robert Green, Olivia Harris. 2019. AI in Retail: Optimizing Inventory and Demand Forecasting. Retail Tech Review. Retrieved from https://retailtechreview.com/pdf/2019_07.pdf
+
+[4] James Martin, Laura Adams, Henry Clarke. 2022. AI and Healthcare: Economic Benefits and Future Prospects. Medical AI Journal. Retrieved from https://medicalaijournal.com/pdf/2022_02.pdf
+
+[5] Charles Baker, Megan Lewis, Philip Scott. 2023. AI Transforming Logistics and Supply Chain Efficiency. Logistics Today. Retrieved from https://logisticstoday.com/pdf/2023_01.pdf
+
+[Hill et al. 2021] Amanda Hill, Steven Turner, Rachel Cooper. 2021. The Impact of AI on Marketing Effectiveness. Marketing AI Insights. Retrieved from https://marketingaiinsights.com/pdf/2021_05.pdf
+```
 
 
 """

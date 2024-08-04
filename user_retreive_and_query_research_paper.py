@@ -60,7 +60,7 @@ def get_text_by_id(chunk_id, hash_map):
 async def handle_query(query, retriever, prompt, llm, hash_map):
     id_and_metadata_dict = retriever.invoke(query)
 
-    print("\n\nId and Metadata: ", id_and_metadata_dict, "\n\n")
+    # print("\n\nId and Metadata: ", id_and_metadata_dict, "\n\n")
     
     context = ""
     for doc in id_and_metadata_dict:
@@ -73,11 +73,12 @@ async def handle_query(query, retriever, prompt, llm, hash_map):
  
     request = prompt.format(context=context.strip(), question=query)
 
-    print("\n\nPrompt AFTER formatting:\n", request)
-    print("\n\nUser question: ", query)
-    print("\n\nAI Response: \n")
+    # print("\n\nPrompt AFTER formatting:\n", request)
+    # print("\n\nUser question: ", query)
+    # print("\n\nAI Response: \n")
 
     response = ''
+    print("\n\nRESPONSE:\n")
     async for chunk in stream_llm_responses(llm, request):
         print(chunk, end="")
         response += chunk
@@ -100,7 +101,7 @@ async def retrieval_augmented_generation(hash_map):
         template=MULTIPLE_REFERENCES_RESPONSE_TEMPLATE_V2
     )
 
-    print("\n\nPrompt BEFORE formatting:\n", prompt)
+    # print("\n\nPrompt BEFORE formatting:\n", prompt)
     while True:
         query = input("\n>>> ")
         if query.lower() == "quit":
