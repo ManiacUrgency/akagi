@@ -34,7 +34,7 @@ indexing_time = time.time() - start_time
 print(f"Indexing Time: {indexing_time:.4f} seconds")
 
 # Define a sample query
-query = "Internet of Things"
+query = "how do Internet of Things relate to AI"
 tokenized_query = word_tokenize(query.lower())
 
 # Measure query time
