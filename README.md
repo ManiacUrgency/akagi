@@ -42,7 +42,7 @@ The system architecture is split into four parts: 1) Data Collection 2) Data Pro
   2. The definitions are concatenated and inputted as context for the prompt, which invokes the LLM (_GPT-4o_).
   3. The LLM response is printed to the terminal.
 
-**5 Reference management
+**5 Reference management**
 
   1. "find_references.py" prints out for each numbered paper in Reference section of the paper, if it was referenced in the paper. You can run a grep command to only see the ones that weren't: 
 
@@ -63,3 +63,13 @@ For example:
 
 Analyze paper:  How different groups prioritize ethical values for responsible AI
 ....
+
+
+**6 Retrieval methods
+We have two methods: 
+  1. vector database: we store chunks in vector database, and retrieve using its similiarity query.
+  2. BM25: we store chunks in BM25 index, and retrieve using BM25's scores method.
+
+The following scripts in the "bm25-retrieval" directory are implementation using BM25 method:
+  1. user_index_papers.py: index the chucks in a JSON file of papers.
+  2. user_query_papers.py: query all the papers using BM25 retrieval for the RAG part. 

@@ -16,7 +16,9 @@ def process_json_file(input_file_path, output_file_path):
     # Iterate over each paper and its chunks
     for paper in data['papers']:
         for chunk in paper['chunks']:
+            # Remove "```" from the beginning and end of the text
             chunk['text'] = remove_bracketed_numbers(chunk['text'])
+            chunk['reference'] = re.sub(r'^```\n|\n```$', '', chunk['reference'])
             chunk['reference'] = remove_bracketed_numbers(chunk['reference'])
 
     # Write the cleaned data back to the output JSON file
@@ -24,6 +26,6 @@ def process_json_file(input_file_path, output_file_path):
         json.dump(data, file, ensure_ascii=False, indent=4)
 
 # Specify the path to the JSON file
-input_file_path = 'hash_map.json'
-output_file_path = 'processed_hash_map.json'
+input_file_path = 'rai_hash_map.json'
+output_file_path = 'processed_rai_hash_map.json'
 process_json_file(input_file_path, output_file_path)
