@@ -6,6 +6,7 @@ from pinecone import Pinecone
 from langchain_pinecone import PineconeVectorStore
 from langchain_openai import ChatOpenAI
 from langchain.prompts import PromptTemplate
+from ner_keyword_expander import *
 
 import sys
 # Get the absolute path of the current script
@@ -29,9 +30,13 @@ class BM25Retriever:
         self.bm25 = bm25_index
         self.top_n = top_n
         self.ids = ids
+        self.ner_keyword_extractor = NERKeywordExpander()
 
-    def invoke(self, query):
-        tokenized_query = word_tokenize(query.lower())
+    async def invoke(self, query):
+        query = await self.ner_keyword_extractor.expand(query) 
+        #print("\n\nExpanded query:", query)
+        tokenized_query = word_tokenize(query.lower().replace(',', ''))
+        print("\n\nTokenized query:", tokenized_query)
         scores = self.bm25.get_scores(tokenized_query)
         top_n_indices = scores.argsort()[-self.top_n:][::-1]
         ids = []
@@ -109,7 +114,7 @@ def get_text_by_id(chunk_id, hash_map):
 
 # Function to handle queries
 async def handle_query(query, retriever, retrieval_method, prompt, llm, hash_map):
-    id_and_metadata_dict = retriever.invoke(query)
+    id_and_metadata_dict = await retriever.invoke(query)
 
     print("\n\nId and Metadata: ", id_and_metadata_dict, "\n\n")
     
@@ -159,7 +164,9 @@ async def retrieval_augmented_generation(hash_map, retrieval_method):
         query = input("\n\nPlease enter your query:\n>>> ")
         if query.lower() == "quit":
             break
-        
+        if query.strip() == '':
+            continue
+
         if retrieval_method == RetrievalMethod.VECTOR_DB:
             retriever = get_openai_retriever()
         elif retrieval_method == RetrievalMethod.BM25:

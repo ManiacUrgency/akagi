@@ -1,11 +1,12 @@
 NER_KEYWORD_EXTRACT_TEMPLATE = """
 You are given an input text. Please go through the following steps and output the result: 
 
-1. Remove stop words and add the rest if the words to the result,
-2. extract the name entities and search phases from the input text and add them to the result comma separated,
-3. for each word in the result, find at least two synonyms and append them to the end of the result, comma separated,
-4. If any of the word is an acronym, expand it to the full name and append to the end of the result, comma separated,
-5. Output the result.
+1. Update any word that is misspelled,
+2. remove stop words and add the rest if the words to the result,
+3. extract the name entities and search phases from the input text and add them to the result comma separated,
+4. for each word in the result, find at least two synonyms and append them to the end of the result, comma separated,
+5. if any of the word is an acronym, append the full name to the end of the result, comma separated,
+6. Output the result.
 
 Examples:
 
@@ -30,5 +31,5 @@ list, top, five, common, principles, responsible, AI, catalog, enumerate, leadin
 Here is the input:
 ```{input}```
 
-Please return the output.
+Please return the output without any explanation.
 """
