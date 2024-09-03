@@ -1,4 +1,5 @@
 import time
+import undetected_chromedriver as uc
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -11,37 +12,37 @@ def get_redirected_url(google_news_url):
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Run in headless mode
     chrome_options.add_argument("--disable-gpu")  # Disable GPU acceleration
+    chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
 
     # Specify the path to your ChromeDriver
     service = ChromeService(executable_path='/Users/stephenjin/Dev/chrome-driver/chromedriver-mac-arm64/chromedriver')  # Replace with your path
 
     # Initialize the WebDriver
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver = uc.Chrome(service=service, options=chrome_options)
+    driver.set_page_load_timeout(30)  # 30 seconds for page load
+    wait = WebDriverWait(driver, 30)  # 30 seconds for explicit waits
 
     try:
         # Open the Google News URL
         driver.get(google_news_url)
 
         # Wait for the final URL to load; no need to load full page content
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "body")))
+        wait.until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+        time.sleep(5)
         current_url = driver.current_url
 
-        print("waiting start")
+        print("waiting start\n")
         while True:
             print(current_url)
             if "news.google.com" not in current_url:
                 break
             time.sleep(0.5)
             current_url = driver.current_url
-        print("waiting end")
+        print("waiting end\n")
 
-        # Get the final redirected URL
-        final_url = driver.current_url
-
-        print("final url:", final_url)
-        #time.sleep(5)
-
-        return final_url
+        print("final url:", current_url)
+        return current_url
     finally:
         # Close the browser
         driver.quit()
