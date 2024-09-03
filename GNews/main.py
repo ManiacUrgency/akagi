@@ -58,7 +58,7 @@ def extract_original_url(google_news_url):
         return "Original URL not found."
 
 def get_articles_data(json_file_path, articles, downloaded_articles):
-    print("\n\n\nUsing Newspaper4k\n\n\n")
+    print("\n\nUsing Newspaper4k\n")
 
     articles_data = []
 
