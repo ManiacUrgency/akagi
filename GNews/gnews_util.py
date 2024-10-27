@@ -7,6 +7,11 @@ import warnings
 import feedparser
 from bs4 import BeautifulSoup as Soup
 
+import nltk
+nltk.download("punk_tab")
+from langchain_openai import ChatOpenAI
+from langchain.prompts import PromptTemplate
+
 from gnews.utils.constants import AVAILABLE_COUNTRIES, AVAILABLE_LANGUAGES, TOPICS, BASE_URL, USER_AGENT
 from gnews.utils.utils import process_url
 
@@ -16,8 +21,7 @@ logger = logging.getLogger(__name__)
 
 
 class GNews:
-    def __init__(self, language="en", country="US", max_results=100, period=None, start_date=None, end_date=None,
-                 exclude_websites=None, proxy=None):
+    def __init__(self, language="en", country="US", site=None,max_results=100, period=None, start_date=None, end_date=None, exclude_websites=None, proxy=None):
         """
         (optional parameters)
         :param language: The language in which to return results, defaults to en (optional)
@@ -32,9 +36,10 @@ class GNews:
         """
         self.countries = tuple(AVAILABLE_COUNTRIES),
         self.languages = tuple(AVAILABLE_LANGUAGES),
-        self._max_results = max_results
+        self.site = site if site and isinstance(site, str) else ""
         self._language = language
         self._country = country
+        self._max_results = max_results
         self._period = period
         self._end_date = None
         self._start_date = None
@@ -42,8 +47,8 @@ class GNews:
         self._start_date = self.start_date = start_date
         self._exclude_websites = exclude_websites if exclude_websites and isinstance(exclude_websites, list) else []
         self._proxy = {'http': proxy, 'https': proxy} if proxy else None
-
-    def _ceid(self):
+    
+    def _time_query(self):
         time_query = ''
         if self._start_date or self._end_date:
             if inspect.stack()[2][3] != 'get_news':
@@ -51,21 +56,62 @@ class GNews:
                                        f"documentation for {inspect.stack()[2][3]} for a partial workaround. \nStart "
                                        "date and end date will be ignored"), category=UserWarning, stacklevel=4)
                 if self._period:
-                    time_query += 'when%3A'.format(self._period)
+                    time_query += "when%3A".format(self._period)
             if self._period:
                 warnings.warn(message=f'\nPeriod ({self.period}) will be ignored in favour of the start and end dates',
                               category=UserWarning, stacklevel=4)
             if self.end_date is not None:
-                time_query += '%20before%3A{}'.format(self.end_date)
+                time_query += "%20before%3A{}".format(self.end_date)
             if self.start_date is not None:
-                time_query += '%20after%3A{}'.format(self.start_date)
+                time_query += "%20after%3A{}".format(self.start_date)
         elif self._period:
-            time_query += '%20when%3A{}'.format(self._period)
+            time_query += "%20when%3A{}".format(self._period)
 
-        return time_query + '&hl={}&gl={}&ceid={}:{}'.format(self._language,
+        return time_query 
+ 
+    def _ceid(self):
+        return "&hl={}&gl={}&ceid={}:{}".format(self._language,
                                                              self._country,
                                                              self._country,
                                                              self._language,)
+
+    def _site_query(self):
+        if self.site:
+            return "%20" + "site:" + self.site + "%20"
+        else:
+            return ""
+
+    def _query(self):
+        return self._site_query() + self._time_query() + self._ceid()
+
+    #Need to improve or delete query expansion
+    def query_expansion(self, query):
+        OPENAI_API_QUERY_KEY = os.environ["OC_QUERY_KEY"]
+        query_llm = ChatOpenAI(
+            openai_api_key=OPENAI_API_QUERY_KEY,
+            model_name="gpt-4o",
+            temperature=0.0,
+            streaming=True
+        )
+
+        request = PromptTemplate(
+            template=
+            """
+            Give me a list of 5 keywords that are related to the query: {query}.
+
+            Your output should be a list of words separated by spaces. Here is an example:
+
+            User Query: Opioid Crisis
+
+            Output:
+
+            Narcotic Opiate Painkiller Fentanyl
+            
+            """,
+            input_variables=["query"]
+        ).format(query=self._query())
+
+        response = query_llm.invoke(request)
 
     @property
     def language(self):
@@ -178,23 +224,24 @@ class GNews:
             import requests
         except ImportError:
             print("\nget_full_article() requires the `newspaper4k` and `requests` libraries.")
-            print("You can install them by running `pip install newspaper3k requests` in your shell.")
+            print("You can install them by running `pip3 install newspaper4k requests`, `pip3 install lxml_html_clean`, and `pip3 install typing_extensions` in your shell.")
             return None
 
         try:
             # Resolve the redirect URL to get the actual article URL
-            response = requests.get(url, allow_redirects=True, timeout=10)
-            final_url = response.url
+            # response = requests.get(url, allow_redirects=True, timeout=10)
+            # final_url = response.url
             # print(f"Resolved URL: {final_url}")
-
+            print("URL: ", url)
             # Use the resolved URL to download the article
-            article = newspaper.Article(url=final_url, language=self._language)
+            article = newspaper.article(url=url)
             article.download()
             article.parse()
+            article.nlp()
         except Exception as error:
             print(f"An error occurred while fetching the article: {error}")
             return None
-
+        
         return article
 
 
@@ -232,6 +279,8 @@ class GNews:
         
         if url:
             title = item.get("title", "")
+            # print("\nPublish Date: ", item.get("published", ""))
+            # print("Publish Date Type: ", type(item.get("published","")))
             item = {
                 'title': title,
                 'description': self._clean(item.get("summary", "")),
@@ -279,22 +328,6 @@ class GNews:
         query = "?"
         return self._get_news(query)
 
-    @docstring_parameter(standard_output, ', '.join(TOPICS))
-    def get_news_by_topic(self, topic: str):
-        """
-        Function to get news from one of Google's key topics
-        :param topic: TOPIC names i.e {1}
-        :return: A list of dictionaries with structure: {0}.
-        ..To implement date range try get_news('topic')
-        """
-        topic = topic.upper()
-        if topic in TOPICS:
-            query = '/headlines/section/topic/' + topic + '?'
-            return self._get_news(query)
-
-        logger.info(f"Invalid topic. \nAvailable topics are: {', '.join(TOPICS)}.")
-        return []
-
     @docstring_parameter(standard_output)
     def get_news_by_location(self, location: str):
         """
@@ -309,21 +342,10 @@ class GNews:
         logger.warning("Enter a valid location.")
         return []
 
-    @docstring_parameter(standard_output)
-    def get_news_by_site(self, site: str):
-        """
-        This function is used to get news from a specific site
-        :param site: (type: str) The site domain for which you want to get headlines. E.g., 'cnn.com'
-        :return: A list of news articles from the specified site.
-        """
-        if site:
-            key = "site:{}".format(site)
-            return self.get_news(key)
-        logger.warning("Enter a valid site domain.")
-        return []
-
     def _get_news(self, query):
-        url = BASE_URL + query + self._ceid()
+        # query = self.query_expansion(query)
+        url = BASE_URL + query + self._query()
+        print("Final URL: ", url)
         try:
             if self._proxy:
                 proxy_handler = urllib.request.ProxyHandler(self._proxy)
