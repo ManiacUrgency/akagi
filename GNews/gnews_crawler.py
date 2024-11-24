@@ -5,7 +5,6 @@ import csv
 from datetime import datetime
 import time
 import random
-#from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from gnews_util import GNews
 from googlenewsdecoder import new_decoderv1
@@ -32,13 +31,11 @@ def fetch_articles_for_site(site_name, site_url, query, start_date, end_date, db
 
     # Fetch news articles for the current site
     query_with_site = query + "%20" + site_name
-    print("Query with Site: ", query_with_site)
+    print("\nQuery with Site: ", query_with_site)
     news_articles = news_client.get_news(query_with_site)
 
-    print("\nnews_articles:")
-    print(json.dumps(news_articles, indent=4, ensure_ascii=False)) 
-
-    articles_data = []
+    print(f"\nFound {len(news_articles)} article(s)")
+    #print(json.dumps(news_articles, indent=4, ensure_ascii=False)) 
 
     total_sleep_time_so_far = 0
     TOTAL_SLEEP_TIME_TO_TRIGGER_ADDITIONAL_SLEEP = 45
@@ -46,10 +43,7 @@ def fetch_articles_for_site(site_name, site_url, query, start_date, end_date, db
     count = 0 
     for article in news_articles:
         article_url = decode_url(article['url'])
-
-    
-
-        print("\n>>> Fetching url: ", article_url)
+        print(f"\n>>> Fetching article: \"{article['title']}\" at {article_url}")
         full_article = news_client.get_full_article(article_url)
         if full_article:
             # Collect the article's details
@@ -64,14 +58,14 @@ def fetch_articles_for_site(site_name, site_url, query, start_date, end_date, db
                 "site_url": site_url,
                 "url": article_url
             }
-            print("\nArticle Info:")
-            print(json.dumps(article_info, indent=4, ensure_ascii=False))
+            #print("\nArticle Info:")
+            #print(json.dumps(article_info, indent=4, ensure_ascii=False))
 
-            insert_article(db_cursor, db_connection, article_info)
-
-            if count > 1: 
-                sys.exit(0)
-            count += 1
+            if is_not_in_articles(db_cursor, article_info):
+                print(f"Fetched. Inserting article")
+                insert_article(db_connection, db_cursor, article_info)
+            else:
+                print(f"Fetched. Do NOT crawl article. It's already in database")
 
             # Add random delay between requests
             interval = random.uniform(5, 10)
@@ -86,9 +80,7 @@ def fetch_articles_for_site(site_name, site_url, query, start_date, end_date, db
                 time.sleep(interval)
                 total_sleep_time_so_far = 0
         else:
-            print(f"Failed to extract article from {article_url}")
-            sys.exit(0)
-    return articles_data
+            print(f"Failed to fetch article at url: {article_url}")
 
 def md5(url):
     return hashlib.md5(url.encode('utf-8')).hexdigest()
@@ -123,7 +115,8 @@ def insert_article(db_connection, db_cursor, article):
                 summary,
                 site,
                 site_url,
-                url
+                url,
+                hashed_url
             ) VALUES (
                 UUID(),
                 %s,  -- title
@@ -141,43 +134,46 @@ def insert_article(db_connection, db_cursor, article):
         # Data to insert into the table
         data = (
             article['title'],
-            article['author'],
+            json.dumps(article['author']) if article['author'] else '[]',
             article['text'],
             article['publish_date'],
-            article['keywords'],
+            json.dumps(article['keywords']) if article['keywords'] else '[]',
             article['summary'],
             article['site'],
             article['site_url'], 
             article['url'],
             md5(article['url'])
         )
-        
+
         # Execute the query
         db_cursor.execute(sql_query, data)
         
         # Commit the transaction
         db_connection.commit()
         
-        print("Row inserted successfully")
+        print(f"Row inserted successfully")
         
     except MySQLdb.Error as err:
         print(f"Error inserting row: {err}")
         db_connection.rollback()  # Rollback in case of an error
 
 
-def is_not_in_articles(db_connection, db_cursor, article):
-    sql_query = """
-        SELECT count(*) FROM articles 
-        WHERE hashed_url = %s;
-    """
-    data = (md5(article['url']))
-    db_cursor.execute(sql_query, data)
-    result = db_cursor.fetchone()
-    if result[0] == 1:
-        return True
-    else:
-        return False
-
+def is_not_in_articles(db_cursor, article):
+    try:
+        sql_query = """
+            SELECT count(*) FROM articles 
+            WHERE hashed_url = %s;
+        """
+        data = (md5(article['url']), ) # need a comma to pass as tuple
+        db_cursor.execute(sql_query, data)
+        result = db_cursor.fetchone()
+        if result[0] == 0: # should be either 0 or 1
+            return True
+        else:
+            return False
+    except MySQLdb.Error as err:
+        print(f"Error select count from articles: {err}") 
+        return True  # Conservative approach: assume article exists to avoid duplicates
 
 def close_db(db_connection, db_cursor):
     # Close the cursor and connection after use
@@ -187,9 +183,10 @@ def close_db(db_connection, db_cursor):
 def main():
     sites_file = "top50_news_sites.csv" 
     query = "Opioid Crisis"
-    articles_data = []
     start_date = (2024, 10, 8)
     end_date = (2024, 10, 10)
+
+    print(f"\nCrawl articles for query \"{query}\", from {start_date} to {end_date}")
 
     db_connection, db_cursor = init_db()
 
@@ -200,26 +197,6 @@ def main():
     for row in csv_reader:
         fetch_articles_for_site(row[0], row[1], query, start_date, end_date, db_connection, db_cursor)
 
-    # Notes: we should not use parallel processing. This will send too many requests at a burst
-    # causing Google to throttle and block us. 
-    # 
-    # # Use ThreadPoolExecutor for parallel processing
-    # with ThreadPoolExecutor(max_workers=10) as executor:
-    #     futures = [
-    #         executor.submit(fetch_articles_for_site, row[0], row[1], query, start_date, end_date)
-    #         for row in csv_reader
-    #     ]
-
-    #     for future in as_completed(futures):
-    #         try:
-    #             articles_data.extend(future.result())  # Append the results
-    #         except Exception as exc:
-    #             print(f"Generated an exception: {exc}")
-
-    print("Articles have been processed'")
+    print("Articles have been crawled")
 
 main()
-
-# We will save for each news site two files for each month .... save it to a folder 
-# it needs tom make into run at any time, never repeat any work, also incremental getting more articles.
-# 

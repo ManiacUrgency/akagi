@@ -232,7 +232,7 @@ class GNews:
             # response = requests.get(url, allow_redirects=True, timeout=10)
             # final_url = response.url
             # print(f"Resolved URL: {final_url}")
-            print("URL: ", url)
+            # print("URL: ", url)
             # Use the resolved URL to download the article
             article = newspaper.article(url=url)
             article.download()
@@ -345,7 +345,7 @@ class GNews:
     def _get_news(self, query):
         # query = self.query_expansion(query)
         url = BASE_URL + query + self._query()
-        print("Final URL: ", url)
+        print("\nFinal URL: ", url)
         try:
             if self._proxy:
                 proxy_handler = urllib.request.ProxyHandler(self._proxy)
