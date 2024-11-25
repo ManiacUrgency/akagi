@@ -9,6 +9,7 @@ import random
 from gnews_util import GNews
 from googlenewsdecoder import new_decoderv1
 import MySQLdb 
+import logging
 
 def decode_url(source_url):
     try:
@@ -199,22 +200,54 @@ def close_db(db_connection, db_cursor):
     db_cursor.close()
     db_connection.close()
 
+def set_up_logging():
+    logger = logging.getLogger('gnews_crawler')
+    logger.setLevel(logging.INFO)
+
+    file_handler = logging.FileHandler('/var/log/gnews/gnews_crawler.log')
+    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+
+    logger.addHandler(file_handler)
+    return logger
+
 def main():
+    # set up logging and redirect all print to the log file (beside to the terminal)
+    logger = set_up_logging()
+    logger.info("Logging initialized")
+    # Redirect print to the custom logger
+    class PrintToLog:
+        def __init__(self, logger):
+            self.logger = logger
+
+        def write(self, message):
+            if message.strip():  # Avoid logging empty lines
+                self.logger.info(message.strip())
+
+        def flush(self):  # Required to handle stdout flushing
+            pass
+
+    sys.stdout = PrintToLog(logger)
+    sys.stderr = PrintToLog(logger)  # Redirect error messages as well
+    
+    db_connection, db_cursor = init_db()
+
     sites_file = "top50_news_sites.csv" 
+    # Open the CSV file and read the list of news sites
+    with open(sites_file, mode='r', newline='', encoding='utf-8') as file:
+        csv_reader = list(csv.reader(file))  # Load CSV data
+
     query = "Opioid Crisis"
+
     start_date = (2024, 10, 8)
     end_date = (2024, 10, 10)
 
     print(f"\nCrawl articles for query \"{query}\", from {start_date} to {end_date}")
 
-    db_connection, db_cursor = init_db()
-
-    # Open the CSV file and read the list of news sites
-    with open(sites_file, mode='r', newline='', encoding='utf-8') as file:
-        csv_reader = list(csv.reader(file))  # Load CSV data
-
     for row in csv_reader:
+        row[0] = 'The Hill'
+        row[1] = 'https://thehill.com'
         fetch_articles_for_site(row[0], row[1], query, start_date, end_date, db_connection, db_cursor)
+        break
 
     print("Articles have been crawled")
 

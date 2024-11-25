@@ -73,10 +73,19 @@ python -m pip install mysqlclient
 
 8. run test_mysql.py to test you can insert a row to the test database
 
-9. access Mysql database 
+9. set up logging 
+
+// create log directory locally
+sudo mkdir /var/log/gnews
+
+// set up ownership -- replace "stephenjin:staff" with your <user>:<user group> 
+sudo chown stephenjin:staff /var/log/gnews
+
+10. access Mysql database 
 
 /usr/local/mysql/bin/mysql -ulodge -p
 enter password: rabig!2109
 
 mysql> use gnews
 mysql> select id, title, url, hashed_url from articles; 
+mysql> select id, text,url, hashed_url from articles where url = '<some_url>' \G;
