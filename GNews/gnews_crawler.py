@@ -42,6 +42,7 @@ def fetch_articles_for_site(site_name, site_url, query, start_date, end_date, db
 
     count = 0 
     for article in news_articles:
+        #print("article: ", article)
         article_url = decode_url(article['url'])
         print(f"\n>>> Fetching article: \"{article['title']}\" at {article_url}")
         full_article = news_client.get_full_article(article_url)
@@ -61,16 +62,10 @@ def fetch_articles_for_site(site_name, site_url, query, start_date, end_date, db
             #print("\nArticle Info:")
             #print(json.dumps(article_info, indent=4, ensure_ascii=False))
 
-            if is_not_in_articles(db_cursor, article_info):
-                print(f"Fetched. Inserting article")
-                insert_article(db_connection, db_cursor, article_info)
-            else:
-                print(f"Fetched. Do NOT crawl article. It's already in database")
-
             # Add random delay between requests
             interval = random.uniform(5, 10)
             total_sleep_time_so_far += interval
-            print(f"Sleep for {interval} second(s)...")
+            print(f"Fetched. Sleep for {interval} second(s)...")
             time.sleep(interval)
 
             if total_sleep_time_so_far >= TOTAL_SLEEP_TIME_TO_TRIGGER_ADDITIONAL_SLEEP:
@@ -80,7 +75,31 @@ def fetch_articles_for_site(site_name, site_url, query, start_date, end_date, db
                 time.sleep(interval)
                 total_sleep_time_so_far = 0
         else:
+            if article['published date'] is not None:
+                parsed_date = datetime.strptime(article['published date'], "%a, %d %b %Y %H:%M:%S %Z")
+                publish_date = parsed_date.strftime("%Y-%m-%d %H:%M:%S")
+            else:
+                publish_date = None
+            # Set a few attributes, so we can re-crawl later by checking if text field is NULL
+            article_info = {
+                "title": article['title'],
+                "author": None,
+                "text": None,
+                "publish_date": publish_date,
+                "keywords": None,
+                "summary": None,
+                "site": site_name,
+                "site_url": site_url,
+                "url": article_url
+            } 
+            print(json.dumps(article_info, indent=4, ensure_ascii=False)) 
             print(f"Failed to fetch article at url: {article_url}")
+
+        if is_not_in_articles(db_cursor, article_info):
+            print(f"Inserting article")
+            insert_article(db_connection, db_cursor, article_info)
+        else:
+            print(f"Do NOT insert article. It's already in database")
 
 def md5(url):
     return hashlib.md5(url.encode('utf-8')).hexdigest()

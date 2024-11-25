@@ -72,3 +72,11 @@ brew install mysql
 python -m pip install mysqlclient
 
 8. run test_mysql.py to test you can insert a row to the test database
+
+9. access Mysql database 
+
+/usr/local/mysql/bin/mysql -ulodge -p
+enter password: rabig!2109
+
+mysql> use gnews
+mysql> select id, title, url, hashed_url from articles; 
