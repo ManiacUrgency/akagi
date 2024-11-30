@@ -274,8 +274,8 @@ def main():
         print(f">>>>>>>>>> Crawl articles for query \"{query}\", from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
 
         for row in csv_reader:
-            row[0] = 'The Hill'
-            row[1] = 'https://thehill.com'
+            #row[0] = 'The Hill'
+            #row[1] = 'https://thehill.com'
             total_count_r, count_fetched_r, count_found_in_db_r, count_inserted_not_fetched_r = fetch_articles_for_site(
                 row[0], row[1], query, start_date, end_date, db_connection, db_cursor
             )
@@ -283,7 +283,7 @@ def main():
             count_fetched_date += count_fetched_r
             count_found_in_db_date += count_found_in_db_r
             count_inserted_not_fetched_date += count_inserted_not_fetched_r
-            break
+            #break
 
         print(f">>>>>>>>>> Done with dates from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
         print(f"total:{total_count_date}, fetched:{count_fetched_date}, found in db:{count_found_in_db_date}, inserted not fetched:{count_inserted_not_fetched_date}")
