@@ -289,6 +289,10 @@ def main():
 
         print(f">>>>>>>>>> Done with dates from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
         print(f"total:{total_count_date}, fetched:{count_fetched_date}, found in db:{count_found_in_db_date}, inserted not fetched:{count_inserted_not_fetched_date}")
+        total_count += total_count_date
+        count_fetched += count_fetched_date
+        count_found_in_db += count_found_in_db_date
+        count_inserted_not_fetched += count_inserted_not_fetched_date 
 
     print(f">>>>>>>>>>>>>>> Finished fetch all articls from {first_date.strftime('%Y-%m-%d')}, End Date: {last_date.strftime('%Y-%m-%d')}")
     print(f"total:{total_count}, fetched:{count_fetched}, found in db:{count_found_in_db}, inserted not fetched:{count_inserted_not_fetched}")
