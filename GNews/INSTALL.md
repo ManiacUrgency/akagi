@@ -91,8 +91,8 @@ mysql> select id, title, url, hashed_url from articles;
 mysql> select id, text,url, hashed_url from articles where url = '<some_url>' \G;
 
 
-11. Run on my laptop in the background: 
+11. Run on Macbook Pro laptop in the background: 
 
 cd .../akagi/GNews/
 source .venv/bin/activate
-/Users/<username>/.../akagi/GNews/.venv/bin/python /Users/stephenjin/Documents/Leonard/akagi/GNews/gnews_crawler.py
+caffeinate -i nohup /Users/<username>/.../akagi/GNews/.venv/bin/python /Users/stephenjin/Documents/Leonard/akagi/GNews/gnews_crawler.py > output.log 2>&1 & 

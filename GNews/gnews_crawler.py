@@ -53,6 +53,8 @@ def fetch_articles_for_site(site_name, site_url, query, start_date, end_date, db
         if article_url is not None and article_url != '' and is_in_articles(db_cursor, article_url):
             count_found_in_db += 1
             print(f">>> Do NOT fetch article. It's already in database. url: {article_url}")
+        elif article_url is None or article_url == '':
+            print(f">>> Do NOT fetch article. url is None or empty.")
         else:
             print(f">>> Fetching article: \"{article['title']}\" at {article_url}")
             full_article = news_client.get_full_article(article_url)
@@ -250,7 +252,7 @@ def main():
 
     query = "Opioid Crisis"
 
-    first_date = datetime(2023, 11, 1)
+    first_date = datetime(2024, 10, 6) # datetime(2023, 11, 1)
     last_date = datetime(2024, 11, 27)
 
     step = timedelta(days=5)
@@ -287,9 +289,6 @@ def main():
 
         print(f">>>>>>>>>> Done with dates from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
         print(f"total:{total_count_date}, fetched:{count_fetched_date}, found in db:{count_found_in_db_date}, inserted not fetched:{count_inserted_not_fetched_date}")
-        interval = random.uniform(10, 20)
-        print(f"Sleep for {interval} second(s)...")
-        #time.sleep(interval)
 
     print(f">>>>>>>>>>>>>>> Finished fetch all articls from {first_date.strftime('%Y-%m-%d')}, End Date: {last_date.strftime('%Y-%m-%d')}")
     print(f"total:{total_count}, fetched:{count_fetched}, found in db:{count_found_in_db}, inserted not fetched:{count_inserted_not_fetched}")
