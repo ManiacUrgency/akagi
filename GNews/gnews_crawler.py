@@ -77,18 +77,6 @@ def fetch_articles_for_site(site_name, site_url, query, start_date, end_date, db
 
                 print(f"Fetched. Inserting article on publish date: {article_info['publish_date']}")
                 insert_article(db_connection, db_cursor, article_info)
-
-                # Add random delay between requests
-                interval = random.uniform(5, 10)
-                print(f"Sleep for {interval} second(s)...")
-                time.sleep(interval)
-                total_sleep_time_so_far += interval
-                if total_sleep_time_so_far >= TOTAL_SLEEP_TIME_TO_TRIGGER_ADDITIONAL_SLEEP:
-                    # Sleep an extra number of seconds 
-                    interval = random.uniform(5, 10)
-                    print(f"Slept for at least 45 seconds total. Sleep for additional {interval} second(s)...")
-                    time.sleep(interval)
-                    total_sleep_time_so_far = 0
             else:
                 count_inserted_not_fetched += 1
                 if article['published date'] is not None:
@@ -111,6 +99,22 @@ def fetch_articles_for_site(site_name, site_url, query, start_date, end_date, db
                 print(json.dumps(article_info, indent=4, ensure_ascii=False)) 
                 print(f"Failed to fetch article at url: {article_url}. Inserting article on Publish date: {publish_date}")
                 insert_article(db_connection, db_cursor, article_info)
+
+        # Add random delay between requests
+        # Note we always sleep regardless the various conditions above. This is because in the case that 
+        # we failed to decode url, we do not want to immediately loop again to call decode url. 
+        # Calling the decode url will query Google again. If we call it too fast, we will reach Google's request
+        # limit quickly and got blocked by Google.
+        interval = random.uniform(5, 10)
+        print(f"Sleep for {interval} second(s)...")
+        time.sleep(interval)
+        total_sleep_time_so_far += interval
+        if total_sleep_time_so_far >= TOTAL_SLEEP_TIME_TO_TRIGGER_ADDITIONAL_SLEEP:
+            # Sleep an extra number of seconds 
+            interval = random.uniform(5, 10)
+            print(f"Slept for at least 45 seconds total. Sleep for additional {interval} second(s)...")
+            time.sleep(interval)
+            total_sleep_time_so_far = 0
 
     print(f">>>>> Done with site:{site_name}")    
     print(f"total:{total_count}, fetched:{count_fetched}, found in db:{count_found_in_db}, inserted not fetched:{count_inserted_not_fetched}")
@@ -252,7 +256,8 @@ def main():
 
     query = "Opioid Crisis"
 
-    first_date = datetime(2024, 10, 6) # datetime(2023, 11, 1)
+    # Adjust these dates to control what date range you want to crawl 
+    first_date = datetime(2024, 10, 11) # datetime(2023, 11, 1)
     last_date = datetime(2024, 11, 27)
 
     step = timedelta(days=5)
