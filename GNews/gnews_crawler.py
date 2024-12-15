@@ -257,7 +257,7 @@ def main():
     query = "Opioid Crisis"
 
     # Adjust these dates to control what date range you want to crawl 
-    first_date = datetime(2024, 10, 11) # datetime(2023, 11, 1)
+    first_date = datetime(2023, 11, 1) # datetime(2024, 10, 11)
     last_date = datetime(2024, 11, 27)
 
     step = timedelta(days=5)
