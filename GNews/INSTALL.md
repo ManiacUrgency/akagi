@@ -96,3 +96,15 @@ mysql> select id, text,url, hashed_url from articles where url = '<some_url>' \G
 cd .../akagi/GNews/
 source .venv/bin/activate
 caffeinate -i nohup /Users/<username>/.../akagi/GNews/.venv/bin/python /Users/stephenjin/Documents/Leonard/akagi/GNews/gnews_crawler.py > output.log 2>&1 & 
+
+
+Part II Use OpenAI's API to detect relevance and location for each news article and add the result to the database.
+
+12. Add a few new columns to store these data 
+
+ALTER TABLE articles
+ADD COLUMN is_related BOOLEAN DEFAULT NULL,
+ADD COLUMN is_national BOOLEAN DEFAULT NULL,
+ADD COLUMN city VARCHAR(255) DEFAULT NULL,
+ADD COLUMN state VARCHAR(255) DEFAULT NULL,
+ADD COLUMN location JSON DEFAULT NULL;

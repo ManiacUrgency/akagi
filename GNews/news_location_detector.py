@@ -1,5 +1,13 @@
 from openai import OpenAI
 import os
+import json
+
+# CONSTANTS
+# In case we need to use this default value. For now, we do not
+DEFAULT_JSON_RESULT = '''
+{'isRelated': False, 'isNational': False, 'city': None, 'state': None, 'location': []}
+'''
+
 
 client = OpenAI(
     api_key=os.environ.get("OPENAI_API_GNEWS_KEY"),  # This is the default and can be omitted
@@ -19,9 +27,9 @@ def extract_relevance_and_location(article_text):
     isNational: Is the event happened at the national level, that it is not specific to any location of the country?  
     location: the location where the event covered in the article occurred, if the event is at the local level and we can detect the location. We may have multiple locations. For each location, we list the city and state as part of the value of location if we can detect any or both of them. 
     city: the primary city chosen from all the cities identified. The same city if there's only one city identified.
-    state: the primary state chosen from all the states identified. The same state if there's only one state identified.
+    state: the primary state chosen from all the states identified. The same state if there's only one state identified. 
 
-    Output should be in the JSON format such as: 
+    Output should be in the JSON format starting and ending with curly braces, such as: 
     {{ 
         "isRelated": true,
         "isNational": false,
@@ -56,12 +64,13 @@ def extract_relevance_and_location(article_text):
         )
         
         # Extract locations from the response
-        result = response.choices[0].message.content.strip()
-        return result
-    
+        result = response.choices[0].message.content.strip().strip("```json").strip("```")
+        print(f"result:{result}")
+        result_json = json.loads(result) 
+        return result_json
     except Exception as e:
         print(f"Error: {e}")
-        return []
+        return None
 
 if __name__ == "__main__":
     # Example news article text
@@ -151,10 +160,23 @@ if __name__ == "__main__":
     Heyo. It’s 6:41 a.m. And we are on the Long Island Expressway. For most of you, Thanksgiving is going to mean either hosting or being hosted for a very special meal. So yeah, we’re going to be sitting in traffic for quite some time. And when we thought about that, our minds immediately went to the great host of our times, Ina Garten, a.k.a. the Barefoot Contessa. And she invited us into her absolutely idyllic home. Let us into her barn, which is her test kitchen. “Thank you so much. That’s really sweet.” “We don’t have to drink it, but we could.” “We could.” And there she taught us how to make the perfect glazed ham that is completely ready by the time you walk in her door. “Ham, meet ham.” And how to make the perfect seasonal cocktail. In this case, it was a cranberry martini. “It’s really nice.” “Isn’t it good.” And for your benefit, we recorded the entire thing. And it is today’s “Daily.” Happy Thanksgiving, everyone.                     
     ''')
 
-    for i, article_text in enumerate(article_texts):
-        print("\nArticle ", i, ":\n")
-        result = extract_relevance_and_location(article_text)
-        print(result)
+    article_texts.append('''
+    Why did this happen?
+
+    Please make sure your browser supports JavaScript and cookies and that you are not blocking them from loading. For more information you can review our Terms of Service and Cookie Policy.
+
+    Need Help?
+
+    For inquiries related to this message please contact our support team and provide the reference ID below.
+
+    Block reference ID:                    
+    ''')
+
+
+    # for i, article_text in enumerate(article_texts):
+    #     print("\nArticle ", i, ":\n")
+    #     result = extract_relevance_and_location(article_text)
+    #     print(result)
         
-    # result = extract_relevance_and_location(article_texts[3])
-    # print(result)
+    result = extract_relevance_and_location(article_texts[4])
+    print(result)

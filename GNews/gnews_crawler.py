@@ -9,8 +9,9 @@ import random
 from gnews_util import GNews
 from googlenewsdecoder import new_decoderv1
 import MySQLdb 
-import logging
 from datetime import datetime, timedelta
+
+from gnews_helper import *
 
 def decode_url(source_url):
     try:
@@ -123,22 +124,6 @@ def fetch_articles_for_site(site_name, site_url, query, start_date, end_date, db
 def md5(url):
     return hashlib.md5(url.encode('utf-8')).hexdigest()
 
-def init_db(): 
-    # Connect to MySQL database
-    try:
-        db_connection = MySQLdb.connect(
-            host="localhost",
-            user="lodge", 
-            password="rabig!2109",
-            database="gnews"
-        )
-        print("Successfully connected to MySQL database")
-        db_cursor = db_connection.cursor()
-    except MySQLdb.connector.Error as err:
-        print(f"Error connecting to MySQL database: {err}")
-        sys.exit(1)
-    return db_connection, db_cursor
-
 def insert_article(db_connection, db_cursor, article):
     try:
         # Example SQL query to insert a row
@@ -213,24 +198,9 @@ def is_in_articles(db_cursor, article_url):
         print(f"Error select count from articles: {err}") 
         return True  # Conservative approach: assume article exists to avoid duplicates
 
-def close_db(db_connection, db_cursor):
-    # Close the cursor and connection after use
-    db_cursor.close()
-    db_connection.close()
-
-def set_up_logging():
-    logger = logging.getLogger('gnews_crawler')
-    logger.setLevel(logging.INFO)
-
-    file_handler = logging.FileHandler('/var/log/gnews/gnews_crawler.log')
-    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-
-    logger.addHandler(file_handler)
-    return logger
-
 def main():
     # set up logging and redirect all print to the log file (beside to the terminal)
-    logger = set_up_logging()
+    logger = set_up_logging('gnews_crawler', '/var/log/gnews/gnews_crawler.log')
     logger.info("Logging initialized")
     # Redirect print to the custom logger
     class PrintToLog:
