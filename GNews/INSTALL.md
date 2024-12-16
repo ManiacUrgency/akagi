@@ -108,3 +108,7 @@ ADD COLUMN is_national BOOLEAN DEFAULT NULL,
 ADD COLUMN city VARCHAR(255) DEFAULT NULL,
 ADD COLUMN state VARCHAR(255) DEFAULT NULL,
 ADD COLUMN location JSON DEFAULT NULL;
+
+
+
+caffeinate -i nohup /Users/stephenjin/Documents/Leonard/akagi/GNews/.venv/bin/python /Users/stephenjin/Documents/Leonard/akagi/GNews/gnews_location_ingestor.py > output_loc_ingest.log 2>&1 &

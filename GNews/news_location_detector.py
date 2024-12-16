@@ -45,9 +45,9 @@ def extract_relevance_and_location(article_text):
         }}]
     }}
 
+    Here is the article: 
+
     {article_text}
-    
-    Return the locations as a comma-separated list.
     """
 
     # Extract all the locations (e.g., cities, states, countries, landmarks, etc.) mentioned in the following news article:
@@ -80,6 +80,7 @@ if __name__ == "__main__":
     # In Asia, Tokyo and Beijing saw smaller but significant protests.
     # """
     article_texts = []
+    #1
     article_texts.append('''
     To combat the ongoing opioid overdose crisis and support harm reduction strategies, Los Angeles County Library is expanding naloxone clinics, including a site at the West Hollywood Library, to offer free fentanyl test strips.
 
@@ -96,6 +97,7 @@ if __name__ == "__main__":
     The West Hollywood Library is located at 625 N. San Vicente Blvd. For information, visit lacountylibrary.org/naloxone.
     ''')
 
+    #2
     article_texts.append('''
     STORY: Analysts believe President-elect Donald Trump's upcoming term could be the start of a bruising four-year trade war.
 
@@ -134,6 +136,7 @@ if __name__ == "__main__":
     Recommended Stories
     ''')
 
+    #3
     article_texts.append('''
     SUNY Broome is providing an invaluable opportunity for eligible New York State residents to pursue their passion for helping individuals struggling with addiction through full scholarships offered for the Chemical Dependency Counseling Associate of Applied Science (AAS) degree in conjunction with the Credentialed Alcoholism and Substance Abuse Counselor (CASAC) program.
 
@@ -156,10 +159,12 @@ if __name__ == "__main__":
     Prospective students are advised to fill out the application as quickly as possible as the spring semester begins on January 27, 2025. For more information and to begin the application process, please visit the Chemical Dependency Counseling AAS Scholarships website.
     ''')
 
+    #4
     article_texts.append('''
     Heyo. It’s 6:41 a.m. And we are on the Long Island Expressway. For most of you, Thanksgiving is going to mean either hosting or being hosted for a very special meal. So yeah, we’re going to be sitting in traffic for quite some time. And when we thought about that, our minds immediately went to the great host of our times, Ina Garten, a.k.a. the Barefoot Contessa. And she invited us into her absolutely idyllic home. Let us into her barn, which is her test kitchen. “Thank you so much. That’s really sweet.” “We don’t have to drink it, but we could.” “We could.” And there she taught us how to make the perfect glazed ham that is completely ready by the time you walk in her door. “Ham, meet ham.” And how to make the perfect seasonal cocktail. In this case, it was a cranberry martini. “It’s really nice.” “Isn’t it good.” And for your benefit, we recorded the entire thing. And it is today’s “Daily.” Happy Thanksgiving, everyone.                     
     ''')
 
+    #5
     article_texts.append('''
     Why did this happen?
 
@@ -172,11 +177,45 @@ if __name__ == "__main__":
     Block reference ID:                    
     ''')
 
+    #6
+    article_texts.append('''
+    WALGREENS HAS AGREED TO PAY 106 MILLION DOLLARS TO SETTLE LAWSUITS ACCUSING THE PHARMACY CHAIN OF FRAUDULENTLY BILLING GOVERNMENT HEALTH PROGRAMS FOR PRESCRIPTIONS THAT WERE NEVER DISPENSED.
+
+    THE LAWSUITS WERE FILED IN NEW MEXICO, TEXAS, AND FLORIDA –
+
+    ON BEHALF OF THREE **FORMER WALGREENS EMPLOYEES UNDER WHAT’S CALLED “THE FALSE CLAIMS ACT” –
+
+    WHICH ALLOWS INDIVIDUALS TO SUE ON BEHALF OF THE U.S. GOVERNMENT AND SHARE IN THE RECOVERY OF MONEY.
+
+    THE WHISTLEBLOWERS CLAIM WALGREENS BILLED MEDICARE, MEDICAID, AND OTHER FEDERAL HEALTH PROGRAMS FROM 2009 TO 2020 FOR PRESCRIPTIONS THAT WERE PROCESSED BUT NEVER PICKED UP BY PATIENTS.
+
+    INSTEAD OF CANCELING THESE CLAIMS FOR UNCOLLECTED MEDICATIONS, WALGREENS ALLEGEDLY RESTOCKED AND RESOLD THE DRUGS, EFFECTIVELY RECEIVING PAYMENT TWICE.
+
+    IN A STATEMENT TO FOX BUSINESS, A WALGREENS SPOKESPERSON SAYS, “DUE TO A SOFTWARE ERROR, WE INADVERTENTLY BILLED SOME GOVERNMENT HEALTH CARE PROGRAMS FOR A RELATIVELY SMALL NUMBER OF PRESCRIPTIONS OUR PATIENTS SUBMITTED BUT NEVER PICKED UP.
+
+    “WE CORRECTED THE ERROR, REPORTED THE ISSUE TO THE GOVERNMENT, AND VOLUNTARILY REFUNDED ALL OVERPAYMENTS. WE APPRECIATE THE GOVERNMENT ACKNOWLEDGED OUR COMPLIANCE EFFORTS AS PART OF RESOLVING THIS MATTER.”
+
+    THE SETTLEMENT DOCUMENTS SHOW THAT WALGREENS DID COOPERATE WITH THE INVESTIGATION AND HAS SINCE IMPROVED ITS ELECTRONIC MANAGEMENT SYSTEM TO PREVENT SUCH ISSUES IN THE FUTURE.
+
+    U.S. ATTORNEY ROGER HANDBERG TOLD FOX BUSINESS –
+
+    “THIS SETTLEMENT MARKS ANOTHER MAJOR ACHIEVEMENT IN OUR ONGOING COMMITMENT TO COMBAT HEALTH CARE FRAUD.
+
+    IT IS ESSENTIAL TO HOLD PHARMACIES ACCOUNTABLE WHEN THEY KNOWINGLY FAIL TO ABIDE BY THE RULES AND REQUIREMENTS OF OUR NATIONAL HEALTH CARE PROGRAMS.”
+
+    THANKS FOR WATCHING OUR NEWS UPDATE.
+
+    FOR MORE STORIES THAT MATTER TO YOU.
+
+    DOWNLOAD THE STRAIGHT ARROW NEWS APP.
+
+    OR VISIT US AT S-A-N DOT COM.
+    ''')
 
     # for i, article_text in enumerate(article_texts):
     #     print("\nArticle ", i, ":\n")
     #     result = extract_relevance_and_location(article_text)
     #     print(result)
         
-    result = extract_relevance_and_location(article_texts[4])
+    result = extract_relevance_and_location(article_texts[5])
     print(result)
