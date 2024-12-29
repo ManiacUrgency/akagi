@@ -34,25 +34,25 @@ def export_query_to_csv(db_connection, cursor, query, output_file):
         print(f"Data successfully exported to {output_file}")
     except MySQLdb.Error as err:
         print(f"Error: {err}")
-    finally:
-        cursor.close()
-
-# SQL query to execute
-query = """
-SELECT id, publish_date, state, site, title, url 
-FROM articles 
-WHERE text <> '' AND is_related = 1 AND is_national = 1;  
-"""
 
 db_connection, db_cursor = init_db()
 
 # Output CSV file path
-#output_file = "articles_local_news.csv"
+query = """
+SELECT id, publish_date, state, site, title, url 
+FROM articles WHERE text <> '' AND is_related = 1 AND is_national = 0 AND state is not NULL AND state <> '' AND publish_date >= '2021-11-01' ORDER BY publish_date asc;
+"""
+output_file = "articles_local_news_2021-11-01-2024-11-27.csv"
+export_query_to_csv(db_connection, db_cursor, query,  output_file)
 
-output_file = "articles_national_news.csv"
+# SQL query to execute
+query = """
+SELECT id, publish_date, site, title, url 
+FROM articles WHERE text <> '' AND is_related = 1 AND is_national = 1 AND publish_date >= '2021-11-01' ORDER BY publish_date asc;
+"""
+output_file = "articles_national_news_2021-11-01-2024-11-27.csv"
 
 # Export the query result to CSV
 export_query_to_csv(db_connection, db_cursor, query,  output_file)
 
-# Close the database connection
-db_connection.close()
+close_db(db_connection, db_cursor)
